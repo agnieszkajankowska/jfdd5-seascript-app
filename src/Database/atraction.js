@@ -2,52 +2,52 @@ export default [
   {
     id: 1,
     name: 'Sailing',
-    price: 
+    price: 300
   },
   {
     id: 2,
     name: 'Kayak',
-    price: 1.5,
+    price: 20,
   },
   {
     id: 3,
     name: 'Beach volleyball',
-    price: 1.5,
+    price: 0,
   },
   {
     id: 4,
     name: 'SPA',
-    price: 1.5
+    price: 400
   },
   {
     id: 5,
     name: 'Swimming-pool',
-    price: 1.5
+    price: 30
   },
   {
     id: 6,
     name: 'Windsurfing',
-    price: 1.5
+    price: 100
   },
   {
     id: 7,
     name: 'Kite-surfing',
-    price: 1.5
+    price: 100
   },
   {
     id: 8,
     name: 'Jet ski',
-    price: 1.5
+    price: 200
   },
   {
     id: 9,
     name: 'Motorboat',
-    price: 1.5
+    price: 300
   },
   {
     id: 10,
     name: 'Water banana',
-    price: 1.5
+    price: 50
   }
   ]
 
