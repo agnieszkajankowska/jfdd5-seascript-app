@@ -1,26 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App/App';
-import './index.css';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+
+import App from './App/App'
+import {DashboardView} from './App/DashboardView'
+import {PlaceDetails} from './PlaceDetails'
+import {NotFoundView} from './NotFoundView'
+/*
+
+ TO DO IMPORTS!!
+
+ */
+
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
+
+import './index.css'
 
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={DashboardView}/>
 
-      <Route path="/students" component={StudentsView}>
-        <Route path="/students/:studentId" component={StudentView}/>
-      </Route>
-
-      <Route path="/courses" component={CoursesView}>
-        <Route path="/courses/:courseId" component={CourseView}/>
-      </Route>
-
-      <Route path="/samples" component={SamplesView}>
-        <Route path="/samples/counter" component={CounterView}/>
-      </Route>
+      <Route path="/place-details" component={PlaceDetails}/>
 
     </Route>
+
     <Route path="*" component={NotFoundView}/>
   </Router>,
   document.getElementById('root')
