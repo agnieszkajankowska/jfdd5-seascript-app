@@ -1,4 +1,4 @@
-var places = [
+export default [
   {
     id: 1,
     name: 'Hel',
@@ -64,5 +64,3 @@ var places = [
     longitude: 14.2
   }
 ]
-
-export default places
