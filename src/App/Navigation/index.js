@@ -1,3 +1,1 @@
-/**
- * Created by mpietrzyk on 14.12.16.
- */
+export {default as Navigation} from './Navigation'
