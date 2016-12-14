@@ -13,7 +13,6 @@ import {
 import './App.css'
 
 
-
 export default (props) => (
       <Grid>
         <Navbar collapseOnSelect fixedTop>
