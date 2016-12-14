@@ -25,7 +25,7 @@ export default (props) => (
 
           <Navbar.Collapse>
             <Nav>
-              <LinkContainer to="/">
+              <LinkContainer to="/place-compare">
                 <NavItem eventKey={0} href="#">Place Compare</NavItem>
               </LinkContainer>
 
