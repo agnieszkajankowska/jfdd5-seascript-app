@@ -15,7 +15,7 @@ export default () => (
 
     <ul id="top-menu" className="responsive-menu">
       <li className="grow menu-link">
-       <Link to="#/place-compare" className="link">Place Compare</Link>
+       <Link to="/place-compare" className="link">Place Compare</Link>
       </li>
 
       <li className="grow menu-link">
