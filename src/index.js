@@ -5,6 +5,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import App from './App/App'
 import {DashboardView} from './App/DashboardView'
 import {PlaceDetails} from './PlaceDetails'
+import {PlaceCompare} from './PlaceCompare'
 import {NotFoundView} from './NotFoundView'
 /*
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <IndexRoute component={DashboardView}/>
 
       <Route path="/place-details" component={PlaceDetails}/>
+      <Route path="/place-compare" component={PlaceCompare}/>
 
     </Route>
 
