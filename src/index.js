@@ -7,6 +7,7 @@ import {DashboardView} from './App/DashboardView'
 import {Form} from './Form'
 import {PlaceDetails} from './PlaceDetails'
 import {NotFoundView} from './NotFoundView'
+import {PlaceList} from './PlaceList'
 /*
 
  TO DO IMPORTS!!
@@ -27,6 +28,7 @@ ReactDOM.render(
       <Route path="/form" component={Form} />
 
       <Route path="/place-details" component={PlaceDetails}/>
+      <Route path="/place-list" component={PlaceList}/>
 
     </Route>
 
