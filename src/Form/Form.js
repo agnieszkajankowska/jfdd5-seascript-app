@@ -1,10 +1,18 @@
 import React from 'react'
 
-import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import {FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
+
 
 export default class Form extends React.Component {
   constructor() {
     super()
+
+    this.handleSubmit = (event) => {
+      event.preventDefault()
+      this.setState({
+
+      })
+    }
 
     this.state = {
       place: '',
@@ -15,7 +23,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <form>
-        <FormGroup>
+        <FormGroup onSubmit={this.handleSubmit}>
           <ControlLabel>Places</ControlLabel>
           <FormControl
             type="text"
@@ -39,6 +47,7 @@ export default class Form extends React.Component {
             placeholder="Enter atraction"
           />
         </FormGroup>
+        <Button type="submit">Submit</Button>
       </form>
     )
   }
