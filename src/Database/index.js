@@ -1,3 +1,2 @@
-/**
- * Created by mpietrzyk on 13.12.16.
- */
+export { default as Places } from './places'
+export { default as Atraction } from './atraction'
