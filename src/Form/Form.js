@@ -1,6 +1,10 @@
 import React from 'react'
 
-import {FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap'
+import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem } from 'react-bootstrap'
+
+import { places, atraction } from '../Database'
+
+
 
 
 export default class Form extends React.Component {
@@ -14,11 +18,14 @@ export default class Form extends React.Component {
       })
     }
 
+
     this.state = {
       place: '',
       atraction: ''
     }
   }
+
+
 
   render() {
     return (
@@ -35,6 +42,12 @@ export default class Form extends React.Component {
             }
             placeholder="Enter place"
           />
+          <DropdownButton key={1} title='Suggested places' id={`dropdown-basic-${1}`}>
+            {places.map(place =>
+            <MenuItem eventKey="1">{place.name}</MenuItem>
+            )}
+          </DropdownButton>
+          <br />
           <ControlLabel>Atraction</ControlLabel>
           <FormControl
             type="text"
@@ -46,6 +59,11 @@ export default class Form extends React.Component {
             }
             placeholder="Enter atraction"
           />
+          <DropdownButton key={2} title='Suggested atractions' id={`dropdown-basic-${1}`}>
+            {atraction.map(atraction =>
+              <MenuItem eventKey="2">{atraction.name}</MenuItem>
+            )}
+          </DropdownButton>
         </FormGroup>
         <Button type="submit">Submit</Button>
       </form>
