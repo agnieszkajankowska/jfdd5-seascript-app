@@ -1,3 +1,1 @@
-/**
- * Created by mpietrzyk on 13.12.16.
- */
+export { default as Form } from './Form'

@@ -4,6 +4,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 import App from './App/App'
 import {DashboardView} from './App/DashboardView'
+import {Form} from './Form'
 import {PlaceDetails} from './PlaceDetails'
 import {NotFoundView} from './NotFoundView'
 import {PlaceList} from './PlaceList'
@@ -23,6 +24,8 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={DashboardView}/>
+
+      <Route path="/form" component={Form} />
 
       <Route path="/place-details" component={PlaceDetails}/>
       <Route path="/place-list" component={PlaceList}/>
