@@ -1,5 +1,6 @@
 import React from 'react'
 import {places, attractions} from './data'
+
 import { AttractionView } from './AttractionView'
 
 
