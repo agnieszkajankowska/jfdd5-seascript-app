@@ -1,7 +1,14 @@
 import React from 'react'
 
-export default () => (
-  <div>
-    <h1>bla bla</h1>
-  </div>
-)
+
+export default class extends React.Component {
+  render() {
+
+    return (
+      <div>
+        <h1>Price: {this.props.attraction.price} </h1>
+      </div>
+    )
+  }
+}
+
