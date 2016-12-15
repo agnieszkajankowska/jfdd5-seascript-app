@@ -13,7 +13,7 @@ export default class extends React.Component {
     return (
         <Col xs={12}>
           <Col xs={4}>
-            <p>jakiś tekst w miejscu gdzie będzie image atrakcji a raczej miasta</p>
+            <p>{this.props.place.name}</p>
           </Col>
           <Col xs={4}>
             <p>jakieś lorem ipsum i inne info na temat miasta czy jakieś inne info</p>
