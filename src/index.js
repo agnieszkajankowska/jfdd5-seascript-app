@@ -6,6 +6,7 @@ import App from './App/App'
 import {DashboardView} from './App/DashboardView'
 import {PlaceDetails} from './PlaceDetails'
 import {NotFoundView} from './NotFoundView'
+import {PlaceList} from './PlaceList'
 /*
 
  TO DO IMPORTS!!
@@ -24,6 +25,7 @@ ReactDOM.render(
       <IndexRoute component={DashboardView}/>
 
       <Route path="/place-details" component={PlaceDetails}/>
+      <Route path="/place-list" component={PlaceList}/>
 
     </Route>
 
