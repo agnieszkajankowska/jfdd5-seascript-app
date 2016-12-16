@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
 import {Grid, Col} from 'react-bootstrap'
-import {Places, Atraction} from '../Database'
+import {Places, Attraction} from '../Database'
 
 export default class extends React.Component {
   constructor() {
@@ -19,11 +19,8 @@ export default class extends React.Component {
           </Col>
           <Col xs={4}>
             <p>{ Places.map(
-              place => place.atraction
-            ).find(
-              atract => atract.atraction === attractions.id
-            ).map(console.log(atract.name))
-             }</p>
+              place => place.attractions
+            )}</p>
           </Col>
           <Col xs={4}>
             <Link to='place-compare'>
