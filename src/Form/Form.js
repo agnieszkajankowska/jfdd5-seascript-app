@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
 import {Attraction} from "../Database";
 
@@ -46,7 +47,9 @@ export default class Form extends React.Component {
               <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
             )}
           </DropdownButton>
+          <Link to="place-list">
           <Button type="submit">Submit</Button>
+          </Link>
         </FormGroup>
       </form>
     )
