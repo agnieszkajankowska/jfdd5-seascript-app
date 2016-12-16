@@ -9,11 +9,6 @@ import {PlaceDetails} from './PlaceDetails'
 import {PlaceCompare} from './PlaceCompare'
 import {NotFoundView} from './NotFoundView'
 import {PlaceList} from './PlaceList'
-/*
-
- TO DO IMPORTS!!
-
- */
 
 
 import 'bootstrap/dist/css/bootstrap.css'
