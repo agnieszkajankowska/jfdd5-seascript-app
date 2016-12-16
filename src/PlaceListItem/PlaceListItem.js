@@ -1,22 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
-import { Grid, Row, Col} from 'react-bootstrap'
-
+import {Grid, Col} from 'react-bootstrap'
+import {Places, Atraction} from '../Database'
 
 export default class extends React.Component {
   constructor() {
     super()
 
   }
-  render () {
+
+  render() {
     return (
+      <Grid>
         <Col xs={12}>
           <Col xs={4}>
             <p>{this.props.place.name}</p>
           </Col>
           <Col xs={4}>
-            <p>jakieś lorem ipsum i inne info na temat miasta czy jakieś inne info</p>
+            <p>{ Places.name }</p>
           </Col>
           <Col xs={4}>
             <Link to='place-compare'>
@@ -24,6 +26,7 @@ export default class extends React.Component {
             </Link>
           </Col>
         </Col>
+      </Grid>
     )
   }
 }
