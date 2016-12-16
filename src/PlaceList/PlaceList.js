@@ -18,8 +18,8 @@ export default (props) => {
       <Button>Mapa</Button>
     </Link>
     <div>
-      {Atraction.map( place => 
-        <PlaceListItem place={place}></PlaceListItem>)}
+      {Atraction.map( place =>
+        <PlaceListItem place={place}/>)}
     </div>
   </div>
 )}
