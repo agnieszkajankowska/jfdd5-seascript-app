@@ -1,10 +1,6 @@
-import React from 'react'
-
-import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem } from 'react-bootstrap'
-
-import { Places, Atraction } from '../Database'
-
-
+import React from "react";
+import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
+import {Places, Attraction} from "../Database";
 
 
 export default class Form extends React.Component {
@@ -13,22 +9,27 @@ export default class Form extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      this.setState({
+      console.log('WTF')
+      localStorage.setItem('my-app-state', JSON.stringify(this.state))
 
-      })
     }
 
-
-    this.state = {
-      place: '',
-      atraction: ''
+    const data = localStorage.getItem('my-app-state')
+    if (data) {
+      this.state = JSON.parse(data)
+    } else {
+      this.state = {
+        place: '',
+        attraction: ''
+      }
     }
   }
-  
+
 
   render() {
     return (
-        <FormGroup onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
+        <FormGroup>
           <ControlLabel>Places</ControlLabel>
           <FormControl
             type="text"
@@ -40,32 +41,34 @@ export default class Form extends React.Component {
             }
             placeholder="Enter place"
           />
-          <DropdownButton key={1} title='Suggested places' id={`dropdown-basic-${1}`}>
+          <DropdownButton key={1} title='Choose place' id={`dropdown-basic-${1}`}
+                          onSelect={(key) => this.setState({place: key})}>
             {Places.map(place =>
-            <MenuItem eventKey="1">{place.name}</MenuItem>
+              <MenuItem eventKey={place.name}>{place.name}</MenuItem>
             )}
           </DropdownButton>
           <br />
-          <ControlLabel>Atraction</ControlLabel>
+          <ControlLabel>Attraction</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.atraction}
+            value={this.state.attraction}
             onChange={
               event => this.setState({
-                atraction: event.target.value
+                attraction: event.target.value
               })
             }
-            placeholder="Enter atraction"
+            placeholder="Enter attraction"
           />
-          <DropdownButton key={2} title='Suggested atractions' id={`dropdown-basic-${1}`}>
-            {Atraction.map(atraction =>
-              <MenuItem eventKey="2">{atraction.name}</MenuItem>
+          <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
+                          onSelect={(key) => this.setState({attraction: key})}>
+            {Attraction.map(attraction =>
+              <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
             )}
           </DropdownButton>
           <br />
           <Button type="submit">Submit</Button>
         </FormGroup>
-
+      </form>
     )
   }
 }
