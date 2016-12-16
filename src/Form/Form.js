@@ -1,6 +1,6 @@
 import React from "react";
 import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
-import {Places, Attraction} from "../Database";
+import {Attraction} from "../Database";
 
 
 export default class Form extends React.Component {
@@ -19,7 +19,6 @@ export default class Form extends React.Component {
       this.state = JSON.parse(data)
     } else {
       this.state = {
-        place: '',
         attraction: ''
       }
     }
@@ -30,24 +29,6 @@ export default class Form extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <ControlLabel>Places</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.place}
-            onChange={
-              event => this.setState({
-                place: event.target.value
-              })
-            }
-            placeholder="Enter place"
-          />
-          <DropdownButton key={1} title='Choose place' id={`dropdown-basic-${1}`}
-                          onSelect={(key) => this.setState({place: key})}>
-            {Places.map(place =>
-              <MenuItem eventKey={place.name}>{place.name}</MenuItem>
-            )}
-          </DropdownButton>
-          <br />
           <ControlLabel>Attraction</ControlLabel>
           <FormControl
             type="text"
@@ -65,7 +46,6 @@ export default class Form extends React.Component {
               <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
             )}
           </DropdownButton>
-          <br />
           <Button type="submit">Submit</Button>
         </FormGroup>
       </form>
