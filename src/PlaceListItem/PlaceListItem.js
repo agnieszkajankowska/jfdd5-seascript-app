@@ -18,7 +18,12 @@ export default class extends React.Component {
             <p>{this.props.place.name}</p>
           </Col>
           <Col xs={4}>
-            <p>{ Places.name }</p>
+            <p>{ Places.map(
+              place => place.atraction
+            ).find(
+              atract => atract.atraction === attractions.id
+            ).map(console.log(atract.name))
+             }</p>
           </Col>
           <Col xs={4}>
             <Link to='place-compare'>
