@@ -1,2 +1,2 @@
-export { default as Places } from './places'
-export { default as Atraction } from './atraction'
+export { default as Places } from './Places'
+export { default as Attraction } from './Attraction'
