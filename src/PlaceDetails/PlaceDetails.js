@@ -1,20 +1,19 @@
 import React from 'react'
 import {
+  Grid,
   Row,
   Col
 } from 'react-bootstrap'
 
 import {ActualWeather} from '../ActualWeather'
+import './PlaceDetails.css'
 
 export default () => {
   return (
-    <div>
-      <h1>Jestem w sekcji Place Details</h1>
-      <row>
-        <Col md={6}>
-          <ActualWeather/>
-        </Col>
-      </row>
-    </div>
+    <Grid className="place-Details">
+        <Row>
+            <ActualWeather/>
+        </Row>
+    </Grid>
   )
 }
