@@ -11,6 +11,7 @@ export default class extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Grid>
         <Col xs={12}>
@@ -18,13 +19,17 @@ export default class extends React.Component {
             <p>{this.props.place.name}</p>
           </Col>
           <Col xs={4}>
-            <p>{ Places.map(
-              place => place.attractions
-            )}</p>
+            <ul>{
+              this.props.place.attractions.map(
+                attractionId => Attraction.find( item => item.id === attractionId)
+              ).map(
+                attraction => <li>{attraction.name} </li>
+              )
+            }</ul>
           </Col>
           <Col xs={4}>
             <Link to='place-compare'>
-              <Button link>Compare</Button>
+              <Button>Compare</Button>
             </Link>
           </Col>
         </Col>
