@@ -1,43 +1,52 @@
-import React from 'react'
+import React from "react";
+import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
+import {Attraction} from "../Database";
 
-import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 
 export default class Form extends React.Component {
   constructor() {
     super()
 
-    this.state = {
-      place: '',
-      atraction: ''
+    this.handleSubmit = (event) => {
+      event.preventDefault()
+      console.log('WTF')
+      localStorage.setItem('my-app-state', JSON.stringify(this.state))
+
+    }
+
+    const data = localStorage.getItem('my-app-state')
+    if (data) {
+      this.state = JSON.parse(data)
+    } else {
+      this.state = {
+        attraction: ''
+      }
     }
   }
 
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <ControlLabel>Places</ControlLabel>
+          <ControlLabel>Attraction</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.place}
+            value={this.state.attraction}
             onChange={
               event => this.setState({
-                place: event.target.value
+                attraction: event.target.value
               })
             }
-            placeholder="Enter place"
+            placeholder="Enter attraction"
           />
-          <ControlLabel>Atraction</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.atraction}
-            onChange={
-              event => this.setState({
-                atraction: event.target.value
-              })
-            }
-            placeholder="Enter atraction"
-          />
+          <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
+                          onSelect={(key) => this.setState({attraction: key})}>
+            {Attraction.map(attraction =>
+              <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
+            )}
+          </DropdownButton>
+          <Button type="submit">Submit</Button>
         </FormGroup>
       </form>
     )
