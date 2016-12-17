@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {Places} from '../Database'
 import {Attraction} from '../Database'
-
+import {places2} from '../Database'
 
 export default (props) => {
   
@@ -18,8 +18,8 @@ export default (props) => {
       <Button>Mapa</Button>
     </Link>
     <div>
-      {Attraction.map( attraction =>
-        <PlaceListItem attraction={attraction}/>)}
+      {places2.map( place =>
+        <PlaceListItem place={place}/>)}
     </div>
   </div>
 )}

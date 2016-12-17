@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
 import {Grid, Col} from 'react-bootstrap'
-import {Places, Attraction} from '../Database'
+import {places2} from '../Database'
 
 export default class extends React.Component {
   constructor() {
@@ -11,16 +11,17 @@ export default class extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Grid>
         <Col xs={12}>
           <Col xs={4}>
-            <p>{this.props.attraction.name}</p>
+            <p>{this.props.place.name}</p>
           </Col>
           <Col xs={4}>
             <ul>{
-              Places.filter(
-                place => place.attractions.indexOf(this.props.attraction.id) !== -1
+              places2.filter(
+                place => place.attractions.type = "Sailing"
               ).map(
                 place =>
                 <li>{place.name}</li>
@@ -35,6 +36,6 @@ export default class extends React.Component {
         </Col>
       </Grid>
     )
-    console.log(this.props)
+
   }
 }
