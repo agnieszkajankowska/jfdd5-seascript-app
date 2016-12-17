@@ -7,15 +7,15 @@ export default class extends React.Component {
 
   render() {
     console.log(places)
+    console.log(attractions.map(attraction=> attraction.id))
     return (
       <div>
-        <p>{this.props.place.factor * attractions[0].price}</p>
+        <p>{this.props.place.factor * attractions.map(attraction => attraction.price)}</p>
         <p>
-          {places.filter(
-            place => place.attractions.indexOf(this.props.attraction.id) !== -1
-          ).map(
-            place => place.name)}
+          {this.props.place.name}
           </p>
+
+
       </div>
     )
   }
