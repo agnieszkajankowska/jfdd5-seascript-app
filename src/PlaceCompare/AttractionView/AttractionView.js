@@ -10,10 +10,15 @@ export default class extends React.Component {
     console.log(attractions.map(attraction=> attraction.id))
     return (
       <div>
-        <p>{this.props.place.factor * attractions.map(attraction => attraction.price)}</p>
         <p>
-          {this.props.place.name}
-          </p>
+          {
+            this.props.place.factor *
+            attractions.map(attraction => attraction.price)
+          }
+        </p>
+        <p>{this.props.place.name}</p>
+        <p>{this.props.place.availability}</p>
+        <p>{this.props.place.availability}</p>
 
 
       </div>
