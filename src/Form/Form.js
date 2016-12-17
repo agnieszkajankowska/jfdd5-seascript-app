@@ -27,6 +27,11 @@ export default class Form extends React.Component {
 
 
   render() {
+    console.log(places2.map(function(place) { return place.attractions.map(function (attraction) {
+      return attraction.type
+    })}))
+
+
     return (
       <form onSubmit={this.handleSubmit}>
         <FormGroup>
@@ -43,9 +48,15 @@ export default class Form extends React.Component {
           />
           <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
                           onSelect={(key) => this.setState({attraction: key})}>
-            {Attraction.map(attraction =>
-              <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
-            )}
+            {places2.map(function(place) { return place.attractions.map(function (attraction) {
+             return attraction.type
+            })}).reduce(function(a,b) {
+              return a.concat(b)
+            }).filter( function (elem,index,array){
+              return array.indexOf(elem) === index
+            }).map(element => <MenuItem eventKey={element}>{element}</MenuItem>)
+            }
+
           </DropdownButton>
           <Button type="submit">Submit</Button>
         </FormGroup>
