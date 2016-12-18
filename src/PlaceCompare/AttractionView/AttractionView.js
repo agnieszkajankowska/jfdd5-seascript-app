@@ -2,6 +2,9 @@ import React from 'react'
 
 import {places} from '../data'
 import {attractions} from '../data'
+import {additionals} from '../data'
+import {ReservationButton} from './ReservationButton'
+
 
 export default class extends React.Component {
 
@@ -17,10 +20,9 @@ export default class extends React.Component {
           }
         </p>
         <p>{this.props.place.name}</p>
-        <p>{this.props.place.availability}</p>
-        <p>{this.props.place.availability}</p>
-
-
+        <p>{additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+        ).map(item => item.availability)}</p>
+        <ReservationButton />
       </div>
     )
   }

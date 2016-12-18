@@ -25,6 +25,8 @@ export default () => (
           <p>Opinions:</p>
         </Col>
         {
+
+
           places.map(
             place => <Col xs={12} md={3}><AttractionView place={place}/></Col>
           )
