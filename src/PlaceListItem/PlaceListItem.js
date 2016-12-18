@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
 import {Grid, Col} from 'react-bootstrap'
-import {places, attractions} from '../database'
+import {places, attractions} from '../Database'
 
 export default class extends React.Component {
   constructor() {

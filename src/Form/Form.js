@@ -1,6 +1,6 @@
 import React from "react";
 import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
-import {attractions} from "../database";
+import {attractions} from "../Database";
 
 
 export default class Form extends React.Component {
