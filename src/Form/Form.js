@@ -1,6 +1,6 @@
 import React from "react";
 import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
-import {Attraction} from "../Database";
+import {attractions} from "../database";
 
 
 export default class Form extends React.Component {
@@ -42,7 +42,7 @@ export default class Form extends React.Component {
           />
           <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
                           onSelect={(key) => this.setState({attraction: key})}>
-            {Attraction.map(attraction =>
+            {attractions.map(attraction =>
               <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
             )}
           </DropdownButton>

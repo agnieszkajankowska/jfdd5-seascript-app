@@ -10,7 +10,7 @@ import {
   Col
 } from 'react-bootstrap'
 
-import { places } from '../Database'
+import { places } from '../database'
 
 import './App.css'
 import './Navigation/Navigation.css'
