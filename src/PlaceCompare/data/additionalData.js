@@ -23,7 +23,7 @@ export default [
   },
   {
     id: 3,
-    placeId: 1,
+    placeId: 3,
     attractionId: 1,
     title: 'xxx',
     content: 'złe',
