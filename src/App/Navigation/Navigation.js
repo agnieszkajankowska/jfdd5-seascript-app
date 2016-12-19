@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router'
-import './Navigation.css'
-import Logo from './logo.svg'
+import React from "react";
+import {Link} from "react-router";
+import "./Navigation.css";
+import Logo from "./logo.svg";
 
 
 export default () => (
@@ -19,7 +19,7 @@ export default () => (
       </li>
 
       <li className="grow menu-link">
-        <Link to="/" className="link">Form</Link>
+        <Link to="/form" className="link">Form</Link>
       </li>
 
       <li className="logo grow">
