@@ -1,15 +1,24 @@
 import React from "react";
+import {Link} from "react-router";
+import {connect} from "react-redux";
 import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
 import {attractions} from "../Database";
 
+const mapStateToProps = state => ({
+  attractions: state.attractionsData.attractions
+})
 
-export default class Form extends React.Component {
+const mapDispatchToProps = dispatch => ({
+  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTIONS', attraction: attractionId})
+})
+
+
+class Form extends React.Component {
   constructor() {
     super()
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      console.log('WTF')
       localStorage.setItem('my-app-state', JSON.stringify(this.state))
 
     }
@@ -19,7 +28,7 @@ export default class Form extends React.Component {
       this.state = JSON.parse(data)
     } else {
       this.state = {
-        attraction: ''
+        attraction: []
       }
     }
   }
@@ -47,8 +56,17 @@ export default class Form extends React.Component {
             )}
           </DropdownButton>
           <Button type="submit">Submit</Button>
+          <ul>
+            {attractions.map(attraction =>
+              <li eventKey={attraction.name}>{attraction.name},
+              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>zupa</Button>
+              </li>)}
+          </ul>
+          <Link to="place-list">
+          </Link>
         </FormGroup>
       </form>
     )
   }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
