@@ -2,8 +2,8 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
-import {Places} from '../Database'
-import {Attraction} from '../Database'
+import {places} from '../Database'
+import {attractions} from '../Database'
 
 
 export default (props) => {
@@ -18,7 +18,7 @@ export default (props) => {
       <Button>Mapa</Button>
     </Link>
     <div>
-      {Attraction.map( attraction =>
+      {attractions.map( attraction =>
         <PlaceListItem attraction={attraction}/>)}
     </div>
   </div>
