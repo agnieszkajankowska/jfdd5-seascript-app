@@ -3,9 +3,10 @@ import {Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {connect} from 'react-redux'
+import {places, attractions} from '../Database'
 
 const mapStateToProps = state => ({
-  attractions: state.attractionsData.attractions
+  attractionsIds: state.attractionsData.attractionsIds
 })
 
 const placeList = props => (
@@ -15,7 +16,7 @@ const placeList = props => (
       <Button>Mapa</Button>
     </Link>
     <div>
-      {props.attractions.map(attraction =>
+      {attractions.filter(attraction => props.attractionsIds.indexOf(attraction.id) !== -1).map(attraction =>
         <PlaceListItem attraction={attraction}/>)}
     </div>
   </div>
