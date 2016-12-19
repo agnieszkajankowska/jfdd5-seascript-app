@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Button } from 'react-bootstrap'
+
 import {places} from '../data'
 import {attractions} from '../data'
 import {additionals} from '../data'
@@ -14,10 +16,8 @@ export default class extends React.Component {
     return (
       <div>
         <p>
-          {
-            this.props.place.factor *
-            attractions.map(attraction => attraction.price)
-          }
+            {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+            ).map(item => item.price)}
         </p>
         <p>{this.props.place.name}</p>
         <p>{additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
@@ -38,9 +38,15 @@ export default class extends React.Component {
           {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
           ).map(item => item.opinion)}
         </p>
+        <p>
+          {
+            this.props.place.attractions.map(attraction => attraction)}
+        </p>
+
+
+        <Button>ADD TO FAVORITES</Button>
         <ReservationButton />
       </div>
     )
   }
 }
-

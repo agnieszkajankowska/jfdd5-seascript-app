@@ -2,6 +2,9 @@ export default [
   {
     id: 1,
     name: 'Sailing',
-    price: 300
+  },
+  {
+    id: 2,
+    name: 'Windurfing',
   }
 ]

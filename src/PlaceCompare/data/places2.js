@@ -10,7 +10,7 @@ export default [
   {
     id: 2,
     name: 'Gdańsk',
-    attractions: [1],
+    attractions: [1,2],
     factor: 1.4,
     latitude: 55.0,
     longitude: 4.5

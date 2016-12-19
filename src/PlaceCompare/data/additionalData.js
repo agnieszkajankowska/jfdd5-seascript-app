@@ -8,7 +8,8 @@ export default [
     availability: 'May-Sept',
     children: 'yes',
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "bla bla",
+    price: 300
   },
   {
     id: 2,
@@ -18,18 +19,20 @@ export default [
     content: 'Średnie',
     availability: 'June-Sept',
     children: 'yes',
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "bla bla",
+    price: 200
   },
   {
     id: 3,
     placeId: 3,
-    attractionId: 1,
+    attractionId: 2,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: 'no',
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "bla bla",
+    price: 100
   }
 ]
