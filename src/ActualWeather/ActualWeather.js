@@ -10,14 +10,20 @@ import {
 const api_key = 'dc2f2e72b22d9a90fd58cf8ed86be518'
 let city_name = 'Gdańsk'
 
+const mapStateToProps = state => ({})
+
+const mapDispatchToProps = dispatch => ({})
+
+
 export default class ActualWeather extends React.Component {
 
   render() {
     return (
       <Fetch
-        url={"http://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&APPID=" + api_key + "&units=metric"} >
+        url={"http://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&APPID=" + api_key + "&units=metric"}>
         <ActualWeatherDetailed/>
-        <Fetch url={"http://api.openweathermap.org/data/2.5/forecast?q=" + city_name + "&APPID=" + api_key + "&units=metric&cnt=6"}>
+        <Fetch
+          url={"http://api.openweathermap.org/data/2.5/forecast?q=" + city_name + "&APPID=" + api_key + "&units=metric&cnt=6"}>
           <ForecastWeatherDetailed/>
         </Fetch>
       </Fetch>
@@ -28,7 +34,6 @@ export default class ActualWeather extends React.Component {
 
 class ActualWeatherDetailed extends React.Component {
   render() {
-    console.log(this.props)
     const placeName = this.props.name
     const placeTempreature = (this.props.main && this.props.main.temp)
     const placeMainWeather = (this.props.weather && this.props.weather[0].main)
@@ -66,7 +71,9 @@ class ActualWeatherDetailed extends React.Component {
         </Col>
 
         <Col sm={12}>
-          <h2>{placeTempreature}<icon className="wi wi-celsius"/></h2>
+          <h2>{placeTempreature}
+            <icon className="wi wi-celsius"/>
+          </h2>
         </Col>
 
         <Col sm={4}>
@@ -91,9 +98,14 @@ class ActualWeatherDetailed extends React.Component {
 class ForecastWeatherDetailed extends React.Component {
   render() {
     let forecastTemp = ''
-    if(this.props.list !== undefined){
+    if (this.props.list !== undefined) {
       console.log(this.props.list)
-      forecastTemp = this.props.list.map(forecast => <Col sm={2} key={this.props.list.weather.id}>{this.props.list.weather[0].main}</Col>)
+      forecastTemp = this.props.list.map(forecast =>
+        <Col sm={2} key={this.props.list}>
+          {this.props.list[1].weather[0].main}
+        </Col>
+      )
+      console.log(this.props.list.weather[0].main)
     }
     let icon = ''
     let iconLabel = ''
@@ -102,7 +114,6 @@ class ForecastWeatherDetailed extends React.Component {
 
 
     if (code === undefined) {
-      console.log(code)
     } else {
       iconLabel = (icons[code].icon)
       if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
@@ -111,7 +122,6 @@ class ForecastWeatherDetailed extends React.Component {
         icon = prefix + iconLabel;
       }
     }
-    console.log(forecastTemp)
     return (
       <Col md={12}>
         <h2> 5 days forecast </h2>

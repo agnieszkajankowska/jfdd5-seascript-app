@@ -7,6 +7,7 @@ import {Form} from "./Form";
 import {PlaceDetails} from "./PlaceDetails";
 import {PlaceCompare} from "./PlaceCompare";
 import {NotFoundView} from "./NotFoundView";
+import {TestComponent} from "./TestComponent"
 import {PlaceList} from "./PlaceList";
 import {Provider} from "react-redux";
 import store from "./store";
