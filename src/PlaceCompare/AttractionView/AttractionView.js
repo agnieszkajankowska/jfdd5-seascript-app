@@ -38,7 +38,6 @@ export default class extends React.Component {
           {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
           ).map(item => item.opinion)}
         </p>
-
         <ReservationButton />
       </div>
     )
