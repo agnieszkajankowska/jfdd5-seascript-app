@@ -22,6 +22,23 @@ export default class extends React.Component {
         <p>{this.props.place.name}</p>
         <p>{additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
         ).map(item => item.availability)}</p>
+        <p>
+          {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+          ).map(item => item.children)}
+        </p>
+        <p>
+          {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+          ).map(item => item.content)}
+        </p>
+        <p>
+          {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+          ).map(item => item.ranking)}
+        </p>
+        <p>
+          {additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
+          ).map(item => item.opinion)}
+        </p>
+
         <ReservationButton />
       </div>
     )

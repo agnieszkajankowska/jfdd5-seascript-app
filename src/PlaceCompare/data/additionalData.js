@@ -6,7 +6,7 @@ export default [
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
-    children: true,
+    children: 'yes',
     ranking: 1,
     opinion: "bla bla"
   },
@@ -17,7 +17,7 @@ export default [
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
-    children: true,
+    children: 'yes',
     ranking: 1,
     opinion: "bla bla"
   },
@@ -28,7 +28,7 @@ export default [
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
-    children: true,
+    children: 'no',
     ranking: 1,
     opinion: "bla bla"
   }

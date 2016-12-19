@@ -23,6 +23,7 @@ export default () => (
           <p>Description:</p>
           <p>Ranking:</p>
           <p>Opinions:</p>
+          <p>Reservation:</p>
         </Col>
         {
 
