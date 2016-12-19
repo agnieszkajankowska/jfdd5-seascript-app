@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
-import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
+import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTIONS', attraction: attractionId})
+  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTION', attractionId: attractionId})
 })
 
 
@@ -49,17 +49,11 @@ class Form extends React.Component {
             }
             placeholder="Enter attraction"
           />
-          <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
-                          onSelect={(key) => this.setState({attraction: key})}>
-            {attractions.map(attraction =>
-              <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
-            )}
-          </DropdownButton>
           <Button type="submit">Submit</Button>
           <ul>
             {attractions.map(attraction =>
-              <li eventKey={attraction.name}>{attraction.name},
-              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>zupa</Button>
+              <li eventKey={attraction.name}>
+              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>{attraction.name}</Button>
               </li>)}
           </ul>
           <Link to="place-list">
