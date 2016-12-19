@@ -33,7 +33,6 @@ class Form extends React.Component {
     }
   }
 
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -49,14 +48,14 @@ class Form extends React.Component {
             }
             placeholder="Enter attraction"
           />
-          <Button type="submit">Submit</Button>
           <ul>
             {attractions.map(attraction =>
-              <li eventKey={attraction.name}>
+              <li key={attraction.id}>
               <Button onClick={() => this.props.chooseAttraction(attraction.id)}>{attraction.name}</Button>
               </li>)}
           </ul>
           <Link to="place-list">
+            <Button type="submit">Submit</Button>
           </Link>
         </FormGroup>
       </form>
