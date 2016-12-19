@@ -20,7 +20,7 @@ export default class Form extends React.Component {
       this.state = JSON.parse(data)
     } else {
       this.state = {
-        attraction: ''
+        attraction: []
       }
     }
   }
