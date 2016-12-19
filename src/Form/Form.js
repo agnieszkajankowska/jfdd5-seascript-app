@@ -59,7 +59,7 @@ class Form extends React.Component {
           <ul>
             {attractions.map(attraction =>
               <li eventKey={attraction.name}>{attraction.name},
-              <button onClick={() => this.props.chooseAttraction(attraction.id)}>zupa</button>
+              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>zupa</Button>
               </li>)}
           </ul>
           <Link to="place-list">

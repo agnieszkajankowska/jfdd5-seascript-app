@@ -1,6 +1,7 @@
 import {createStore, combineReducers} from "redux";
 import {reducer as attractionsReducer} from "./Form";
 
+
 const reducer = combineReducers({
   attractionsData: attractionsReducer
 });
