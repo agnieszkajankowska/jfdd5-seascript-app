@@ -3,8 +3,13 @@ import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
 import {Grid, Col} from 'react-bootstrap'
 import {places, attractions} from '../Database'
+import {connect} from 'react-redux'
 
-export default class extends React.Component {
+const mapStateToProps = state => ({
+  attractions: state.attractionsData.attractions
+})
+
+class placeListItem extends React.Component {
   constructor() {
     super()
 
@@ -15,7 +20,7 @@ export default class extends React.Component {
       <Grid>
         <Col xs={12}>
           <Col xs={4}>
-            <p>{this.props.attraction.name}</p>
+            <p>{attractions.id}</p>
           </Col>
           <Col xs={4}>
             <ul>{
@@ -35,6 +40,8 @@ export default class extends React.Component {
         </Col>
       </Grid>
     )
-    console.log(this.props)
   }
 }
+
+
+export default connect(mapStateToProps)(placeListItem)
