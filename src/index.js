@@ -9,6 +9,7 @@ import {PlaceDetails} from './PlaceDetails'
 import {PlaceCompare} from './PlaceCompare'
 import {NotFoundView} from './NotFoundView'
 import {PlaceList} from './PlaceList'
+import {TestComponent} from './TestComponent'
 
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -26,6 +27,7 @@ ReactDOM.render(
       <Route path="/place-details" component={PlaceDetails}/>
       <Route path="/place-compare" component={PlaceCompare}/>
       <Route path="/place-list" component={PlaceList}/>
+      <Route path="/test-component" component={TestComponent}/>
 
     </Route>
 

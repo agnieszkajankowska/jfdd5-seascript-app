@@ -29,6 +29,10 @@ export default () => (
       </li>
 
       <li className="grow menu-link">
+        <Link to="/test-component" className="link">test </Link>
+      </li>
+
+      <li className="grow menu-link">
        <Link to="/place-details" className="link">Place Details</Link>
       </li>
 
