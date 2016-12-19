@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     name: 'Hel',
-    attractions: [1, 2, 3],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 54.6,
     longitude: 18.8
@@ -10,7 +10,7 @@ export default [
   {
     id: 2,
     name: 'Mikołajki',
-    attractions: [2, 3, 4],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 53.8,
     longitude: 21.5
@@ -18,7 +18,7 @@ export default [
   {
     id: 3,
     name: 'Zalew Zegrzyński',
-    attractions: [3, 4, 5],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 52.5,
     longitude: 21
@@ -26,7 +26,7 @@ export default [
   {
     id: 4,
     name: 'Wda',
-    attractions: [4, 5, 6],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 53.8,
     longitude: 18.4
@@ -34,7 +34,7 @@ export default [
   {
     id: 5,
     name: 'Wdzydze Tucholskie',
-    attractions: [5, 6, 7],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 54,
     longitude: 17.9
@@ -42,7 +42,7 @@ export default [
   {
     id: 6,
     name: 'Gdańsk',
-    attractions: [6, 7, 8],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 54.4,
     longitude: 18.6
@@ -50,7 +50,7 @@ export default [
   {
     id: 7,
     name: 'Solina',
-    attractions: [7, 8, 9],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 49.4,
     longitude: 22.5
@@ -58,7 +58,7 @@ export default [
   {
     id: 8,
     name: 'Świnoujście',
-    attractions: [8, 9, 10],
+    attractions: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     factor: 1.5,
     latitude: 53.9,
     longitude: 14.2

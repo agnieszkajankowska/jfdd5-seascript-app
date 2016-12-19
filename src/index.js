@@ -6,13 +6,9 @@ import App from './App/App'
 import {DashboardView} from './App/DashboardView'
 import {Form} from './Form'
 import {PlaceDetails} from './PlaceDetails'
+import {PlaceCompare} from './PlaceCompare'
 import {NotFoundView} from './NotFoundView'
 import {PlaceList} from './PlaceList'
-/*
-
- TO DO IMPORTS!!
-
- */
 
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -28,6 +24,7 @@ ReactDOM.render(
       <Route path="/form" component={Form} />
 
       <Route path="/place-details" component={PlaceDetails}/>
+      <Route path="/place-compare" component={PlaceCompare}/>
       <Route path="/place-list" component={PlaceList}/>
 
     </Route>
