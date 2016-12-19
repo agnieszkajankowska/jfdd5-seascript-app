@@ -42,8 +42,7 @@ export default class extends React.Component {
           {
             this.props.place.attractions.map(attraction => attraction)}
         </p>
-
-
+        
         <Button>ADD TO FAVORITES</Button>
         <ReservationButton />
       </div>
