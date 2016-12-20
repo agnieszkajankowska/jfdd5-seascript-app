@@ -4,10 +4,12 @@ import thunkMiddleware from 'redux-thunk'
 
 import {reducer as attractionsReducer} from "./Form"
 import weatherReducer from './state/weather/reduce'
+import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
+  attractionAndPlaceData: attractionAndPlacesReducer
   weatherData: weatherReducer,
   weatherForecastData: weatherReducer
 });
