@@ -9,7 +9,7 @@ import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
-  attractionAndPlaceData: attractionAndPlacesReducer
+  attractionAndPlaceData: attractionAndPlacesReducer,
   weatherData: weatherReducer,
   weatherForecastData: weatherReducer
 });
