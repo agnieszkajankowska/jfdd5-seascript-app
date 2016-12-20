@@ -15,6 +15,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import "./index.css";
 
+import {fetchWeather,fetchWeatherForecast} from './state/weather/actionCreators'
+const fetchWeatherFromApi = () => {
+  store.dispatch(fetchWeather())
+  //store.dispatch(fetchWeatherForecast())
+}
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -23,7 +28,7 @@ ReactDOM.render(
 
         <Route path="/form" component={Form}/>
 
-        <Route path="/place-details" component={PlaceDetails}/>
+        <Route path="/place-details" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList}/>
       <Route path="/test-component" component={TestComponent}/>
