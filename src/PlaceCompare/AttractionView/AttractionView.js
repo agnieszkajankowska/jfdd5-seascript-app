@@ -11,7 +11,7 @@ import {ReservationButton} from './ReservationButton'
 export default class extends React.Component {
 
   render() {
- 
+
     return (
       <div>
         <p>
