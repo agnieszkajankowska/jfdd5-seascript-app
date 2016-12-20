@@ -38,7 +38,10 @@ class placeListItem extends React.Component {
                   place =>
                     <div>
                       <li>{place.name}</li>
-                      <Button onClick={() => this.props.chooseAttractionAndPlace(place.id,this.props.attraction.id)}>Compare</Button>
+                      <Button onClick={() =>
+                      this.props.chooseAttractionAndPlace
+                      (place.id,this.props.attraction.id)}
+                      >Compare</Button>
                     </div>
                 )
               }
