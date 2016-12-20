@@ -40,11 +40,11 @@ class placeListItem extends React.Component {
                       <li>{place.name}</li>
                       <Button onClick={() =>
                       this.props.addAttractionAndPlaceToCompare
-                      (place,this.props.attraction)}
+                      (this.props.attraction, place)}
                       >Compare</Button>
                       <Button onClick={() =>
                       this.props.removeAttractionAndPlaceFromCompare
-                      (place,this.props.attraction)}
+                      (this.props.attraction, place)}
                       >remove</Button>
                     </div>
                 )
