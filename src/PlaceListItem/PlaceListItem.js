@@ -11,9 +11,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTION', attractionId: attractionId}),
+  chooseAttractionAndPlace: (attractionId, placeId) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE', attractionId: attractionId, placeId:placeId})
 
-  choosePlace: placeId => dispatch({type: 'ADD_PLACE', placeId: placeId})
 })
 
 
@@ -39,7 +38,7 @@ class placeListItem extends React.Component {
                   place =>
                     <div>
                       <li>{place.name}</li>
-                      <Button onClick={() => this.props.choosePlace(place.id)}>Compare</Button>
+                      <Button onClick={() => this.props.chooseAttractionAndPlace(place.id,this.props.attraction.id)}>Compare</Button>
                     </div>
                 )
               }
