@@ -1,15 +1,24 @@
 import React from "react";
-import {FormGroup, ControlLabel, FormControl, Button, DropdownButton, MenuItem} from "react-bootstrap";
+import {Link} from "react-router";
+import {connect} from "react-redux";
+import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
 import {attractions} from "../Database";
 
+const mapStateToProps = state => ({
+  attractions: state.attractionsData.attractions
+})
 
-export default class Form extends React.Component {
+const mapDispatchToProps = dispatch => ({
+  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTION', attractionId: attractionId})
+})
+
+
+class Form extends React.Component {
   constructor() {
     super()
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      console.log('WTF')
       localStorage.setItem('my-app-state', JSON.stringify(this.state))
 
     }
@@ -19,11 +28,10 @@ export default class Form extends React.Component {
       this.state = JSON.parse(data)
     } else {
       this.state = {
-        attraction: ''
+        attraction: []
       }
     }
   }
-
 
   render() {
     return (
@@ -40,15 +48,18 @@ export default class Form extends React.Component {
             }
             placeholder="Enter attraction"
           />
-          <DropdownButton key={2} title='Choose attraction' id={`dropdown-basic-${2}`}
-                          onSelect={(key) => this.setState({attraction: key})}>
+          <ul>
             {attractions.map(attraction =>
-              <MenuItem eventKey={attraction.name}>{attraction.name}</MenuItem>
-            )}
-          </DropdownButton>
-          <Button type="submit">Submit</Button>
+              <li key={attraction.id}>
+              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>{attraction.name}</Button>
+              </li>)}
+          </ul>
+          <Link to="place-list">
+            <Button type="submit">Submit</Button>
+          </Link>
         </FormGroup>
       </form>
     )
   }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
