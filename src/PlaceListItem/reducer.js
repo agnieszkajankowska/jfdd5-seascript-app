@@ -9,8 +9,8 @@ export default (state=initialState, action) => {
       return {
         ...state,
         thingsToCompare: state.thingsToCompare.concat({
-          attractionIds: action.attractionId,
-          placeIds: action.placeId}
+          attraction: action.attraction,
+          place: action.place}
         )
       }
     default : return state
