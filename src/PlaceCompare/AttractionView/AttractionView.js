@@ -11,11 +11,11 @@ import {ReservationButton} from './ReservationButton'
 export default class extends React.Component {
 
   render() {
-
+    console.log("------------",this.props);
     return (
       <div>
         <p>
-          {this.props.thing.attraction.price}
+          {this.props.thing.attraction.id}
         </p>
 
         <Button>ADD TO FAVORITES</Button>
