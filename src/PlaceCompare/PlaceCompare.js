@@ -1,12 +1,15 @@
 import React from 'react'
 import {Grid, Row, Col} from 'react-bootstrap'
 
-import {places, attractions} from './data'
+import {connect} from 'react-redux'
 
 import {AttractionView} from './AttractionView'
 
+const mapStateToProps = state => ({
+  thingsToCompare: state.attractionAndPlaceData.thingsToCompare
+})
 
-export default () => (
+const PlaceCompare = (props) => (
   <div>
     <Grid>
       <Row>
@@ -28,11 +31,13 @@ export default () => (
           <p>Reservation:</p>
         </Col>
         {
-          places.map(
-            place => <Col xs={12} md={3}><AttractionView place={place}/></Col>
+          props.thingsToCompare.map(
+            thing => <Col xs={12} md={3}><AttractionView thing={thing}/></Col>
           )
         }
       </Row>
     </Grid>
   </div>
 )
+
+export default connect(mapStateToProps)(PlaceCompare)

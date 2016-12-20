@@ -7,7 +7,6 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
-  placesIds: state.attractionsData.placesIds
 })
 
 const mapDispatchToProps = dispatch => ({
