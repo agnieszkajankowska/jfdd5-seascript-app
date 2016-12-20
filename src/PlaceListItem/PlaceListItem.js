@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  chooseAttractionAndPlace: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE', attraction: attraction, place:place})
+  addAttractionAndPlaceToCompare: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_COMPARE', attraction: attraction, place:place}),
+  removeAttractionAndPlaceFromCompare: (attraction, place) => dispatch({type: 'REMOVE_ATTRACTION_AND_PLACE_FROM_COMPARE', attraction: attraction, place:place})
 
 })
 
@@ -39,9 +40,13 @@ class placeListItem extends React.Component {
                     <div>
                       <li>{place.name}</li>
                       <Button onClick={() =>
-                      this.props.chooseAttractionAndPlace
+                      this.props.addAttractionAndPlaceToCompare
                       (place,this.props.attraction)}
                       >Compare</Button>
+                      <Button onClick={() =>
+                      this.props.removeAttractionAndPlaceFromCompare
+                      (place,this.props.attraction)}
+                      >remove</Button>
                     </div>
                 )
               }
