@@ -6,8 +6,7 @@ import {reducer as chosenAttractionReducer} from "./PlaceCompare"
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
   attractionAndPlaceData: attractionAndPlacesReducer,
-  chosenAttractionData: chosenAttractionReducer
-
+  chosenAttractionsToFavoritesData: chosenAttractionReducer
 });
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

@@ -10,7 +10,7 @@ import {additionals} from '../../Database'
 import {ReservationButton} from './ReservationButton'
 
 const mapStateToProps = state => ({
-  chosenAttraction: state.chosenAttractionData.chosenAttraction
+  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -63,7 +63,8 @@ class AttractionView extends React.Component {
         ).map(attraction => <li key={attraction.id}>{attraction.name}</li>)
         }</p>
 
-        <Button onClick={() => this.props.thing.addAttractionToFavorites(this.props.thing.attraction.id, this.props.thing.place.id)}>ADD TO FAVORITES</Button>
+        <Button onClick={() =>
+          this.props.addAttractionToFavorites(this.props.thing.attraction, this.props.thing.place)}>ADD TO FAVORITES</Button>
         <Button>VIEW MORE</Button>
         <ReservationButton />
       </div>
