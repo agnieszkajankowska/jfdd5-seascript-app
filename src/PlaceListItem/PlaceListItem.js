@@ -3,8 +3,21 @@ import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
 import {Grid, Col} from 'react-bootstrap'
 import {places, attractions} from '../Database'
+import {connect} from 'react-redux'
 
-export default class extends React.Component {
+const mapStateToProps = state => ({
+  attractionsIds: state.attractionsData.attractionsIds,
+  placesIds: state.attractionsData.placesIds
+})
+
+const mapDispatchToProps = dispatch => ({
+  addAttractionAndPlaceToCompare: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_COMPARE', attraction: attraction, place:place}),
+  removeAttractionAndPlaceFromCompare: (attraction, place) => dispatch({type: 'REMOVE_ATTRACTION_AND_PLACE_FROM_COMPARE', attraction: attraction, place:place})
+
+})
+
+
+class placeListItem extends React.Component {
   constructor() {
     super()
 
@@ -18,23 +31,36 @@ export default class extends React.Component {
             <p>{this.props.attraction.name}</p>
           </Col>
           <Col xs={4}>
-            <ul>{
-              places.filter(
-                place => place.attractions.indexOf(this.props.attraction.id) !== -1
-              ).map(
-                place =>
-                <li>{place.name}</li>
-              )
-            }</ul>
+            <ul>
+              {
+                places.filter(
+                  place => place.attractions.indexOf(this.props.attraction.id) !== -1
+                ).map(
+                  place =>
+                    <div>
+                      <li>{place.name}</li>
+                      <Button onClick={() =>
+                      this.props.addAttractionAndPlaceToCompare
+                      (place,this.props.attraction)}
+                      >Compare</Button>
+                      <Button onClick={() =>
+                      this.props.removeAttractionAndPlaceFromCompare
+                      (place,this.props.attraction)}
+                      >remove</Button>
+                    </div>
+                )
+              }
+            </ul>
           </Col>
           <Col xs={4}>
-            <Link to='place-compare'>
-              <Button>Compare</Button>
-            </Link>
+
           </Col>
         </Col>
       </Grid>
     )
-    console.log(this.props)
   }
 }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(placeListItem)
+
