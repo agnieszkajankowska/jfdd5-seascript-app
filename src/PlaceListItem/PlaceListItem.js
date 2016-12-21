@@ -7,7 +7,8 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
-  placesIds: state.attractionsData.placesIds
+  placesIds: state.attractionsData.placesIds,
+  thingsToCompare: state.attractionAndPlaceData.thingsToCompare
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -38,10 +39,12 @@ class placeListItem extends React.Component {
                   place =>
                     <div>
                       <li>{place.name}</li>
-                      <Button onClick={() =>
-                      this.props.chooseAttractionAndPlace
-                      (place,this.props.attraction)}
-                      >Compare</Button>
+                      {
+                        this.props.thingsToCompare.length < 3 ?
+                          <Button onClick={() => this.props.chooseAttractionAndPlace(place,this.props.attraction)}>
+                            Compare
+                          </Button> : null
+                      }
                     </div>
                 )
               }
