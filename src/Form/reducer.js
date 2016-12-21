@@ -1,6 +1,5 @@
 const initialState =  {
-  attractionsIds: [],
-  placesIds: []
+  attractionsIds: []
 }
 
 export default ( state = initialState, action) => {
@@ -10,10 +9,13 @@ export default ( state = initialState, action) => {
         ...state,
         attractionsIds: state.attractionsIds.concat(action.attractionId)
       }
-    case 'ADD_PLACE':
+    case 'REMOVE_ATTRACTION':
       return {
         ...state,
-        placesIds: state.placesIds.concat(action.placeId)
+        attractionsIds: state.attractionsIds.filter(
+          addAttractionId =>
+          addAttractionId !== action.attractionId
+        )
       }
     default : return state
   }
