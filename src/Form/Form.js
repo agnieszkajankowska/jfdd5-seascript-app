@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
-import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
+import {FormGroup, Button} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
@@ -41,17 +41,8 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <ControlLabel>Attraction</ControlLabel>
-          <FormControl
-            type="text"
-            value={this.state.attraction}
-            onChange={
-              event => this.setState({
-                attraction: event.target.value
-              })
-            }
-            placeholder="Enter attraction"
-          />
+          <h1>Attraction</h1>
+
           <ul>
             {attractions.map(attraction =>
               <li key={attraction.id}>
@@ -69,3 +60,14 @@ class Form extends React.Component {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Form)
+
+
+
+// <ul>
+// {attractions.map(attraction =>
+//   <li key={attraction.id}>
+//     { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
+//       <Image src='./kaszebe_turbo.jpg'  onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Image> :
+//       <Image src='./banana_ride' onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Image>}
+//   </li>)}
+// </ul>
