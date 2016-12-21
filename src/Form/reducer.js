@@ -1,5 +1,5 @@
 const initialState =  {
-  attractions: []
+  attractions: [],
 }
 
 export default ( state = initialState, action) => {
@@ -7,7 +7,7 @@ export default ( state = initialState, action) => {
     case 'ADD_ATTRACTION':
       return {
         ...state,
-        attractions: state.attractions.concat(action.attractionId)
+        attractions: state.attractions.concat(action.attraction)
       }
     default : return state
   }
