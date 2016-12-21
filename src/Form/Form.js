@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  chooseAttraction: attractionId => dispatch({type: 'ADD_ATTRACTION', attractionId: attractionId})
+  chooseAttraction: attraction => dispatch({type: 'ADD_ATTRACTION', attraction: attraction})
 })
 
 
@@ -51,7 +51,7 @@ class Form extends React.Component {
           <ul>
             {attractions.map(attraction =>
               <li key={attraction.id}>
-              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>{attraction.name}</Button>
+              <Button onClick={() => this.props.chooseAttraction(attraction)}>{attraction.name}</Button>
               </li>)}
           </ul>
           <Link to="place-list">

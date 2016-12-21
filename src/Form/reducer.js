@@ -1,6 +1,5 @@
 const initialState =  {
-  attractionsIds: [],
-  placesIds: []
+  attractions: [],
 }
 
 export default ( state = initialState, action) => {
@@ -8,12 +7,7 @@ export default ( state = initialState, action) => {
     case 'ADD_ATTRACTION':
       return {
         ...state,
-        attractionsIds: state.attractionsIds.concat(action.attractionId)
-      }
-    case 'ADD_PLACE':
-      return {
-        ...state,
-        placesIds: state.placesIds.concat(action.placeId)
+        attractions: state.attractions.concat(action.attraction)
       }
     default : return state
   }
