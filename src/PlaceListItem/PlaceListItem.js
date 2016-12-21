@@ -7,7 +7,8 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
-  placesIds: state.attractionsData.placesIds
+  placesIds: state.attractionsData.placesIds,
+  thingsToCompare: state.attractionAndPlaceData.thingsToCompare
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -32,6 +33,7 @@ class placeListItem extends React.Component {
   }
 
   render() {
+    console.log(this.props.attraction.id)
     return (
       <Grid>
         <Col xs={12}>
@@ -47,7 +49,27 @@ class placeListItem extends React.Component {
                   place =>
                     <div>
                       <li>{place.name}</li>
-
+                      {
+                        this.props.thingsToCompare.find(
+                          thing => {
+                            return (
+                              thing.attraction.id === this.props.attraction.id &&
+                              thing.place.id === place.id
+                            )
+                          }
+                        ) !== undefined ?
+                          <Button onClick={() =>
+                          this.props.removeAttractionAndPlaceFromCompare
+                          (this.props.attraction, place)}
+                          >remove</Button>
+                          :
+                          this.props.thingsToCompare.length < 3 ?
+                            <Button onClick={() =>
+                            this.props.addAttractionAndPlaceToCompare
+                            (this.props.attraction, place)}
+                            >Compare</Button>
+                            : null
+                      }
                     </div>
                 )
               }
@@ -65,24 +87,5 @@ class placeListItem extends React.Component {
 
 export default connect(mapStateToProps, mapDispatchToProps)(placeListItem)
 
-// {
-//   this.props.thingsToCompare.length < 3 ?
-//
-//     <Button onClick={() =>
-//                         this.props.addAttractionAndPlaceToCompare
-//                         (place,this.props.attraction)}
-//     >Compare</Button>
-//     : null
-// }
 
 
-
-
-// {
-//   this.props.thingsToCompare.attraction.id.indexOf(place.attraction) !==-1 ?
-//   <Button onClick={() =>
-//   this.props.removeAttractionAndPlaceFromCompare
-//   (place,this.props.attraction)}
-//   >remove</Button>
-//   : null
-// }
