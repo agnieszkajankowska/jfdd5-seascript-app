@@ -5,7 +5,7 @@ import {FormGroup, ControlLabel, FormControl, Button} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
-  attractions: state.attractionsData.attractions
+  attractionsIds: state.attractionsData.attractionsIds
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -55,8 +55,9 @@ class Form extends React.Component {
           <ul>
             {attractions.map(attraction =>
               <li key={attraction.id}>
-              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Button>
-              <Button onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Button>
+                { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
+              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Button> :
+              <Button onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Button>}
               </li>)}
           </ul>
           <Link to="place-list">
