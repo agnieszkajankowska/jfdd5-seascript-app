@@ -8,6 +8,7 @@ import {PlaceDetails} from "./PlaceDetails";
 import {PlaceCompare} from "./PlaceCompare";
 import {NotFoundView} from "./NotFoundView";
 import {PlaceList} from "./PlaceList";
+import {Favorites} from "./Favorites";
 import {Provider} from "react-redux";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/place-details" component={PlaceDetails}/>
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList}/>
+        <Route path="/favorites" component={Favorites}/>
 
       </Route>
 

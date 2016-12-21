@@ -33,6 +33,10 @@ export default () => (
       </li>
 
       <li className="grow menu-link">
+        <Link to="/favorites" className="link">Favorites</Link>
+      </li>
+
+      <li className="grow menu-link">
        <Link to="/" className="link">Place Maps</Link>
       </li>
       <li className="clear" id="blacked"/>

@@ -19,6 +19,7 @@ const PlaceCompare = (props) => (
       </Row>
       <Row>
         <Col xs={12} md={3}>
+          <p>Activity:</p>
           <p>Price:</p>
           <p>City:</p>
           <p>Available:</p>

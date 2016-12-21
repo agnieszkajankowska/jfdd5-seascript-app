@@ -2,13 +2,23 @@ import React from 'react'
 
 import {Button} from 'react-bootstrap'
 
-import {attractions} from '../data'
+import { connect } from 'react-redux'
+
+import {attractions} from '../../Database'
 import {additionals} from '../../Database'
 
 import {ReservationButton} from './ReservationButton'
 
+const mapStateToProps = state => ({
+  chosenAttraction: state.chosenAttractionData.chosenAttraction
+})
 
-export default class extends React.Component {
+const mapDispatchToProps = dispatch => ({
+  addAttractionToFavorites: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES', attraction: attraction, place: place}),
+})
+
+
+class AttractionView extends React.Component {
 
   render() {
     console.log("1------------", this.props);
@@ -24,11 +34,15 @@ export default class extends React.Component {
     //   return result;
     // }
     // filterAttractions();
+
+
     const additionalInformationFilter = additionals.filter(additional => this.props.thing.place.id === additional.placeId &&
       this.props.thing.attraction.id === additional.attractionId)
 
     return (
       <div>
+
+        <p>{this.props.thing.attraction.name}</p>
 
         {additionalInformationFilter.map(additional => <p>{additional.price}</p>)}
 
@@ -45,17 +59,19 @@ export default class extends React.Component {
         {additionalInformationFilter.map(additional => <p>{additional.opinion}</p>)}
 
         <p>{
-          attractions.filter(attraction => this.props.thing.place.attractions.indexOf(this.props.thing.attraction.id) !== -1
-        ).map(attraction => attraction.name)
+          attractions.filter(attraction => this.props.thing.place.attractions.indexOf(attraction.id) !== -1
+        ).map(attraction => <li key={attraction.id}>{attraction.name}</li>)
         }</p>
 
-        <Button>ADD TO FAVORITES</Button>
+        <Button onClick={() => this.props.thing.addAttractionToFavorites(this.props.thing.attraction.id, this.props.thing.place.id)}>ADD TO FAVORITES</Button>
+        <Button>VIEW MORE</Button>
         <ReservationButton />
       </div>
     )
   }
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(AttractionView)
 //wyświetlenie innych atrakcji
 //podświetlenie najniższej ceny
 //formularz
