@@ -2,7 +2,8 @@ export default [
   {
     id: 1,
     name: 'Sailing',
-    price: 300
+    price: 300,
+    image: 'sailing.svg'
   },
   {
     id: 2,

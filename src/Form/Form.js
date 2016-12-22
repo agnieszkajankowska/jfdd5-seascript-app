@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
-import {FormGroup, Button} from "react-bootstrap";
+import {FormGroup, Button, Image} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
@@ -54,6 +54,14 @@ class Form extends React.Component {
           <Link to="place-list">
             <Button type="submit">Submit</Button>
           </Link>
+          <ul>
+            {attractions.map(attraction =>
+              <li key={attraction.id}>
+                { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
+                  <Image src={process.env.PUBLIC_URL + + '/images/icons/attractions' + attraction.image} onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Image> :
+                  <Image onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Image>}
+              </li>)}
+          </ul>
         </FormGroup>
       </form>
     )
