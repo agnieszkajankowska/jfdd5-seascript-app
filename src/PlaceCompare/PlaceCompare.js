@@ -36,7 +36,12 @@ const PlaceCompare = (props) => {
           </Col>
           {
             props.thingsToCompare.map(
-              thing => <Col xs={12} md={3}><AttractionView thing={thing} theLowestPrice={theLowestPrice} /></Col>
+              thing =>
+                <Col xs={12} md={3}>
+                  <AttractionView thing={thing}
+                                  theLowestPrice={theLowestPrice}
+                  />
+                </Col>
             )
           }
         </Row>

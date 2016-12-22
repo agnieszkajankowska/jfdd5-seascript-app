@@ -1,4 +1,8 @@
-import {createStore, combineReducers} from "redux";
+import { compose, createStore, combineReducers, applyMiddleware } from 'redux'
+import persistState from 'redux-localstorage'
+import thunkMiddleware from 'redux-thunk'
+
+
 import {reducer as attractionsReducer} from "./Form";
 import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 import {reducer as chosenAttractionReducer} from "./PlaceCompare"
@@ -9,6 +13,15 @@ const reducer = combineReducers({
   chosenAttractionsToFavoritesData: chosenAttractionReducer
 });
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(
+    thunkMiddleware // lets us dispatch() functions (thunks) in addition to objects with 'type' attribute
+  ),
+  persistState(['chosenAttractionsToFavoritesData', 'attractionAndPlaceData'])
+)
+
+const store = createStore(reducer, enhancer);
 
 export default store
