@@ -38,13 +38,23 @@ class AttractionView extends React.Component {
 
     const additionalInformationFilter = additionals.filter(additional => this.props.thing.place.id === additional.placeId &&
       this.props.thing.attraction.id === additional.attractionId)
-
     return (
       <div>
 
         <p>{this.props.thing.attraction.name}</p>
 
-        {additionalInformationFilter.map(additional => <p>{additional.price}</p>)}
+        {
+          additionalInformationFilter.map(
+          additional =>
+            <p>
+              {
+                this.props.theLowestPrice === additional.price ?
+                  <strong>{additional.price}</strong> :
+                  additional.price
+              }
+            </p>
+          )
+        }
 
         <p>{this.props.thing.place.name}</p>
 
