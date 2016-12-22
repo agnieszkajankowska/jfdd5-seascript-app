@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
-import {FormGroup, Button, Image} from "react-bootstrap";
+import {FormGroup, Button, Image, Thumbnail} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
@@ -47,21 +47,18 @@ class Form extends React.Component {
             {attractions.map(attraction =>
               <li key={attraction.id}>
                 { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
-              <Button onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Button> :
-              <Button onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Button>}
-              </li>)}
+                  <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
+                             onClick={() => this.props.chooseAttraction(attraction.id)}>
+                    {attraction.name}</Thumbnail> :
+                  <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
+                             onClick={() => this.props.removeAttraction(attraction.id)}>
+                    You choose {attraction.name}. Click to remove.</Thumbnail>}
+                </li>)}
           </ul>
+
           <Link to="place-list">
             <Button type="submit">Submit</Button>
           </Link>
-          <ul>
-            {attractions.map(attraction =>
-              <li key={attraction.id}>
-                { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
-                  <Image src={process.env.PUBLIC_URL + + '/images/icons/attractions' + attraction.image} onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Image> :
-                  <Image onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Image>}
-              </li>)}
-          </ul>
         </FormGroup>
       </form>
     )
@@ -70,12 +67,11 @@ class Form extends React.Component {
 export default connect(mapStateToProps, mapDispatchToProps)(Form)
 
 
-
 // <ul>
 // {attractions.map(attraction =>
 //   <li key={attraction.id}>
 //     { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
-//       <Image src='./kaszebe_turbo.jpg'  onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Image> :
-//       <Image src='./banana_ride' onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Image>}
+//       <Button onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Button> :
+//       <Button onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Button>}
 //   </li>)}
 // </ul>
