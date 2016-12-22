@@ -38,7 +38,10 @@ class placeListItem extends React.Component {
       <Grid>
         <Col xs={12}>
           <Col xs={4}>
-            <p>{this.props.attraction.name}</p>
+            <p>
+              <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}/>
+              {this.props.attraction.name}
+            </p>
           </Col>
           <Col xs={4}>
             <ul>
@@ -76,7 +79,11 @@ class placeListItem extends React.Component {
             </ul>
           </Col>
           <Col xs={4}>
-
+            <Link to='/place-compare'>
+              <Button>
+                place compare
+              </Button>
+            </Link>
           </Col>
         </Col>
       </Grid>
