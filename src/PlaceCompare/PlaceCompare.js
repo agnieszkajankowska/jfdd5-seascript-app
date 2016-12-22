@@ -14,14 +14,24 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addAttractionToFavorites: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES', attraction: attraction, place: place}),
+  addAttractionToFavorites: (attraction, place) => dispatch({
+    type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
+    attraction: attraction,
+    place: place
+  }),
 })
 
 const PlaceCompare = (props) => {
- const chosenAdditionals = additionals.filter(
-   additional => props.thingsToCompare.map()
- )
-  console.log(chosenAdditionals)
+
+  const placesIds = props.thingsToCompare.map(attraction => attraction.place.id)
+  const attractionIds = props.thingsToCompare.map(attraction => attraction.attraction.id)
+  const chosenAdditionals = additionals.filter(
+    additional => placesIds.indexOf(additional.placeId) && attractionIds.indexOf(additional.attractionId)
+  )
+  console.log("xxxxx", placesIds)
+  console.log(attractionIds)
+  console.log("2222222222222222", chosenAdditionals)
+
 
   const theLowestPrice = 100 // props.thingsToCompare.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
   return (
