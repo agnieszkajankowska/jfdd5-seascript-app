@@ -11,8 +11,7 @@ const reducer = combineReducers({
   attractionsData: attractionsReducer,
   attractionAndPlaceData: attractionAndPlacesReducer,
   weatherData: weatherReducer,
-  weatherForecastData: weatherReducer
-  attractionAndPlaceData: attractionAndPlacesReducer,
+  weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer
 });
 
