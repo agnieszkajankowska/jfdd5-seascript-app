@@ -18,6 +18,10 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const PlaceCompare = (props) => {
+ const chosenAdditionals = additionals.filter(
+   additional => props.thingsToCompare.map()
+ )
+  console.log(chosenAdditionals)
 
   const theLowestPrice = 100 // props.thingsToCompare.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
   return (

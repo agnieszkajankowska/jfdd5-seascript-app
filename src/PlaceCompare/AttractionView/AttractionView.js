@@ -25,7 +25,9 @@ class AttractionView extends React.Component {
     // filterAttractions();
 
 
-    const additionalInformationFilter = additionals.filter(additional => this.props.thing.place.id === additional.placeId &&
+    const additionalInformationFilter = additionals.filter(
+      additional =>
+      this.props.thing.place.id === additional.placeId &&
       this.props.thing.attraction.id === additional.attractionId)
     return (
       <div>
