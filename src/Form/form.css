@@ -1,0 +1,9 @@
+.Form-chosenAttraction {
+  text-align: center;
+
+}
+
+.Form-removedAttraction {
+  text-align: center;
+  background-color: rgba(255, 120, 0, 0.8);
+}
