@@ -1,0 +1,8 @@
+.Form-chosenAttraction {
+  text-align: center;
+}
+
+.Form-removedAttraction {
+  text-align: center;
+  opacity: 0.5;
+}

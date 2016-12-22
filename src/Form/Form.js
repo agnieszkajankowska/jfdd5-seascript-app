@@ -3,6 +3,7 @@ import {Link} from "react-router";
 import {connect} from "react-redux";
 import {ListGroup, Button, Thumbnail, Grid, Row, Col} from "react-bootstrap";
 import {attractions} from "../Database";
+import "./form.css";
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds
@@ -28,21 +29,21 @@ class Form extends React.Component {
             <Row className="show-grid">
               {attractions.map(attraction =>
                 <Col xs={6} md={3} sm={4}>
-                  <li key={attraction.id}>
-                    {
-                      this.props.attractionsIds.indexOf(attraction.id) === -1 ?
+                  {
+                    this.props.attractionsIds.indexOf(attraction.id) === -1 ?
 
-                        <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
-                                   onClick={() => this.props.chooseAttraction(attraction.id)}>
-                          <p>{attraction.name}</p>
-                        </Thumbnail> :
+                      <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
+                                 onClick={() => this.props.chooseAttraction(attraction.id)}
+                                 className="Form-chosenAttraction">
+                        <p>{attraction.name}</p>
+                      </Thumbnail> :
 
-                        <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
-                                   onClick={() => this.props.removeAttraction(attraction.id)}>
-                          <p>{attraction.name}</p>
-                        </Thumbnail>
-                    }
-                  </li>
+                      <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
+                                 onClick={() => this.props.removeAttraction(attraction.id)}
+                                 className="Form-removedAttraction">
+                        <p>{attraction.name}</p>
+                      </Thumbnail>
+                  }
                 </Col>
               )}
 
