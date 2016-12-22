@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {Button} from 'react-bootstrap'
-import {Grid, Col} from 'react-bootstrap'
+import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions} from '../Database'
 import {connect} from 'react-redux'
 
@@ -36,6 +36,7 @@ class placeListItem extends React.Component {
     console.log(this.props.attraction.id)
     return (
       <Grid>
+        <Well>
         <Col xs={12}>
           <Col xs={4}>
             <p>
@@ -71,7 +72,7 @@ class placeListItem extends React.Component {
                             this.props.addAttractionAndPlaceToCompare
                             (this.props.attraction, place)}
                             >Compare</Button>
-                            : null
+                            : <Button disabled>Compare</Button>
                       }
                     </div>
                 )
@@ -84,8 +85,15 @@ class placeListItem extends React.Component {
                 place compare
               </Button>
             </Link>
+            <Link to='/place-details'>
+              <Button>
+                place details
+              </Button>
+            </Link>
           </Col>
         </Col>
+          <Clearfix/>
+          </Well>
       </Grid>
     )
   }
