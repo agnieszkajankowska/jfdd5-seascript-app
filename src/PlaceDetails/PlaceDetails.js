@@ -12,7 +12,7 @@ export default () => {
   return (
     <Grid className="place-Details">
         <Row>
-            <ActualWeather/>
+            <ActualWeather.actualWeather/>
         </Row>
     </Grid>
   )

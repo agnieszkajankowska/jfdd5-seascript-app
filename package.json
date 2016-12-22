@@ -13,7 +13,6 @@
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
-    "react-fetch": "0.0.9",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-router-bootstrap": "^0.23.1",
@@ -38,6 +37,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/infoshareacademy/jfdd5-seascript-app/issues"
-  },
-  "homepage": "https://github.com/infoshareacademy/jfdd5-seascript-app#readme"
+  }
 }
