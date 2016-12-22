@@ -47,15 +47,17 @@ class AttractionView extends React.Component {
 
         <p>{this.props.thing.place.name}</p>
 
-        {additionalInformationFilter.map(additional => <p>{additional.availability}</p>)}
-
-        {additionalInformationFilter.map(additional => <p>{additional.children === true ? 'yes':'no'}</p>)}
-
-        {additionalInformationFilter.map(additional => <p>{additional.content}</p>)}
-
-        {additionalInformationFilter.map(additional => <p>{additional.ranking}</p>)}
-
-        {additionalInformationFilter.map(additional => <p>{additional.opinion}</p>)}
+        {additionalInformationFilter.map(
+          additional => (
+            <div>
+              <p>{additional.availability}</p>
+              <p>{additional.children === true ? 'yes':'no'}</p>
+              <p>{additional.content}</p>
+              <p>{additional.ranking}</p>
+              <p>{additional.opinion}</p>
+            </div>
+          )
+        )}
 
         <p>{
           attractions.filter(attraction => this.props.thing.place.attractions.indexOf(attraction.id) !== -1

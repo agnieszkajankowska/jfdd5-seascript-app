@@ -3,6 +3,8 @@ import {Grid, Row, Col} from 'react-bootstrap'
 
 import {connect} from 'react-redux'
 
+import {additionals} from '../Database'
+
 import {AttractionView} from './AttractionView'
 
 const mapStateToProps = state => ({
