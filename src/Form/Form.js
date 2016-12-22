@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import {connect} from "react-redux";
-import {FormGroup, ListGroup, ListGroupItem, Button, Thumbnail, Grid, Row, Col, Image} from "react-bootstrap";
+import {ListGroup, Button, Thumbnail, Grid, Row, Col} from "react-bootstrap";
 import {attractions} from "../Database";
 
 const mapStateToProps = state => ({
@@ -18,29 +18,11 @@ const mapDispatchToProps = dispatch => ({
 
 
 class Form extends React.Component {
-  constructor() {
-    super()
-
-    this.handleSubmit = (event) => {
-      event.preventDefault()
-      localStorage.setItem('my-app-state', JSON.stringify(this.state))
-
-    }
-
-    const data = localStorage.getItem('my-app-state')
-    if (data) {
-      this.state = JSON.parse(data)
-    } else {
-      this.state = {
-        attraction: []
-      }
-    }
-  }
 
   render() {
     return (
       <Grid>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <ListGroup>
             <h1>Attraction</h1>
             <Row className="show-grid">
@@ -77,12 +59,3 @@ class Form extends React.Component {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Form)
 
-
-// <ul>
-// {attractions.map(attraction =>
-//   <li key={attraction.id}>
-//     { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
-//       <Button onClick={() => this.props.chooseAttraction(attraction.id)}>Add {attraction.name}</Button> :
-//       <Button onClick={() => this.props.removeAttraction(attraction.id)}>Remove {attraction.name}</Button>}
-//   </li>)}
-// </ul>
