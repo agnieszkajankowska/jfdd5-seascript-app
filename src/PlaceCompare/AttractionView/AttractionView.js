@@ -1,30 +1,80 @@
 import React from 'react'
 
-import {places} from '../data'
-import {attractions} from '../data'
-import {additionals} from '../data'
+import {Button} from 'react-bootstrap'
+
+import {attractions} from '../../Database'
+import {additionals} from '../../Database'
+
 import {ReservationButton} from './ReservationButton'
 
-
-export default class extends React.Component {
+class AttractionView extends React.Component {
 
   render() {
-    console.log(places)
-    console.log(attractions.map(attraction=> attraction.id))
+    console.log("1------------", this.props);
+    console.log("2------------", this.props.thing.place.id);
+    console.log("3------------", this.props.thing.attraction.id);
+
+    // function filterAttractions() {
+    //   var result = [];
+    //   for (var i = 0; i < this.props.thing.place.attractions.length; i++){
+    //     result.concat(attractions.filter(attraction => this.props.thing.attraction.id === attraction.id))
+    //   }
+    //   console.log(result);
+    //   return result;
+    // }
+    // filterAttractions();
+
+
+    const additionalInformationFilter = additionals.filter(additional => this.props.thing.place.id === additional.placeId &&
+      this.props.thing.attraction.id === additional.attractionId)
     return (
       <div>
-        <p>
-          {
-            this.props.place.factor *
-            attractions.map(attraction => attraction.price)
-          }
-        </p>
-        <p>{this.props.place.name}</p>
-        <p>{additionals.filter(additional => additional.placeId === this.props.place.id && this.props.place.attractions.indexOf(additional.attractionId !== -1)
-        ).map(item => item.availability)}</p>
+
+        <p>{this.props.thing.attraction.name}</p>
+
+        {
+          additionalInformationFilter.map(
+          additional =>
+            <p>
+              {
+                this.props.theLowestPrice === additional.price ?
+                  <strong>{additional.price}</strong> :
+                  additional.price
+              }
+            </p>
+          )
+        }
+
+        <p>{this.props.thing.place.name}</p>
+
+        {additionalInformationFilter.map(
+          additional => (
+            <div>
+              <p>{additional.availability}</p>
+              <p>{additional.children === true ? 'yes':'no'}</p>
+              <p>{additional.content}</p>
+              <p>{additional.ranking}</p>
+              <p>{additional.opinion}</p>
+            </div>
+          )
+        )}
+
+        <p>{
+          attractions.filter(attraction => this.props.thing.place.attractions.indexOf(attraction.id) !== -1
+        ).map(attraction => <li key={attraction.id}>{attraction.name}</li>)
+        }</p>
+
+        <Button onClick={() =>
+          this.props.addAttractionToFavorites(this.props.thing.attraction, this.props.thing.place)}>ADD TO FAVORITES</Button>
+        <Button>VIEW MORE</Button>
         <ReservationButton />
       </div>
     )
   }
 }
 
+export default AttractionView
+//wyświetlenie innych atrakcji
+//podświetlenie najniższej ceny
+//formularz
+//widok ulubionych
