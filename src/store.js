@@ -21,7 +21,7 @@ const enhancer = composeEnhancers(
   applyMiddleware(
     thunkMiddleware // lets us dispatch() functions (thunks) in addition to objects with 'type' attribute
   ),
-  persistState(['chosenAttractionsToFavoritesData', 'attractionAndPlaceData'])
+  persistState([])
 )
 
 const store = createStore(reducer, enhancer);
