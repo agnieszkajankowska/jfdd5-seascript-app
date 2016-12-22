@@ -7,6 +7,12 @@ import {AttractionView} from './AttractionView'
 
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
+  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
+
+})
+
+const mapDispatchToProps = dispatch => ({
+  addAttractionToFavorites: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES', attraction: attraction, place: place}),
 })
 
 const PlaceCompare = (props) => {
@@ -40,6 +46,8 @@ const PlaceCompare = (props) => {
                 <Col xs={12} md={3}>
                   <AttractionView thing={thing}
                                   theLowestPrice={theLowestPrice}
+                                  addAttractionToFavorites={props.addAttractionToFavorites}
+                                  chosenToFavoritesAttractions={props.chosenToFavoritesAttractions}
                   />
                 </Col>
             )
@@ -50,4 +58,4 @@ const PlaceCompare = (props) => {
   )
 }
 
-export default connect(mapStateToProps)(PlaceCompare)
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceCompare)

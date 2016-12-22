@@ -2,21 +2,10 @@ import React from 'react'
 
 import {Button} from 'react-bootstrap'
 
-import { connect } from 'react-redux'
-
 import {attractions} from '../../Database'
 import {additionals} from '../../Database'
 
 import {ReservationButton} from './ReservationButton'
-
-const mapStateToProps = state => ({
-  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
-})
-
-const mapDispatchToProps = dispatch => ({
-  addAttractionToFavorites: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES', attraction: attraction, place: place}),
-})
-
 
 class AttractionView extends React.Component {
 
@@ -82,7 +71,7 @@ class AttractionView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AttractionView)
+export default AttractionView
 //wyświetlenie innych atrakcji
 //podświetlenie najniższej ceny
 //formularz
