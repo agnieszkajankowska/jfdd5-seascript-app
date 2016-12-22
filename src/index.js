@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-theme.css";
+import "./index.css";
 import App from "./App/App";
 import {DashboardView} from "./App/DashboardView";
 import {Form} from "./Form";
@@ -11,9 +14,7 @@ import {PlaceList} from "./PlaceList";
 import {Favorites} from "./Favorites";
 import {Provider} from "react-redux";
 import store from "./store";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
-import "./index.css";
+
 
 import {fetchWeather,fetchWeatherForecast} from './state/weather/actionCreators'
 const fetchWeatherFromApi = () => {
