@@ -39,7 +39,7 @@ class placeListItem extends React.Component {
         <Col xs={12}>
           <Col xs={4}>
             <p>
-              <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}/>
+              <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
               {this.props.attraction.name}
             </p>
           </Col>
