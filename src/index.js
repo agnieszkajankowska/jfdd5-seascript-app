@@ -7,7 +7,6 @@ import {Form} from "./Form";
 import {PlaceDetails} from "./PlaceDetails";
 import {PlaceCompare} from "./PlaceCompare";
 import {NotFoundView} from "./NotFoundView";
-import {TestComponent} from "./TestComponent"
 import {PlaceList} from "./PlaceList";
 import {Provider} from "react-redux";
 import store from "./store";
@@ -31,7 +30,6 @@ ReactDOM.render(
         <Route path="/place-details" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList}/>
-      <Route path="/test-component" component={TestComponent}/>
 
       </Route>
 
