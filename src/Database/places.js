@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     name: 'Hel',
-    attractions: [1, 2, 3, 4, 5, 6, 7 ],
+    attractions: [1, 2, 3],
     factor: 1.5,
     latitude: 54.6,
     longitude: 18.8
@@ -10,7 +10,7 @@ export default [
   {
     id: 2,
     name: 'Mikołajki',
-    attractions: [1, 2, 3, 4, 8, 9, 10],
+    attractions: [ 8, 9, 10],
     factor: 1.5,
     latitude: 53.8,
     longitude: 21.5
@@ -18,7 +18,7 @@ export default [
   {
     id: 3,
     name: 'Zalew Zegrzyński',
-    attractions: [ 4, 5, 6, 7, 8, 9, 10],
+    attractions: [ 4, 5, 6],
     factor: 1.5,
     latitude: 52.5,
     longitude: 21
