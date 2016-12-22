@@ -47,9 +47,18 @@ class Form extends React.Component {
             {attractions.map(attraction =>
               <li key={attraction.id}>
                 { this.props.attractionsIds.indexOf(attraction.id) === -1 ?
+
                   <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                              onClick={() => this.props.chooseAttraction(attraction.id)}>
-                    {attraction.name}</Thumbnail> :
+                    <p>{attraction.name}</p>
+                    <p>
+                      <Button bsStyle="primary">Choose</Button>
+                      <Button bsStyle="default">Remove</Button>
+                    </p>
+
+
+                    </Thumbnail> :
+
                   <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                              onClick={() => this.props.removeAttraction(attraction.id)}>
                     You choose {attraction.name}. Click to remove.</Thumbnail>}
