@@ -14,12 +14,27 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addAttractionToFavorites: (attraction, place) => dispatch({type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES', attraction: attraction, place: place}),
+  addAttractionToFavorites: (attraction, place) => dispatch({
+    type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
+    attraction: attraction,
+    place: place
+  }),
 })
 
 const PlaceCompare = (props) => {
 
-  const theLowestPrice = 100 // props.thingsToCompare.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
+  const placesIds = props.thingsToCompare.map(attraction => attraction.place.id)
+  const attractionIds = props.thingsToCompare.map(attraction => attraction.attraction.id)
+  const chosenAdditionals = additionals.filter(
+    additional => placesIds.indexOf(additional.placeId) !== -1 && attractionIds.indexOf(additional.attractionId) !== -1
+  )
+  console.log(placesIds)
+  console.log(attractionIds)
+  console.log(chosenAdditionals)
+
+
+  const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
+  console.log("yyyyyy", theLowestPrice)
   return (
     <div>
       <Grid>
@@ -44,6 +59,16 @@ const PlaceCompare = (props) => {
           </Col>
           {
             props.thingsToCompare.map(
+              thing => ({
+                ...thing,
+                additional: additionals.find(
+                  additional => (
+                    additional.placeId === thing.place.id &&
+                    additional.attractionId === thing.attraction.id
+                  )
+                )
+              })
+            ).map(
               thing =>
                 <Col xs={12} md={3}>
                   <AttractionView thing={thing}
