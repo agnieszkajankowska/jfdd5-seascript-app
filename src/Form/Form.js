@@ -25,7 +25,7 @@ class Form extends React.Component {
       <Grid>
         <form>
           <ListGroup>
-            <h1>Attraction</h1>
+            <h1>Choose atraction that best suit for you</h1>
             <Row className="show-grid">
               {attractions.map(attraction =>
                 <Col xs={6} md={3} sm={4}>
@@ -34,13 +34,13 @@ class Form extends React.Component {
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.chooseAttraction(attraction.id)}
-                                 className="Form-chosenAttraction">
+                                 className="Form-chosenAttraction hvr-sweep-to-right">
                         <p>{attraction.name}</p>
                       </Thumbnail> :
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.removeAttraction(attraction.id)}
-                                 className="Form-removedAttraction">
+                                 className="Form-removedAttraction hvr-sweep-to-left">
                         <p>{attraction.name}</p>
                       </Thumbnail>
                   }
