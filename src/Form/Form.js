@@ -22,11 +22,13 @@ class Form extends React.Component {
 
   render() {
     return (
-      <Grid>
+        <Grid>
+        <h1 className="form-header">Choose attraction that best suit you</h1>
         <form>
           <ListGroup>
-            <h1>Choose atraction that best suit for you</h1>
+
             <Row className="show-grid">
+
               {attractions.map(attraction =>
                 <Col xs={6} md={3} sm={4}>
                   {
@@ -34,14 +36,17 @@ class Form extends React.Component {
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.chooseAttraction(attraction.id)}
-                                 className="Form-chosenAttraction hvr-sweep-to-right">
+                                 className="Form-chosenAttraction">
                         <p>{attraction.name}</p>
+                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/chosen-icon2.png'} className="icon"/>
+
                       </Thumbnail> :
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.removeAttraction(attraction.id)}
-                                 className="Form-removedAttraction hvr-sweep-to-left">
+                                 className="Form-removedAttraction">
                         <p>{attraction.name}</p>
+                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon.png'} className="icon"/>
                       </Thumbnail>
                   }
                 </Col>
