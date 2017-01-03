@@ -46,7 +46,7 @@ class Form extends React.Component {
                                  onClick={() => this.props.removeAttraction(attraction.id)}
                                  className="Form-removedAttraction">
                         <p>{attraction.name}</p>
-                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon.png'} className="icon"/>
+                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon2.png'} className="icon"/>
                       </Thumbnail>
                   }
                 </Col>
