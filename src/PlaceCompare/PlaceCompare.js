@@ -1,17 +1,12 @@
 import React from 'react'
 import {Grid, Row, Col} from 'react-bootstrap'
 
-import {connect} from 'react-redux'
-
-import {additionals} from '../Database'
-import {attractions} from '../Database'
-
 import {AttractionView} from './AttractionView'
 
 import './PlaceCompare.css'
 import './AttractionView/AttractionView.css'
 
-const PlaceCompare = (props) => {
+const PlaceCompare = () => {
   return (
     <div>
       <Grid>

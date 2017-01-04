@@ -9,7 +9,6 @@ import './AttractionView.css'
 
 import {attractions, places, additionals} from '../../Database'
 
-
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
 
