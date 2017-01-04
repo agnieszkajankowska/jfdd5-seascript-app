@@ -11,6 +11,7 @@ import {attractions, places, additionals} from '../../Database'
 
 
 import {ReservationButton} from './ReservationButton'
+import {ViewMoreButton} from './ViewMoreButton'
 
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
@@ -144,9 +145,24 @@ class AttractionView extends React.Component {
               {
                 this.props.thingsToCompare.map(
                   thing =>
-                    <td><Button onClick={() =>
+                    <td
+                      className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                      <Button bsStyle="primary"
+                                bsSize="large"
+                                onClick={() =>
                       this.props.addAttractionToFavorites(thing.attraction, thing.place)}>
                       ADD TO FAVORITES</Button></td>)}
+          </tr>
+          <tr>
+            <td>
+              {''}
+            </td>
+
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}><ViewMoreButton /></td>)}
           </tr>
           <tr>
             <td>
