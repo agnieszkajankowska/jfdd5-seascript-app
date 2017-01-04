@@ -11,9 +11,10 @@ export default () => (
     </div>
     <h1 className="title-dashboard">Wave</h1>
     <h2>The world's first-class water sports & leisure app</h2>
-    <h3>Choose the water sports in the <Button bsStyle="primary">
-      <Link to='/form'>Form</Link>
-    </Button> and follow the arrows</h3>
+    <h3>Choose the water sports in the{' '}
+      <Link to='/form'>
+        <Button bsStyle="primary" bsSize="large">Form</Button>
+      </Link> and follow the arrows</h3>
   </div>
 )
 
