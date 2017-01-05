@@ -33,7 +33,6 @@ class placeListItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.attraction.id)
     return (
       <Grid>
         <Well>
@@ -101,6 +100,4 @@ class placeListItem extends React.Component {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(placeListItem)
-
-
 
