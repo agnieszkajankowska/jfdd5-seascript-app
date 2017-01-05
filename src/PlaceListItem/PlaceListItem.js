@@ -38,13 +38,13 @@ class placeListItem extends React.Component {
       <Grid>
         <Well>
           <Col xs={12}>
-            <Col md={4}>
-              <p>
+            <Col md={3}>
+              <div className="PlaceListItemIcon">
                 <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
-                {this.props.attraction.name}
-              </p>
+                <p>{this.props.attraction.name}</p>
+              </div>
             </Col>
-            <Col md={8}>
+            <Col md={9}>
               <Col xs={12}>
                 {
                   places.filter(
@@ -52,13 +52,13 @@ class placeListItem extends React.Component {
                   ).map(
                     place =>
                       <Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} md={4}>
                           <p>{place.name}</p>
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} md={4}>
                           <p>pogoda</p>
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} md={2}>
                           {
                             this.props.thingsToCompare.find(
                               thing => {
@@ -81,7 +81,7 @@ class placeListItem extends React.Component {
                                 : <Button disabled>Compare</Button>
                           }
                         </Col>
-                        <Col xs={6} md={3}>
+                        <Col xs={6} md={2}>
                           <Link to='/place-details'>
                             <Button>
                               place details
