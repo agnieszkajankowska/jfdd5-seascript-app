@@ -17,13 +17,14 @@
   text-align: center;
   background-color: #006a9a;
   border: solid 1px black;
+  color: black;
 }
 
 .PlaceListItemWeather p {
   background-color: #006a9a;
   text-align: center;
   border: solid 1px black;
-
+  color: black;
 }
 
 .PlaceListItemButton Button {
@@ -62,4 +63,9 @@
 .PlaceListItemButtonSelectDetails:hover {
   background-image: none;
   background-color: red;
+}
+
+.PlaceListItemResetPadding {
+  padding-left: 0;
+  padding-right: 0;
 }

@@ -58,17 +58,17 @@ class placeListItem extends React.Component {
                     place =>
                       <Col>
                         <div className="PlaceListItemCityName">
-                          <Col xs={6} md={4}>
+                          <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>{place.name}</p>
                           </Col>
                         </div>
                         <div className="PlaceListItemWeather">
-                          <Col xs={6} md={4}>
+                          <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>pogoda</p>
                           </Col>
                         </div>
                         <div className="PlaceListItemButton">
-                          <Col xs={6} md={2}>
+                          <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             {
                               this.props.thingsToCompare.find(
                                 thing => {
@@ -93,7 +93,7 @@ class placeListItem extends React.Component {
                           </Col>
                         </div>
                         <div className="PlaceListItemButton">
-                          <Col xs={6} md={2}>
+                          <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to='/place-details'>
                               <Button className="PlaceListItemButtonSelectDetails">
                                 Details
