@@ -18,7 +18,7 @@ import store from "./store";
 
 import {fetchWeather,fetchWeatherForecast} from './state/weather/actionCreators'
 const fetchWeatherFromApi = () => {
-  store.dispatch(fetchWeather())
+  store.dispatch(fetchWeather('Gdańsk'))
   //store.dispatch(fetchWeatherForecast())
 }
 ReactDOM.render(
@@ -28,7 +28,6 @@ ReactDOM.render(
         <IndexRoute component={DashboardView}/>
 
         <Route path="/form" component={Form}/>
-
         <Route path="/place-details" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList}/>
