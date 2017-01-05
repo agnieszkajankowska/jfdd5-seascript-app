@@ -1,6 +1,65 @@
 .PlaceListItemIcon img {
+  width:100%;
 }
 
-.PlaceListItemIcon {
+.PlaceListItemIcon p {
   font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.PlaceListItemCityName Col {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.PlaceListItemCityName p {
+  text-align: center;
+  background-color: #006a9a;
+  border: solid 1px black;
+}
+
+.PlaceListItemWeather p {
+  background-color: #006a9a;
+  text-align: center;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButton Button {
+  text-transform: uppercase;
+}
+
+.PlaceListItemButtonSelectActive {
+  background-image: none;
+  background-color: pink;
+}
+
+.PlaceListItemButtonSelectActive:hover {
+  background-image: none;
+  background-color: green;
+}
+
+.PlaceListItemButtonRemove {
+  background-image: none;
+  background-color: aqua;
+}
+
+.PlaceListItemButtonRemove:hover {
+  background-image: none;
+  background-color: blue;
+}
+
+.PlaceListItemButtonSelectDisabled {
+
+}
+
+.PlaceListItemButtonSelectDetails {
+  background-image: none;
+  background-color: red;
+}
+
+.PlaceListItemButtonSelectDetails:hover {
+  background-image: none;
+  background-color: red;
 }

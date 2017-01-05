@@ -43,13 +43,13 @@ class placeListItem extends React.Component {
       <Grid>
         <Well>
           <Col xs={12}>
-            <Col md={3}>
+            <Col sm={5} md={3}>
               <div className="PlaceListItemIcon">
                 <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
                 <p>{this.props.attraction.name}</p>
               </div>
             </Col>
-            <Col md={9}>
+            <Col sm={7} md={9}>
               <Col xs={12}>
                 {
                   places.filter(
@@ -57,42 +57,50 @@ class placeListItem extends React.Component {
                   ).map(
                     place =>
                       <Col>
-                        <Col xs={6} md={4}>
-                          <p>{place.name}</p>
-                        </Col>
-                        <Col xs={6} md={4}>
-                          <p>pogoda</p>
-                        </Col>
-                        <Col xs={6} md={2}>
-                          {
-                            this.props.thingsToCompare.find(
-                              thing => {
-                                return (
-                                  thing.attraction.id === this.props.attraction.id &&
-                                  thing.place.id === place.id
-                                )
-                              }
-                            ) !== undefined ?
-                              <Button onClick={() =>
-                                this.props.removeAttractionAndPlaceFromCompare
-                                (this.props.attraction, place)}
-                              >remove</Button>
-                              :
-                              this.props.thingsToCompare.length < 3 ?
-                                <Button onClick={() =>
-                                  this.props.addAttractionAndPlaceToCompare
+                        <div className="PlaceListItemCityName">
+                          <Col xs={6} md={4}>
+                            <p>{place.name}</p>
+                          </Col>
+                        </div>
+                        <div className="PlaceListItemWeather">
+                          <Col xs={6} md={4}>
+                            <p>pogoda</p>
+                          </Col>
+                        </div>
+                        <div className="PlaceListItemButton">
+                          <Col xs={6} md={2}>
+                            {
+                              this.props.thingsToCompare.find(
+                                thing => {
+                                  return (
+                                    thing.attraction.id === this.props.attraction.id &&
+                                    thing.place.id === place.id
+                                  )
+                                }
+                              ) !== undefined ?
+                                <Button className="PlaceListItemButtonRemove" onClick={() =>
+                                  this.props.removeAttractionAndPlaceFromCompare
                                   (this.props.attraction, place)}
-                                >select</Button>
-                                : <Button disabled>Compare</Button>
-                          }
-                        </Col>
-                        <Col xs={6} md={2}>
-                          <Link to='/place-details'>
-                            <Button>
-                              place details
-                            </Button>
-                          </Link>
-                        </Col>
+                                >remove</Button>
+                                :
+                                this.props.thingsToCompare.length < 3 ?
+                                  <Button className="PlaceListItemButtonSelectActive" onClick={() =>
+                                    this.props.addAttractionAndPlaceToCompare
+                                    (this.props.attraction, place)}
+                                  >select</Button>
+                                  : <p className="PlaceListItemButtonSelectDisabled">select</p>
+                            }
+                          </Col>
+                        </div>
+                        <div className="PlaceListItemButton">
+                          <Col xs={6} md={2}>
+                            <Link to='/place-details'>
+                              <Button className="PlaceListItemButtonSelectDetails">
+                                Details
+                              </Button>
+                            </Link>
+                          </Col>
+                        </div>
                       </Col>
                   )
                 }
