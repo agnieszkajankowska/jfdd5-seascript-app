@@ -4,6 +4,7 @@ import {Button} from 'react-bootstrap'
 import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions} from '../Database'
 import {connect} from 'react-redux'
+import './PlaceListItem.css'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -36,64 +37,68 @@ class placeListItem extends React.Component {
     return (
       <Grid>
         <Well>
-        <Col xs={12}>
-          <Col xs={4}>
-            <p>
-              <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
-              {this.props.attraction.name}
-            </p>
-          </Col>
-          <Col xs={4}>
-            <ul>
-              {
-                places.filter(
-                  place => place.attractions.indexOf(this.props.attraction.id) !== -1
-                ).map(
-                  place =>
-                    <div>
-                      <li>{place.name}</li>
-                      {
-                        this.props.thingsToCompare.find(
-                          thing => {
-                            return (
-                              thing.attraction.id === this.props.attraction.id &&
-                              thing.place.id === place.id
-                            )
+          <Col xs={12}>
+            <Col md={4}>
+              <p>
+                <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
+                {this.props.attraction.name}
+              </p>
+            </Col>
+            <Col md={8}>
+              <Col xs={12}>
+                {
+                  places.filter(
+                    place => place.attractions.indexOf(this.props.attraction.id) !== -1
+                  ).map(
+                    place =>
+                      <Col>
+                        <Col xs={6} md={3}>
+                          <p>{place.name}</p>
+                        </Col>
+                        <Col xs={6} md={3}>
+                          <p>pogoda</p>
+                        </Col>
+                        <Col xs={6} md={3}>
+                          {
+                            this.props.thingsToCompare.find(
+                              thing => {
+                                return (
+                                  thing.attraction.id === this.props.attraction.id &&
+                                  thing.place.id === place.id
+                                )
+                              }
+                            ) !== undefined ?
+                              <Button onClick={() =>
+                                this.props.removeAttractionAndPlaceFromCompare
+                                (this.props.attraction, place)}
+                              >remove</Button>
+                              :
+                              this.props.thingsToCompare.length < 3 ?
+                                <Button onClick={() =>
+                                  this.props.addAttractionAndPlaceToCompare
+                                  (this.props.attraction, place)}
+                                >select</Button>
+                                : <Button disabled>Compare</Button>
                           }
-                        ) !== undefined ?
-                          <Button onClick={() =>
-                          this.props.removeAttractionAndPlaceFromCompare
-                          (this.props.attraction, place)}
-                          >remove</Button>
-                          :
-                          this.props.thingsToCompare.length < 3 ?
-                            <Button onClick={() =>
-                            this.props.addAttractionAndPlaceToCompare
-                            (this.props.attraction, place)}
-                            >Compare</Button>
-                            : <Button disabled>Compare</Button>
-                      }
-                    </div>
-                )
-              }
-            </ul>
+                        </Col>
+                        <Col xs={6} md={3}>
+                          <Link to='/place-details'>
+                            <Button>
+                              place details
+                            </Button>
+                          </Link>
+                        </Col>
+                      </Col>
+                  )
+                }
+              </Col>
+            </Col>
           </Col>
-          <Col xs={4}>
-            <Link to='/place-compare'>
-              <Button>
-                place compare
-              </Button>
-            </Link>
-            <Link to='/place-details'>
-              <Button>
-                place details
-              </Button>
-            </Link>
-          </Col>
-        </Col>
           <Clearfix/>
-          </Well>
+        </Well>
+
       </Grid>
+
     )
   }
 }
