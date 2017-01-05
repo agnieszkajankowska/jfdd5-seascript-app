@@ -7,7 +7,7 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import './AttractionView.css'
 
-import {attractions, places, additionals} from '../../Database'
+import {attractions, additionals} from '../../Database'
 
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
@@ -34,16 +34,9 @@ class AttractionView extends React.Component {
     const chosenAdditionals = additionals.filter(
       additional => placesIds.indexOf(additional.placeId) !== -1 && attractionIds.indexOf(additional.attractionId) !== -1
     )
-    console.log(placesIds)
-    console.log(attractionIds)
-    console.log(chosenAdditionals)
-
-
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
-    console.log("yyyyyy", theLowestPrice)
 
     return (
-
       <div>
         <table>
           <tbody>
@@ -51,60 +44,75 @@ class AttractionView extends React.Component {
             <td className='table-header-width'>
               Activity:
             </td>
-            {this.props.thingsToCompare.map(
-              thing =>
-                <td
-                  className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.attraction.name}</td>)}
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.attraction.name}
+                  </td>)
+            }
           </tr>
+
           <tr>
-            <td className='table-header-width'>
-              Price:
-            </td>
-            {this.props.thingsToCompare.map(
-              thing =>
-                <td
-                  className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.price}</td>)}
-          </tr>
-          <tr>
-            <td>
-              City:
-            </td>
+            <td className='table-header-width'> Price:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.place.name}</td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.price}
+                  </td>)
+            }
           </tr>
+
           <tr>
-            <td className='table-header-width'>
-              Available:
-            </td>
+            <td className='table-header-width'> City:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.availability}</td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.place.name}
+                  </td>)
+            }
           </tr>
+
           <tr>
-            <td className='table-header-width'>
-              Children:
-            </td>
+            <td className='table-header-width'> Available:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.children === true ? 'yes' : 'no'}</td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.availability}
+                  </td>)
+            }
           </tr>
+
           <tr>
-            <td className='table-header-width'>
-              Description:
-            </td>
+            <td className='table-header-width'> Children:</td>
             {
-             this.props.thingsToCompare.map(
+              this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.content}</td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.children === true ? 'yes' : 'no'}
+                  </td>)
+            }
           </tr>
+
+          <tr>
+            <td className='table-header-width'> Description:</td>
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.content}
+                  </td>)
+            }
+          </tr>
+
           <tr>
             <td className='table-header-width'>
               Ranking:
@@ -113,70 +121,82 @@ class AttractionView extends React.Component {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.ranking}</td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.ranking}
+                  </td>)
+            }
           </tr>
-          <tr>
-            <td className='table-header-width'>
-              Opinions:
-            </td>
-            {
-              this.props.thingsToCompare.map(
-                thing =>
-                  <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{thing.additional.opinion}</td>)}
-          </tr>
-          <tr>
-            <td className='table-header-width'>
-              Other sports available:
-            </td>
-            {
-              this.props.thingsToCompare.map(
-                thing =>
-                  <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>{attractions.filter(attraction =>
-                    thing.place.attractions.indexOf(attraction.id) !== -1
-                  ).map(attraction => <li key={attraction.id}>{attraction.name}</li>)}</td>)}
-          </tr>
-          <tr>
-            <td>
-              {''}
-              </td>
-              {
-                this.props.thingsToCompare.map(
-                  thing =>
-                    <td
-                      className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                      <Button bsStyle="primary"
-                                bsSize="large"
-                                onClick={() =>
-                      this.props.addAttractionToFavorites(thing.attraction, thing.place)}>
-                      ADD TO FAVORITES</Button></td>)}
-          </tr>
-          <tr>
-            <td>
-              {''}
-            </td>
 
+          <tr>
+            <td className='table-header-width'> Opinions:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}><ViewMoreButton /></td>)}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {thing.additional.opinion}
+                  </td>)
+            }
           </tr>
-          <tr>
-            <td>
-              {''}
-            </td>
 
-              {
-                this.props.thingsToCompare.map(
-                  thing =>
-                    <td
-                      className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}><ReservationButton /></td>)}
+          <tr>
+            <td className='table-header-width'> Other sports available:</td>
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    {attractions.filter(
+                      attraction =>
+                      thing.place.attractions.indexOf(attraction.id) !== -1
+                    ).map(
+                      attraction =>
+                        <li key={attraction.id}>{attraction.name}</li>)}
+                  </td>)
+            }
+          </tr>
+
+          <tr>
+            <td>{''}</td>
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    <Button bsStyle="primary"
+                            bsSize="large"
+                            onClick={() =>
+                              this.props.addAttractionToFavorites(thing.attraction, thing.place)}>
+                      ADD TO FAVORITES</Button>
+                  </td>)
+            }
+          </tr>
+
+          <tr>
+            <td>{''}</td>
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    <ViewMoreButton />
+                  </td>)
+            }
+          </tr>
+
+          <tr>
+            <td>{''}</td>
+            {
+              this.props.thingsToCompare.map(
+                thing =>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    <ReservationButton />
+                  </td>)
+            }
           </tr>
           </tbody>
         </table>
-
       </div>
     )
   }

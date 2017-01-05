@@ -14,13 +14,12 @@ const PlaceCompare = () => {
           <h1>Compare chosen attractions below:</h1>
         </Row>
         <Row>
-        <AttractionView />
+          <AttractionView />
         </Row>
       </Grid>
     </div>
   )
 }
-
 
 
 export default PlaceCompare
