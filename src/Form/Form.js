@@ -37,17 +37,17 @@ class Form extends React.Component {
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.chooseAttraction(attraction.id)}
-                                 className="Form-chosenAttraction">
-                        <p className="chosenAttractionName">{attraction.name}</p>
-                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/chosen-icon2.png'} className="icon-chosen"/>
+                                 className="Form-removedAttraction">
+                        <p className="removeAttractionName">{attraction.name}</p>
+                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon4.png'} className="icon-chosen"/>
 
                       </Thumbnail> :
 
                       <Thumbnail src={process.env.PUBLIC_URL + '/images/icons/attractions/' + attraction.image}
                                  onClick={() => this.props.removeAttraction(attraction.id)}
-                                 className="Form-removedAttraction">
-                        <p className="removeAttractionName">{attraction.name}</p>
-                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon4.png'} className="icon-question"/>
+                                 className="Form-chosenAttraction">
+                        <p className="chosenAttractionName">{attraction.name}</p>
+                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/chosen-icon2.png'} className="icon-question"/>
                       </Thumbnail>
                   }
                 </Col>
