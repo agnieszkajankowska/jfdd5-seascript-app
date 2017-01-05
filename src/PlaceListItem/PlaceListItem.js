@@ -78,16 +78,16 @@ class placeListItem extends React.Component {
                                   )
                                 }
                               ) !== undefined ?
-                                <Button className="PlaceListItemButtonRemove" onClick={() =>
+                                <submit className="PlaceListItemButtonRemove" onClick={() =>
                                   this.props.removeAttractionAndPlaceFromCompare
                                   (this.props.attraction, place)}
-                                >remove</Button>
+                                >remove</submit>
                                 :
                                 this.props.thingsToCompare.length < 3 ?
-                                  <Button className="PlaceListItemButtonSelectActive" onClick={() =>
+                                  <submit className="PlaceListItemButtonSelectActive" onClick={() =>
                                     this.props.addAttractionAndPlaceToCompare
                                     (this.props.attraction, place)}
-                                  >select</Button>
+                                  >select</submit>
                                   : <p className="PlaceListItemButtonSelectDisabled">select</p>
                             }
                           </Col>
@@ -95,9 +95,9 @@ class placeListItem extends React.Component {
                         <div className="PlaceListItemButton">
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to='/place-details'>
-                              <Button className="PlaceListItemButtonSelectDetails">
+                              <submit className="PlaceListItemButtonSelectDetails">
                                 Details
-                              </Button>
+                              </submit>
                             </Link>
                           </Col>
                         </div>
