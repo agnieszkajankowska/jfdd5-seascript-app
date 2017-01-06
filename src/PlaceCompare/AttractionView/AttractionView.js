@@ -2,7 +2,7 @@ import React from 'react'
 
 import {connect} from 'react-redux'
 
-import {Grid, Row, Col} from 'react-bootstrap'
+import {Grid, Row, Col, Popover, OverlayTrigger} from 'react-bootstrap'
 
 import {Button} from 'react-bootstrap'
 import './AttractionView.css'
@@ -46,6 +46,12 @@ class AttractionView extends React.Component {
     )
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
 
+    const popoverHoverFocus = (
+      <Popover id="popover-trigger-hover-focus">
+        Add to Favorites
+      </Popover>
+    );
+
     return (
       <div>
         <table>
@@ -57,7 +63,7 @@ class AttractionView extends React.Component {
             {
               this.props.thingsToCompare.map(
                 thing =>
-                  <td className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                  <td className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
                     {thing.attraction.name} {' '}
                     {
                       this.props.chosenToFavoritesAttractions.find(
@@ -68,19 +74,18 @@ class AttractionView extends React.Component {
                           )
                         }
                       ) !== undefined ?
-                        <a className="favorites"
+                        <OverlayTrigger trigger='hover' placement="top" overlay={popoverHoverFocus}><a className="remove-from-favorites"
                            onClick={() =>
                              this.props.removeAttractionFromFavorites
                              (thing.attraction, thing.place)}
-                        ><MdStars/></a>
+                        ><MdStars /></a></OverlayTrigger>
                         :
-                        <a className="favorites"
+                        <OverlayTrigger trigger='hover' placement="top" overlay={popoverHoverFocus}><a className="favorites"
                            onClick={() =>
                              this.props.addAttractionToFavorites
                              (thing.attraction, thing.place)}
-                        ><MdStars/></a>
+                        ><MdStars/></a></OverlayTrigger>
                     }
-
                   </td>)
             }
           </tr>
@@ -183,24 +188,7 @@ class AttractionView extends React.Component {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    <Button bsStyle=""
-                            bsSize="large"
-                            bsClass="button"
-                            onClick={() =>
-                              this.props.addAttractionToFavorites(thing.attraction, thing.place)}>
-                      <MdStars/></Button>
-                  </td>)
-            }
-          </tr>
-
-          <tr>
-            <td className='table-header'>{''}</td>
-            {
-              this.props.thingsToCompare.map(
-                thing =>
-                  <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
                     <ViewMoreButton />
                   </td>)
             }
@@ -212,7 +200,7 @@ class AttractionView extends React.Component {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
                     <ReservationButton />
                   </td>)
             }

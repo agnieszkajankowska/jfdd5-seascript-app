@@ -60,9 +60,27 @@ td {
 
 .favorites {
   color: darkorange;
-  font-size: 25px;
+  font-size: 40px;
+  transition: linear 0.3s ;
 }
 
-.favorites:visited{
-  color: blue;
+.remove-from-favorites {
+  color: #006a9a;
+  font-size: 30px;
+  transition: linear 0.3s ;
+}
+
+table { border: none; border-collapse: collapse; }
+table td { border-left: 1px solid #006a9a;
+  border-right: 1px solid #006a9a;}
+table td:first-child { border-left: none; }
+
+.button-row {
+  height: 100px;
+}
+
+.place-row {
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: bold;
 }
