@@ -39,6 +39,7 @@ class placeListItem extends React.Component {
   }
 
   render() {
+
     return (
       <Grid>
         <Well>

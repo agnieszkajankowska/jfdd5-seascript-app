@@ -6,10 +6,12 @@ import {connect} from 'react-redux'
 import GoogleMap from 'google-map-react'
 import {places, attractions} from '../Database'
 import './PlaceList.css'
+
 import PlaceListMarker from './PlaceListMarker/PlaceListMarker'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
+  placesIds: state.attractionsData.placesIds,
   mapData: state.isAMap.mapData
 })
 
@@ -28,15 +30,30 @@ class placeList extends React.Component {
   }
 
   render() {
-    this.props.mapData.map(
-      oneMapData =>
-        console.log(oneMapData.isMapVisible)
-    )
+    // this.props.mapData.map(
+    //   oneMapData =>
+    //     console.log(oneMapData.isMapVisible)
+    // )
+
+    {
+      places.filter(
+        place =>
+        this.props.attractionsIds.indexOf(place.id) !==-1
+      ).map(
+        place =>
+          console.log(place.name)
+      )
+    }
+
     return (
 
       <div>
         <div>
-          {attractions.filter(attraction => this.props.attractionsIds.indexOf(attraction.id) !== -1).map(attraction =>
+          {
+            attractions.filter(
+            attraction =>
+            this.props.attractionsIds.indexOf(attraction.id) !== -1
+          ).map(attraction =>
             <PlaceListItem attraction={attraction}/>)}
         </div>
         <Link to='/place-compare'>
@@ -63,9 +80,17 @@ class placeList extends React.Component {
                       lng: 15
                     }}
                     defaultZoom={10}>
-                    <PlaceListMarker lat={55}
-                                     lng={15}
-                    />
+                    {/*{*/}
+                      {/*places.filter(*/}
+                        {/*place => place.attractions.indexOf(this.props.attraction.id) !== -1*/}
+                      {/*).map(*/}
+                        {/*place =>*/}
+                          {/*<PlaceListMarker lat={parseFloat(place.latitude)}*/}
+                                           {/*lng={parseFloat(place.longitude)}*/}
+                          {/*/>*/}
+                      {/*)*/}
+                    {/*}*/}
+
                   </GoogleMap>
                 </div>
               </Modal.Body>
