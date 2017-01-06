@@ -26,7 +26,10 @@ class placeList extends React.Component {
   }
 
   render() {
-console.log(this.props.mapData)
+    this.props.mapData.map(
+      oneMapData =>
+        console.log(oneMapData.isMapVisible)
+    )
     return (
 
       <div>
@@ -39,7 +42,10 @@ console.log(this.props.mapData)
         </Link>
         <Button onClick={() => this.props.showMap()}>Mapa</Button>
 
-        {this.props.mapData.isMapVisible === true ?
+        {
+          this.props.mapData.map(
+          oneMapData =>
+            oneMapData.isMapVisible) === true ?
           <div className="static-modal">
             <Modal.Dialog>
               <Modal.Header>
