@@ -1,0 +1,102 @@
+.PlaceListItemIcon img {
+  width:100%;
+}
+
+.PlaceListItemIcon p {
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.PlaceListItemCityName {
+  /*height: 25px;*/
+}
+
+.PlaceListItemCityName p {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #006a9a;
+  border: solid 1px black;
+  color: black;
+  font-size: 16px;
+}
+
+.PlaceListItemWeather p {
+  margin-bottom: 0;
+  background-color: #006a9a;
+  text-align: center;
+  border: solid 1px black;
+  color: black;
+  font-size: 16px;
+}
+
+.PlaceListItemButton {
+  text-transform: uppercase;
+}
+
+.PlaceListItemButtonSelectActive {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButtonSelectActive:hover {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButtonRemove {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButtonRemove:hover {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButtonSelectDisabled {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemButtonSelectDetails {
+  background-color: red;
+  display: flex;
+  font-size: 16px;
+  border: solid 1px black;
+
+  justify-content: center;
+}
+
+.PlaceListItemButtonSelectDetails:hover {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  font-size: 16px;
+  border: solid 1px black;
+
+}
+
+.PlaceListItemResetPadding {
+  padding-left: 0;
+  padding-right: 0;
+}
