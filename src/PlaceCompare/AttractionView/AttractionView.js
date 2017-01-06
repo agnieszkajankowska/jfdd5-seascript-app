@@ -1,10 +1,8 @@
 import React from 'react'
-
 import {connect} from 'react-redux'
 
-import {Grid, Row, Col, Popover, OverlayTrigger} from 'react-bootstrap'
+import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
 
-import {Button} from 'react-bootstrap'
 import './AttractionView.css'
 
 import {attractions, additionals} from '../../Database'
@@ -42,7 +40,9 @@ class AttractionView extends React.Component {
     const placesIds = this.props.thingsToCompare.map(attraction => attraction.place.id)
     const attractionIds = this.props.thingsToCompare.map(attraction => attraction.attraction.id)
     const chosenAdditionals = additionals.filter(
-      additional => placesIds.indexOf(additional.placeId) !== -1 && attractionIds.indexOf(additional.attractionId) !== -1
+      additional =>
+      placesIds.indexOf(additional.placeId) !== -1 &&
+      attractionIds.indexOf(additional.attractionId) !== -1
     )
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
 

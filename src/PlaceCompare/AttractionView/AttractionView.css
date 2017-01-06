@@ -1,7 +1,6 @@
 .the-lowest-price {
   background-color: rgb(0,159,231);
   color: white;
-
 }
 
 .other-price {
@@ -10,10 +9,6 @@
 
 p {
   font-size: 16px;
-}
-
-.compare-places {
-  height: 200px;
 }
 
 .place-compare-header{
@@ -25,12 +20,19 @@ table {
   width: 100%;
   line-height: 35px;
   font-size: 18px;
+  border: none; border-collapse: collapse;
 }
 
 td {
   vertical-align: center;
   text-align: center;
   width: 29%;
+  border-left: 1px solid #006a9a;
+  border-right: 1px solid #006a9a;
+}
+
+table td:first-child {
+  border-left: none;
 }
 
 .table-header {
@@ -46,9 +48,6 @@ td {
   vertical-align: top;
 }
 
-.text-align-left2 {
-  text-align: left;
-}
 .opinion {
   font-style: italic;
   vertical-align: top;
@@ -69,11 +68,6 @@ td {
   font-size: 30px;
   transition: linear 0.3s ;
 }
-
-table { border: none; border-collapse: collapse; }
-table td { border-left: 1px solid #006a9a;
-  border-right: 1px solid #006a9a;}
-table td:first-child { border-left: none; }
 
 .button-row {
   height: 100px;
