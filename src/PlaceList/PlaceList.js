@@ -30,21 +30,6 @@ class placeList extends React.Component {
   }
 
   render() {
-    // this.props.mapData.map(
-    //   oneMapData =>
-    //     console.log(oneMapData.isMapVisible)
-    // )
-
-    // {
-    //   places.filter(
-    //     place =>
-    //     console.log(this.props.attractionsIds.indexOf(place.attractions)) !==-1
-    //   ).map(
-    //     place =>
-    //       console.log(place.name)
-    //   )
-    // }
-
 
     {
       attractions.filter(
@@ -63,16 +48,21 @@ class placeList extends React.Component {
         }
       )
     }
-
-
-    // {
-    //   places.filter(
-    //     place =>
-    //     console.log(place.attractions)
-    //   )
-    // }
-
-    // console.log(this.props.attractionsIds)
+    {
+      attractions.filter(
+        attraction =>
+        this.props.attractionsIds.indexOf(attraction.id) !== -1
+      ).map(
+        attraction =>
+          places.filter(
+            place =>
+            place.attractions.indexOf(attraction.id) !== -1
+          ).map(
+            place =>
+              console.log("zzzzzzzzz", place.name)
+          )
+      )
+    }
 
     return (
 
@@ -93,7 +83,7 @@ class placeList extends React.Component {
         {
           this.props.mapData.map(
             oneMapData =>
-              oneMapData.isMapVisible) === true ?
+              oneMapData.isMapVisible) !== true ?
             <div className="static-modal">
               <Modal.Dialog>
                 <Modal.Header>
@@ -109,17 +99,22 @@ class placeList extends React.Component {
                         lng: 15
                       }}
                       defaultZoom={10}>
-                      {/*{*/}
-                      {/*places.filter(*/}
-                      {/*place => place.attractions.indexOf(this.props.attraction.id) !== -1*/}
-                      {/*).map(*/}
-                      {/*place =>*/}
-                      {/*<PlaceListMarker lat={parseFloat(place.latitude)}*/}
-                      {/*lng={parseFloat(place.longitude)}*/}
-                      {/*/>*/}
-                      {/*)*/}
-                      {/*}*/}
-
+                      {
+                        attractions.filter(
+                          attraction =>
+                          this.props.attractionsIds.indexOf(attraction.id) !== -1
+                        ).map(
+                          attraction =>
+                            places.filter(
+                              place =>
+                              place.attractions.indexOf(attraction.id) !== -1
+                            ).map(
+                              place =>
+                                <PlaceListMarker lat={place.latitude}
+                                                lng={place.longitude}/>
+                            )
+                        )
+                      }
                     </GoogleMap>
                   </div>
                 </Modal.Body>
