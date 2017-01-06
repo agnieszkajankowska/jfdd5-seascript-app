@@ -11,7 +11,7 @@ const PlaceCompare = () => {
     <div>
       <Grid>
         <Row>
-          <h1>Compare chosen attractions below:</h1>
+          <h1 className="place-compare-title">Compare chosen attractions below:</h1>
         </Row>
         <Row>
           <AttractionView />
