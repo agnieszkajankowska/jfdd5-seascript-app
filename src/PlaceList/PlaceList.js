@@ -45,7 +45,34 @@ class placeList extends React.Component {
     //   )
     // }
 
-    console.log(this.props.attractionsIds)
+
+    {
+      attractions.filter(
+        attraction =>
+        this.props.attractionsIds.indexOf(attraction.id) !== -1
+      ).map(
+        attraction => {
+          attraction.id,
+            places.filter(
+              place =>
+              place.attractions.indexOf(attraction.id) !== -1
+            ).map(
+              place =>
+                console.log(place.name)
+            )
+        }
+      )
+    }
+
+
+    // {
+    //   places.filter(
+    //     place =>
+    //     console.log(place.attractions)
+    //   )
+    // }
+
+    // console.log(this.props.attractionsIds)
 
     return (
 
@@ -53,10 +80,10 @@ class placeList extends React.Component {
         <div>
           {
             attractions.filter(
-            attraction =>
-            this.props.attractionsIds.indexOf(attraction.id) !== -1
-          ).map(attraction =>
-            <PlaceListItem attraction={attraction}/>)}
+              attraction =>
+              this.props.attractionsIds.indexOf(attraction.id) !== -1
+            ).map(attraction =>
+              <PlaceListItem attraction={attraction}/>)}
         </div>
         <Link to='/place-compare'>
           <Button>place compare</Button>
@@ -65,44 +92,44 @@ class placeList extends React.Component {
 
         {
           this.props.mapData.map(
-          oneMapData =>
-            oneMapData.isMapVisible) === true ?
-          <div className="static-modal">
-            <Modal.Dialog>
-              <Modal.Header>
-                <Modal.Title>Map with positions of attractions</Modal.Title>
-              </Modal.Header>
+            oneMapData =>
+              oneMapData.isMapVisible) === true ?
+            <div className="static-modal">
+              <Modal.Dialog>
+                <Modal.Header>
+                  <Modal.Title>Map with positions of attractions</Modal.Title>
+                </Modal.Header>
 
-              <Modal.Body>
-                <div style={{height: 300, width: 568}}>
-                  <GoogleMap
-                    bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE" }}
-                    defaultCenter={{
-                      lat: 55,
-                      lng: 15
-                    }}
-                    defaultZoom={10}>
-                    {/*{*/}
+                <Modal.Body>
+                  <div style={{height: 300, width: 568}}>
+                    <GoogleMap
+                      bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
+                      defaultCenter={{
+                        lat: 55,
+                        lng: 15
+                      }}
+                      defaultZoom={10}>
+                      {/*{*/}
                       {/*places.filter(*/}
-                        {/*place => place.attractions.indexOf(this.props.attraction.id) !== -1*/}
+                      {/*place => place.attractions.indexOf(this.props.attraction.id) !== -1*/}
                       {/*).map(*/}
-                        {/*place =>*/}
-                          {/*<PlaceListMarker lat={parseFloat(place.latitude)}*/}
-                                           {/*lng={parseFloat(place.longitude)}*/}
-                          {/*/>*/}
+                      {/*place =>*/}
+                      {/*<PlaceListMarker lat={parseFloat(place.latitude)}*/}
+                      {/*lng={parseFloat(place.longitude)}*/}
+                      {/*/>*/}
                       {/*)*/}
-                    {/*}*/}
+                      {/*}*/}
 
-                  </GoogleMap>
-                </div>
-              </Modal.Body>
+                    </GoogleMap>
+                  </div>
+                </Modal.Body>
 
-              <Modal.Footer>
-                <Button>Close</Button>
-              </Modal.Footer>
-            </Modal.Dialog>
-          </div> :
-          <div></div>
+                <Modal.Footer>
+                  <Button>Close</Button>
+                </Modal.Footer>
+              </Modal.Dialog>
+            </div> :
+            <div></div>
         }
       </div>
     )
