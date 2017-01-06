@@ -3,8 +3,10 @@ import {Button, Modal} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {connect} from 'react-redux'
+import GoogleMap from 'google-map-react'
 import {places, attractions} from '../Database'
 import './PlaceList.css'
+import PlaceListMarker from './PlaceListMarker/PlaceListMarker'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -45,7 +47,7 @@ class placeList extends React.Component {
         {
           this.props.mapData.map(
           oneMapData =>
-            oneMapData.isMapVisible) === true ?
+            oneMapData.isMapVisible) !== true ?
           <div className="static-modal">
             <Modal.Dialog>
               <Modal.Header>
@@ -53,7 +55,19 @@ class placeList extends React.Component {
               </Modal.Header>
 
               <Modal.Body>
-                mapa
+                <div style={{height: 300, width: 568}}>
+                  <GoogleMap
+                    bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE" }}
+                    defaultCenter={{
+                      lat: 55,
+                      lng: 15
+                    }}
+                    defaultZoom={10}>
+                    <PlaceListMarker lat={55}
+                                     lng={15}
+                    />
+                  </GoogleMap>
+                </div>
               </Modal.Body>
 
               <Modal.Footer>
