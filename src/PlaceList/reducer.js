@@ -1,24 +1,30 @@
 const initialState = {
-  showMap: false
+  mapData: []
 }
 
-export default (state = initialState, action) => {
-  console.log(action);
+export default (state=initialState, action) => {
   switch (action.type) {
-    case 'showMap':
-      console.log('dupa');
+    case 'SHOW_MAP':
       return {
         ... state,
-        showMap: true,
-
+        mapData: state.mapData.concat({
+          isMapVisible: true
+        }),
       }
-    case 'hideMap':
+    case 'HIDE_MAP':
       return {
         ... state,
-        showMap: false
+        mapData: state.mapData.concat({
+          isMapVisible: false
+        }),
       }
     default :
-      return state
+      return {
+        ...state,
+        mapData: state.mapData.concat({
+          isMapVisible: false
+        }),
+      }
   }
 }
 

@@ -7,15 +7,16 @@ import {places, attractions} from '../Database'
 import './PlaceList.css'
 
 const mapStateToProps = state => ({
-  attractionsIds: state.attractionsData.attractionsIds
+  attractionsIds: state.attractionsData.attractionsIds,
+  mapData: state.isAMap.mapData
 })
 
 const mapDispatchToProps = dispatch => ({
-  showMap: dispatch({
-    type: 'showMap'
+  showMap: () => dispatch({
+    type: 'SHOW_MAP'
   }),
-  hideMap: dispatch({
-    type: 'hideMap'
+  hideMap: () => dispatch({
+    type: 'HIDE_MAP'
   })
 })
 
@@ -25,6 +26,7 @@ class placeList extends React.Component {
   }
 
   render() {
+console.log(this.props.mapData)
     return (
 
       <div>
@@ -37,7 +39,7 @@ class placeList extends React.Component {
         </Link>
         <Button onClick={() => this.props.showMap()}>Mapa</Button>
 
-        {this.showMap === true ?
+        {this.props.mapData.isMapVisible === true ?
           <div className="static-modal">
             <Modal.Dialog>
               <Modal.Header>
