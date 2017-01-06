@@ -35,15 +35,17 @@ class placeList extends React.Component {
     //     console.log(oneMapData.isMapVisible)
     // )
 
-    {
-      places.filter(
-        place =>
-        this.props.attractionsIds.indexOf(place.id) !==-1
-      ).map(
-        place =>
-          console.log(place.name)
-      )
-    }
+    // {
+    //   places.filter(
+    //     place =>
+    //     console.log(this.props.attractionsIds.indexOf(place.attractions)) !==-1
+    //   ).map(
+    //     place =>
+    //       console.log(place.name)
+    //   )
+    // }
+
+    console.log(this.props.attractionsIds)
 
     return (
 
@@ -64,7 +66,7 @@ class placeList extends React.Component {
         {
           this.props.mapData.map(
           oneMapData =>
-            oneMapData.isMapVisible) !== true ?
+            oneMapData.isMapVisible) === true ?
           <div className="static-modal">
             <Modal.Dialog>
               <Modal.Header>
