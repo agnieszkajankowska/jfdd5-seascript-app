@@ -12,6 +12,11 @@ import {attractions, additionals} from '../../Database'
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
 
+import FaStar from 'react-icons/lib/fa/star'
+import GoCheck from 'react-icons/lib/go/check'
+import GoX from 'react-icons/lib/go/x'
+import MdStars  from 'react-icons/lib/md/stars'
+
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
   chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
@@ -21,6 +26,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addAttractionToFavorites: (attraction, place) => dispatch({
     type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
+    attraction: attraction,
+    place: place
+  }),
+  removeAttractionFromFavorites: (attraction, place) => dispatch({
+    type: 'REMOVE_ATTRACTION_AND_PLACE_TO_FAVORITES',
     attraction: attraction,
     place: place
   })
@@ -41,20 +51,43 @@ class AttractionView extends React.Component {
         <table>
           <tbody>
           <tr>
-            <td className='table-header-width'>
+            <td className='table-header'>
               Activity:
             </td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    {thing.attraction.name}
+                    {thing.attraction.name} {' '}
+                    {
+                      this.props.chosenToFavoritesAttractions.find(
+                        attraction => {
+                          return (
+                            attraction.attraction.id === thing.attraction.id &&
+                            attraction.place.id === thing.place.id
+                          )
+                        }
+                      ) !== undefined ?
+                        <a className="favorites"
+                           onClick={() =>
+                             this.props.removeAttractionFromFavorites
+                             (thing.attraction, thing.place)}
+                        ><MdStars/></a>
+                        :
+                        <a className="favorites"
+                           onClick={() =>
+                             this.props.addAttractionToFavorites
+                             (thing.attraction, thing.place)}
+                        ><MdStars/></a>
+                    }
+
                   </td>)
             }
           </tr>
 
+
           <tr>
-            <td className='table-header-width'> Price:</td>
+            <td className='table-header'> Price:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
@@ -66,7 +99,7 @@ class AttractionView extends React.Component {
           </tr>
 
           <tr>
-            <td className='table-header-width'> City:</td>
+            <td className='table-header'> City:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
@@ -78,7 +111,7 @@ class AttractionView extends React.Component {
           </tr>
 
           <tr>
-            <td className='table-header-width'> Available:</td>
+            <td className='table-header'> Available:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
@@ -90,31 +123,19 @@ class AttractionView extends React.Component {
           </tr>
 
           <tr>
-            <td className='table-header-width'> Children:</td>
+            <td className='table-header'> Children:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    {thing.additional.children === true ? 'yes' : 'no'}
+                    <p className="enlarge-font">{thing.additional.children === true ? <GoCheck/> : <GoX/>}</p>
                   </td>)
             }
           </tr>
 
           <tr>
-            <td className='table-header-width'> Description:</td>
-            {
-              this.props.thingsToCompare.map(
-                thing =>
-                  <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    {thing.additional.content}
-                  </td>)
-            }
-          </tr>
-
-          <tr>
-            <td className='table-header-width'>
+            <td className='table-header'>
               Ranking:
             </td>
             {
@@ -122,30 +143,30 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    {thing.additional.ranking}
+                    <p className="enlarge-font">{Array(thing.additional.ranking).fill(<FaStar />)}</p>
                   </td>)
             }
           </tr>
 
           <tr>
-            <td className='table-header-width'> Opinions:</td>
+            <td className='table-header'> Opinions:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    {thing.additional.opinion}
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price opinion' : 'other-price opinion'}>
+                    “{thing.additional.opinion}“
                   </td>)
             }
           </tr>
 
           <tr>
-            <td className='table-header-width'> Other sports available:</td>
+            <td className='table-header'> Other sports available:</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price text-align-left' : 'other-price text-align-left'}>
                     {attractions.filter(
                       attraction =>
                       thing.place.attractions.indexOf(attraction.id) !== -1
@@ -157,23 +178,24 @@ class AttractionView extends React.Component {
           </tr>
 
           <tr>
-            <td>{''}</td>
+            <td className='table-header'>{''}</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price' : 'other-price'}>
-                    <Button bsStyle="primary"
+                    <Button bsStyle=""
                             bsSize="large"
+                            bsClass="button"
                             onClick={() =>
                               this.props.addAttractionToFavorites(thing.attraction, thing.place)}>
-                      ADD TO FAVORITES</Button>
+                      <MdStars/></Button>
                   </td>)
             }
           </tr>
 
           <tr>
-            <td>{''}</td>
+            <td className='table-header'>{''}</td>
             {
               this.props.thingsToCompare.map(
                 thing =>
@@ -185,7 +207,7 @@ class AttractionView extends React.Component {
           </tr>
 
           <tr>
-            <td>{''}</td>
+            <td className='table-header'>{''}</td>
             {
               this.props.thingsToCompare.map(
                 thing =>

@@ -1,16 +1,10 @@
-.compare-places {
-  color: deeppink;
-  height: 200px;
-}
-
-.place-compare-header{
+.place-compare-title{
   text-align: center;
   padding-bottom: 50px;
 }
 
 table {
   width: 100%;
-
 }
 
 .table-header-width {

@@ -9,67 +9,67 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "“Not worth recommending“"
   },
   {
     id: 2,
     placeId: 1,
     attractionId: 2,
-    price: 200,
+    price: 110,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Not recommended for beginners"
   },
   {
     id: 3,
     placeId: 1,
     attractionId: 3,
-    price: 300,
+    price: 120,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Flying experience was amazing..."
   },
   {
     id: 4,
     placeId: 1,
     attractionId: 4,
-    price: 220,
+    price: 130,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Fun time and a must try"
   },
   {
     id: 5,
     placeId: 1,
     attractionId: 5,
-    price: 200,
+    price: 30,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Very good spot. I'll recommend it"
   },
   {
     id: 6,
     placeId: 1,
     attractionId: 6,
-    price: 100,
+    price: 140,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Avoid. Plenty of geniune others around"
   },
   {
     id: 7,
@@ -80,80 +80,80 @@ export default [
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Generally, quite ok"
   },
   {
     id: 8,
     placeId: 1,
     attractionId: 8,
-    price: 300,
+    price: 160,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Very professional and reasonable prices"
   },
   {
     id: 9,
     placeId: 1,
     attractionId: 9,
-    price: 100,
+    price: 125,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Simply the best"
   },
   {
     id: 10,
     placeId: 1,
     attractionId: 10,
-    price: 100,
+    price: 135,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "A great fun for family and friends"
   },
   {
     id: 11,
     placeId: 1,
     attractionId: 11,
-    price: 100,
+    price: 155,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Won't go anywhere else"
   },
   {
     id: 12,
     placeId: 1,
     attractionId: 12,
-    price: 100,
+    price: 145,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Great atmosphere, great service"
   },
   {
     id: 13,
     placeId: 2,
     attractionId: 1,
-    price: 252,
+    price: 200,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "What a great time sailing the bay! The crew and service are great and it's an actual"
   },
   {
     id: 14,
@@ -164,80 +164,80 @@ export default [
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Nice kayak spot. I totally recommend it"
   },
   {
     id: 15,
     placeId: 2,
     attractionId: 3,
-    price: 105,
+    price: 250,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "High flying fun..."
   },
   {
     id: 16,
     placeId: 2,
     attractionId: 4,
-    price: 250,
+    price: 210,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Lovely spot"
   },
   {
     id: 17,
     placeId: 2,
     attractionId: 5,
-    price: 175,
+    price: 45,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
+    ranking: 5,
     opinion: "bla bla"
   },
   {
     id: 18,
     placeId: 2,
     attractionId: 6,
-    price: 100,
+    price: 105,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Overrated. Nothing worth specifically visiting"
   },
   {
     id: 19,
     placeId: 2,
     attractionId: 7,
-    price: 100,
+    price: 185,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
+    ranking: 4,
     opinion: "bla bla"
   },
   {
     id: 20,
     placeId: 2,
     attractionId: 8,
-    price: 300,
+    price: 165,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Good spot for Jet Skiing"
   },
   {
     id: 21,
@@ -248,56 +248,56 @@ export default [
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Extremely fun, pricey"
   },
   {
     id: 22,
     placeId: 2,
     attractionId: 10,
-    price: 150,
+    price: 210,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
+    ranking: 4,
     opinion: "bla bla"
   },
   {
     id: 23,
     placeId: 2,
     attractionId: 11,
-    price: 150,
+    price: 300,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Anything fun on the water starts here"
   },
   {
     id: 24,
     placeId: 2,
     attractionId: 12,
-    price: 150,
+    price: 305,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Average"
   },
   {
     id: 25,
     placeId: 3,
     attractionId: 1,
-    price: 175,
+    price: 122,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Everybody who was interested got a chance to sail or handle lines, but the captain and mate let us just hang out too."
   },
   {
     id: 26,
@@ -308,8 +308,8 @@ export default [
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "A little place of peace and quiet"
   },
   {
     id: 27,
@@ -320,680 +320,680 @@ export default [
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "The best thing I've done for years"
   },
   {
     id: 28,
     placeId: 3,
     attractionId: 4,
-    price: 100,
+    price: 200,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
+    ranking: 3,
     opinion: "bla bla"
   },
   {
     id: 29,
     placeId: 3,
     attractionId: 5,
+    price: 70,
+    title: 'xxx',
+    content: 'złe',
+    availability: 'July-Sept',
+    children: true,
+    ranking: 2,
+    opinion: "Nothing special"
+  },
+  {
+    id: 30,
+    placeId: 3,
+    attractionId: 6,
+    price: 190,
+    title: 'xxx',
+    content: 'Najlepsze',
+    availability: 'May-Sept',
+    children: true,
+    ranking: 4,
+    opinion: "King of the water!"
+  },
+  {
+    id: 31,
+    placeId: 3,
+    attractionId: 7,
+    price: 105,
+    title: 'xxx',
+    content: 'Średnie',
+    availability: 'June-Sept',
+    children: true,
+    ranking: 4,
+    opinion: "Something to experience!"
+  },
+  {
+    id: 32,
+    placeId: 3,
+    attractionId: 8,
+    price: 99,
+    title: 'xxx',
+    content: 'złe',
+    availability: 'July-Sept',
+    children: true,
+    ranking: 1,
+    opinion: "Poor service. Poor spot. Not worth it."
+  },
+  {
+    id: 33,
+    placeId: 3,
+    attractionId: 9,
     price: 200,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
-  },
-  {
-    id: 30,
-    placeId: 3,
-    attractionId: 6,
-    price: 100,
-    title: 'xxx',
-    content: 'Najlepsze',
-    availability: 'May-Sept',
-    children: true,
-    ranking: 1,
-    opinion: "bla bla"
-  },
-  {
-    id: 31,
-    placeId: 3,
-    attractionId: 7,
-    price: 100,
-    title: 'xxx',
-    content: 'Średnie',
-    availability: 'June-Sept',
-    children: true,
-    ranking: 1,
-    opinion: "bla bla"
-  },
-  {
-    id: 32,
-    placeId: 3,
-    attractionId: 8,
-    price: 100,
-    title: 'xxx',
-    content: 'złe',
-    availability: 'July-Sept',
-    children: true,
-    ranking: 1,
-    opinion: "bla bla"
-  },
-  {
-    id: 33,
-    placeId: 3,
-    attractionId: 9,
-    price: 100,
-    title: 'xxx',
-    content: 'złe',
-    availability: 'July-Sept',
-    children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    opinion: "I didn't like it"
   },
   {
     id: 34,
     placeId: 3,
     attractionId: 10,
-    price: 100,
+    price: 137,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "I've never had such fun!"
   },
   {
     id: 35,
     placeId: 3,
     attractionId: 11,
-    price: 100,
+    price: 128,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Fantastic!"
   },
   {
     id: 36,
     placeId: 3,
     attractionId: 12,
-    price: 100,
+    price: 203,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Not to be missed!"
   },
   {
     id: 37,
     placeId: 4,
     attractionId: 1,
-    price: 100,
+    price: 149,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "It was a good experience. I would recommend the company"
   },
   {
     id: 38,
     placeId: 4,
     attractionId: 2,
-    price: 100,
+    price: 167,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Favorite kayaking spot"
   },
   {
     id: 39,
     placeId: 4,
     attractionId: 3,
-    price: 100,
+    price: 199,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "It was acceptable, hwever, nothing special"
   },
   {
     id: 40,
     placeId: 4,
     attractionId: 4,
-    price: 100,
+    price: 209,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Not an interesting spot"
   },
   {
     id: 41,
     placeId: 4,
     attractionId: 5,
-    price: 100,
+    price: 59,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Very clean, in good spot. I loved it!"
   },
   {
     id: 42,
     placeId: 4,
     attractionId: 6,
-    price: 100,
+    price: 169,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Worth every penny"
   },
   {
     id: 43,
     placeId: 4,
     attractionId: 7,
-    price: 100,
+    price: 179,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Incredible experience"
   },
   {
     id: 44,
     placeId: 4,
     attractionId: 8,
-    price: 100,
+    price: 189,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Fun but with difficulties"
   },
   {
     id: 45,
     placeId: 4,
     attractionId: 9,
-    price: 100,
+    price: 199,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "It was spectacular!"
   },
   {
     id: 46,
     placeId: 4,
     attractionId: 10,
-    price: 100,
+    price: 209,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "A little bit scary"
   },
   {
     id: 47,
     placeId: 4,
     attractionId: 11,
-    price: 100,
+    price: 229,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
+    ranking: 3,
     opinion: "bla bla"
   },
   {
     id: 48,
     placeId: 4,
     attractionId: 12,
-    price: 100,
+    price: 219,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Good group fun"
   },
   {
     id: 49,
     placeId: 5,
     attractionId: 1,
-    price: 100,
+    price: 109,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Great, great fun. It was wonderful! We'd do it again!"
   },
   {
     id: 50,
     placeId: 5,
     attractionId: 2,
-    price: 100,
+    price: 119,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Good for little kids"
   },
   {
     id: 51,
     placeId: 5,
     attractionId: 3,
-    price: 100,
+    price: 139,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Like nothing you experienced"
   },
   {
     id: 52,
     placeId: 5,
     attractionId: 4,
-    price: 100,
+    price: 149,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Acceptable, I would not go the second time"
   },
   {
     id: 53,
     placeId: 5,
     attractionId: 5,
-    price: 100,
+    price: 49,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "I would totally recommend it"
   },
   {
     id: 54,
     placeId: 5,
     attractionId: 6,
-    price: 100,
+    price: 159,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Fantastic day"
   },
   {
     id: 55,
     placeId: 5,
     attractionId: 7,
-    price: 100,
+    price: 205,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Wonderful experience"
   },
   {
     id: 56,
     placeId: 5,
     attractionId: 8,
-    price: 100,
+    price: 208,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "A great value for money, amazing time!"
   },
   {
     id: 57,
     placeId: 5,
     attractionId: 9,
-    price: 100,
+    price: 229,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Too much fun, but over-packed"
   },
   {
     id: 58,
     placeId: 5,
     attractionId: 10,
-    price: 100,
+    price: 309,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Too much fun!"
   },
   {
     id: 59,
     placeId: 5,
     attractionId: 11,
-    price: 100,
+    price: 299,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "A must do!"
   },
   {
     id: 60,
     placeId: 5,
     attractionId: 12,
-    price: 100,
+    price: 250,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Totally loved the place and service!"
   },
   {
     id: 61,
     placeId: 6,
     attractionId: 1,
-    price: 100,
+    price: 108,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "It was just ok"
   },
   {
     id: 62,
     placeId: 6,
     attractionId: 2,
-    price: 100,
+    price: 126,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Don't waste your time going here"
   },
   {
     id: 63,
     placeId: 6,
     attractionId: 3,
-    price: 100,
+    price: 138,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "My 12-yr son loved it"
   },
   {
     id: 64,
     placeId: 6,
     attractionId: 4,
-    price: 100,
+    price: 143,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Never had a better rafting!"
   },
   {
     id: 65,
     placeId: 6,
     attractionId: 5,
-    price: 100,
+    price: 89,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "I have complaints"
   },
   {
     id: 66,
     placeId: 6,
     attractionId: 6,
-    price: 100,
+    price: 115,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Totally worth every penny"
   },
   {
     id: 67,
     placeId: 6,
     attractionId: 7,
-    price: 100,
+    price: 178,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Good instructors. A little bit expensive"
   },
   {
     id: 68,
     placeId: 6,
     attractionId: 8,
-    price: 100,
+    price: 143,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Can't wait to go back!"
   },
   {
     id: 69,
     placeId: 6,
     attractionId: 9,
-    price: 100,
+    price: 158,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: ""
   },
   {
     id: 70,
     placeId: 6,
     attractionId: 10,
-    price: 100,
+    price: 197,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Best time ever!"
   },
   {
     id: 71,
     placeId: 6,
     attractionId: 11,
-    price: 100,
+    price: 256,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "I need to do this again"
   },
   {
     id: 72,
     placeId: 6,
     attractionId: 12,
-    price: 100,
+    price: 238,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Do not go there!"
   },
   {
     id: 73,
     placeId: 7,
     attractionId: 1,
-    price: 100,
+    price: 187,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "The boat was average - not too shabby, but not luxe"
   },
   {
     id: 74,
     placeId: 7,
     attractionId: 2,
-    price: 100,
+    price: 194,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "Found here everything that we were looking for"
   },
   {
     id: 75,
     placeId: 7,
     attractionId: 3,
-    price: 100,
+    price: 103,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Great fun away form the strip"
   },
   {
     id: 76,
     placeId: 7,
     attractionId: 4,
-    price: 100,
+    price: 171,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Amazing experience"
   },
   {
     id: 77,
     placeId: 7,
     attractionId: 5,
-    price: 100,
+    price: 63,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Big, clean, not crowded, a perfect swimming pool"
   },
   {
     id: 78,
     placeId: 7,
     attractionId: 6,
-    price: 100,
+    price: 124,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "So much fun!"
   },
   {
     id: 79,
     placeId: 7,
     attractionId: 7,
-    price: 100,
+    price: 204,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "The place is great!"
   },
   {
     id: 80,
     placeId: 7,
     attractionId: 8,
-    price: 100,
+    price: 269,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Best vacation ever"
   },
   {
     id: 81,
     placeId: 7,
     attractionId: 9,
-    price: 100,
+    price: 257,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "It was very good"
   },
   {
     id: 82,
     placeId: 7,
     attractionId: 10,
-    price: 100,
+    price: 300,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "A perfect place for a family"
   },
   {
     id: 83,
     placeId: 7,
     attractionId: 11,
-    price: 100,
+    price: 274,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "I liked it"
   },
   {
     id: 84,
@@ -1004,152 +1004,152 @@ export default [
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "It was just ok"
   },
   {
     id: 85,
     placeId: 8,
     attractionId: 1,
-    price: 100,
+    price: 251,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "I wait to repeat it"
   },
   {
     id: 86,
     placeId: 8,
     attractionId: 2,
-    price: 100,
+    price: 199,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Very poor service"
   },
   {
     id: 87,
     placeId: 8,
     attractionId: 3,
-    price: 100,
+    price: 147,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Passed with 'flying' colors!"
   },
   {
     id: 88,
     placeId: 8,
     attractionId: 4,
-    price: 100,
+    price: 173,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 4,
+    opinion: "Great view!"
   },
   {
     id: 89,
     placeId: 8,
     attractionId: 5,
-    price: 100,
+    price: 119,
     title: 'xxx',
     content: 'Średnie',
     availability: 'June-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "It did the work"
   },
   {
     id: 90,
     placeId: 8,
     attractionId: 6,
-    price: 100,
+    price: 187,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 3,
+    opinion: "I liked the professional instructors"
   },
   {
     id: 91,
     placeId: 8,
     attractionId: 7,
-    price: 100,
+    price: 199,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "I would not go back"
   },
   {
     id: 92,
     placeId: 8,
     attractionId: 8,
-    price: 100,
+    price: 136,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 2,
+    opinion: "Overall experience was fine"
   },
   {
     id: 93,
     placeId: 8,
     attractionId: 9,
-    price: 100,
+    price: 216,
     title: 'xxx',
     content: 'złe',
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "bla bla"
+    opinion: "Avoid this place"
   },
   {
     id: 94,
     placeId: 8,
     attractionId: 10,
-    price: 100,
+    price: 237,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Totally worth recommending"
   },
   {
     id: 95,
     placeId: 8,
     attractionId: 11,
-    price: 100,
+    price: 274,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Good value for money"
   },
   {
     id: 96,
     placeId: 8,
     attractionId: 12,
-    price: 100,
+    price: 301,
     title: 'xxx',
     content: 'Najlepsze',
     availability: 'May-Sept',
     children: true,
-    ranking: 1,
-    opinion: "bla bla"
+    ranking: 5,
+    opinion: "Just do it!"
   }
 ]
 

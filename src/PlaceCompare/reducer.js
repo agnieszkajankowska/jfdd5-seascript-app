@@ -15,6 +15,16 @@ export default (state=initialState, action) => {
           }
         )
       }
+    case 'REMOVE_ATTRACTION_AND_PLACE_TO_FAVORITES':
+      return {
+        ...state,
+        chosenToFavoritesAttractions: state.chosenToFavoritesAttractions.filter(
+          favorite => (
+            favorite.attraction.id !== action.attraction.id ||
+            favorite.place.id !== action.place.id
+          )
+        )
+      }
     default : return state
   }
 }

@@ -9,3 +9,7 @@
 .modal-width {
   width: 100%;
 }
+.display {
+  position: relative;
+  display: inline-block;
+}
