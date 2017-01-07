@@ -45,7 +45,7 @@ class AttractionView extends React.Component {
       attractionIds.indexOf(additional.attractionId) !== -1
     )
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
-
+    console.log("zzzzzzzzzz", theLowestPrice)
     const popoverHoverFocus = (
       <Popover id="popover-trigger-hover-focus">
         Add to Favorites
