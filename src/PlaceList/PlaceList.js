@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Modal} from 'react-bootstrap'
+import {Button, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {connect} from 'react-redux'
@@ -75,53 +75,57 @@ class placeList extends React.Component {
             ).map(attraction =>
               <PlaceListItem attraction={attraction}/>)}
         </div>
-        <Link to='/place-compare'>
-          <Button>place compare</Button>
+        <Col xs={2}/>
+        <Col xs={4}>
+          <submit className="PlaceListButton" onClick={() => this.props.showMap()}>Map</submit>
+        </Col>
+        <Col xs={4}>
+          <Link className="PlaceListLink" to='/place-compare'>
+          <submit className="PlaceListButton">compare</submit>
         </Link>
-        <Button onClick={() => this.props.showMap()}>Mapa</Button>
-
+        </Col>
+        <Col xs={2}/>
         {
           this.props.mapData[this.props.mapData.length - 1].isMapVisible ?
-            <div className="static-modal">
-              <Modal.Dialog>
-                <Modal.Header>
-                  <Modal.Title>Map with positions of attractions</Modal.Title>
-                </Modal.Header>
+            <div className="PlaceListMapPopupPosition">
+            <div className="PlaceListMapPopup">
+              <div className="PlaceListMapPopupHeader">
+                <h3>Map with positions of attractions</h3>
+              </div>
 
-                <Modal.Body>
-                  <div style={{height: 300, width: 568}}>
-                    <GoogleMap
-                      bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
-                      defaultCenter={{
-                        lat: 52,
-                        lng: 20
-                      }}
-                      defaultZoom={5}>
-                      {
-                        attractions.filter(
-                          attraction =>
-                          this.props.attractionsIds.indexOf(attraction.id) !== -1
+              <div className="PlaceListMapPopupBody">
+                <GoogleMap
+                  bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
+                  defaultCenter={{
+                    lat: 52,
+                    lng: 20
+                  }}
+                  defaultZoom={5}>
+                  {
+                    attractions.filter(
+                      attraction =>
+                      this.props.attractionsIds.indexOf(attraction.id) !== -1
+                    ).map(
+                      attraction =>
+                        places.filter(
+                          place =>
+                          place.attractions.indexOf(attraction.id) !== -1
                         ).map(
-                          attraction =>
-                            places.filter(
-                              place =>
-                              place.attractions.indexOf(attraction.id) !== -1
-                            ).map(
-                              place =>
-                                <PlaceListMarker lat={place.latitude}
-                                                 lng={place.longitude}/>
-                            )
+                          place =>
+                            <PlaceListMarker lat={place.latitude}
+                                             lng={place.longitude}/>
                         )
-                      }
-                    </GoogleMap>
-                  </div>
-                </Modal.Body>
+                    )
+                  }
+                </GoogleMap>
+              </div>
 
-                <Modal.Footer>
-                  <Button onClick={() => this.props.hideMap()}>Close</Button>
-                </Modal.Footer>
-              </Modal.Dialog>
-            </div> :
+              <div className="PlaceListMapPopupFooter">
+                <submit className="PlaceListCloseButton" onClick={() => this.props.hideMap()}>Close</submit>
+              </div>
+            </div>
+            </div>
+            :
             <div></div>
         }
       </div>

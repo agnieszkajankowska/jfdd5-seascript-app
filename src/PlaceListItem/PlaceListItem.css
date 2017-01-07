@@ -2,6 +2,7 @@
   background-image:none;
   background-color: #ABd5f0;
   border: 3px solid black;
+  border-radius: 10px;
 }
 
 .PlaceListItemIcon img {
