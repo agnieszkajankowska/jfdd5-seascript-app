@@ -6,13 +6,16 @@ import {reducer as attractionsReducer} from "./Form"
 import weatherReducer from './state/weather/reduce'
 import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 import {reducer as chosenAttractionReducer} from "./PlaceCompare"
+import {reducer as placeListReducer} from "./PlaceList"
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
   attractionAndPlaceData: attractionAndPlacesReducer,
+  isAMap: placeListReducer,
   weatherData: weatherReducer,
   weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer
+
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

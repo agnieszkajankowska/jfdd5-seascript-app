@@ -39,6 +39,7 @@ class placeListItem extends React.Component {
   }
 
   render() {
+
     return (
       <Grid>
         <Well>
@@ -49,7 +50,7 @@ class placeListItem extends React.Component {
                 <p>{this.props.attraction.name}</p>
               </div>
             </Col>
-            <Col sm={7} md={9}>
+            <Col sm={7} md={9} class="PlaceListItemAllPlaces">
               <Col xs={12}>
                 {
                   places.filter(
