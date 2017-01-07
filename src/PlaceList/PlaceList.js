@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
   placesIds: state.attractionsData.placesIds,
   mapData: state.isAMap.mapData
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   showMap: () => dispatch({
@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
   hideMap: () => dispatch({
     type: 'HIDE_MAP'
   })
-})
+});
 
 class placeList extends React.Component {
   constructor() {
@@ -83,7 +83,7 @@ class placeList extends React.Component {
         {
           this.props.mapData.map(
             oneMapData =>
-              oneMapData.isMapVisible) !== true ?
+              oneMapData.isMapVisible) === true ?
             <div className="static-modal">
               <Modal.Dialog>
                 <Modal.Header>
@@ -95,10 +95,10 @@ class placeList extends React.Component {
                     <GoogleMap
                       bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
                       defaultCenter={{
-                        lat: 55,
-                        lng: 15
+                        lat: 52,
+                        lng: 20
                       }}
-                      defaultZoom={10}>
+                      defaultZoom={5}>
                       {
                         attractions.filter(
                           attraction =>
@@ -111,7 +111,7 @@ class placeList extends React.Component {
                             ).map(
                               place =>
                                 <PlaceListMarker lat={place.latitude}
-                                                lng={place.longitude}/>
+                                                 lng={place.longitude}/>
                             )
                         )
                       }

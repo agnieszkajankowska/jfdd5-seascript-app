@@ -16,7 +16,9 @@
   margin-bottom: 0;
   text-align: center;
   background-color: #006a9a;
-  border: solid 1px black;
+  border-top: solid 2px black;
+  border-left: solid 2px black;
+  border-top-left-radius: 5px;
   color: black;
   font-size: 16px;
 }
@@ -25,7 +27,9 @@
   margin-bottom: 0;
   background-color: #006a9a;
   text-align: center;
-  border: solid 1px black;
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  border-top-right-radius: 5px;
   color: black;
   font-size: 16px;
 }
@@ -34,12 +38,20 @@
   text-transform: uppercase;
 }
 
+.PlaceListItemButton col submit {
+
+}
+
 .PlaceListItemButtonSelectActive {
-  background-color: pink;
+  background-color: #008CD4;
   display: flex;
   justify-content: center;
   font-size: 16px;
-  border: solid 1px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
+  color: #fff;
+  cursor: context-menu;
 
 }
 
@@ -48,25 +60,32 @@
   display: flex;
   justify-content: center;
   font-size: 16px;
-  border: solid 1px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
 
 }
 
 .PlaceListItemButtonRemove {
-  background-color: aqua;
+  background-color: #003854;
   display: flex;
   justify-content: center;
   font-size: 16px;
-  border: solid 1px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
+  cursor: context-menu;
 
 }
 
 .PlaceListItemButtonRemove:hover {
   display: flex;
   justify-content: center;
-  background-color: blue;
+  background-color: red;
   font-size: 16px;
-  border: solid 1px black;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
 
 }
 
@@ -74,25 +93,34 @@
   display: flex;
   justify-content: center;
   font-size: 16px;
-  border: solid 1px black;
-
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
+  margin-bottom: 0;
+  background-color: beige;
 }
 
 .PlaceListItemButtonSelectDetails {
-  background-color: red;
+  background-color: #008CD4;
   display: flex;
   font-size: 16px;
-  border: solid 1px black;
-
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  border-bottom-right-radius: 5px;
   justify-content: center;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: context-menu;
 }
 
 .PlaceListItemButtonSelectDetails:hover {
   display: flex;
   justify-content: center;
-  background-color: red;
+  background-color: green;
   font-size: 16px;
-  border: solid 1px black;
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  border-bottom-right-radius: 5px;
 
 }
 
@@ -104,4 +132,8 @@
 .PlaceListItemAllPlaces {
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 992px) {
+
 }
