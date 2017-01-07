@@ -1,3 +1,9 @@
+.PlaceListItemWell {
+  background-image:none;
+  background-color: #ABd5f0;
+  border: 3px solid black;
+}
+
 .PlaceListItemIcon img {
   width:100%;
 }
@@ -6,93 +12,72 @@
   font-size: 20px;
   text-align: center;
   text-transform: uppercase;
+  color: black;
 }
 
-.PlaceListItemCityName {
-  /*height: 25px;*/
+.PlaceListItemAllPlaces {
+  margin-top: 10px;
+}
+
+.PlaceListItemCityName p, .PlaceListItemWeather p {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #006a9a;
+  border-top: solid 2px black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 0 5px;
 }
 
 .PlaceListItemCityName p {
-  margin-bottom: 0;
-  text-align: center;
-  background-color: #006a9a;
-  border-top: solid 2px black;
   border-left: solid 2px black;
   border-top-left-radius: 5px;
-  color: black;
-  font-size: 16px;
 }
 
 .PlaceListItemWeather p {
-  margin-bottom: 0;
-  background-color: #006a9a;
-  text-align: center;
-  border-top: solid 2px black;
   border-right: solid 2px black;
   border-top-right-radius: 5px;
-  color: black;
-  font-size: 16px;
 }
 
 .PlaceListItemButton {
   text-transform: uppercase;
-}
-
-.PlaceListItemButton col submit {
-
+  display:flex;
+  justify-content: center;
+  font-size: 16px;
+  cursor: context-menu;
+  padding: 5px 0 5px;
 }
 
 .PlaceListItemButtonSelectActive {
   background-color: #008CD4;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
   color: #fff;
-  cursor: context-menu;
-
 }
 
 .PlaceListItemButtonSelectActive:hover {
   background-color: green;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
-
 }
 
 .PlaceListItemButtonRemove {
   background-color: #003854;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
-  cursor: context-menu;
-
 }
 
 .PlaceListItemButtonRemove:hover {
-  display: flex;
-  justify-content: center;
   background-color: red;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
-
 }
 
 .PlaceListItemButtonSelectDisabled {
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
@@ -102,26 +87,18 @@
 
 .PlaceListItemButtonSelectDetails {
   background-color: #008CD4;
-  display: flex;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-right: solid 2px black;
   border-bottom-right-radius: 5px;
-  justify-content: center;
   color: #fff;
   margin-bottom: 10px;
-  cursor: context-menu;
 }
 
 .PlaceListItemButtonSelectDetails:hover {
-  display: flex;
-  justify-content: center;
   background-color: green;
-  font-size: 16px;
   border-bottom: solid 2px black;
   border-right: solid 2px black;
   border-bottom-right-radius: 5px;
-
 }
 
 .PlaceListItemResetPadding {
@@ -135,5 +112,35 @@
 }
 
 @media (min-width: 992px) {
+  .PlaceListItemCityName p {
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
 
-}
+  .PlaceListItemWeather p {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+  }
+
+  .PlaceListItemButtonSelectActive, .PlaceListItemButtonRemove, .PlaceListItemButtonSelectDisabled  {
+    border-top: solid 2px black;
+    border-left: none;
+    border-bottom-left-radius: 0;
+  }
+
+  .PlaceListItemButtonSelectActive:hover, .PlaceListItemButtonRemove:hover {
+    border-left: none;
+    border-bottom-left-radius: 0;
+  }
+
+  .PlaceListItemButtonSelectDetails, .PlaceListItemButtonSelectDetails:hover  {
+    border-top: solid 2px black;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  }
