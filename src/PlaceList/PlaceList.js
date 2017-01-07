@@ -81,9 +81,7 @@ class placeList extends React.Component {
         <Button onClick={() => this.props.showMap()}>Mapa</Button>
 
         {
-          this.props.mapData.map(
-            oneMapData =>
-              oneMapData.isMapVisible) === true ?
+          this.props.mapData[this.props.mapData.length - 1].isMapVisible ?
             <div className="static-modal">
               <Modal.Dialog>
                 <Modal.Header>
@@ -120,7 +118,7 @@ class placeList extends React.Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                  <Button>Close</Button>
+                  <Button onClick={() => this.props.hideMap()}>Close</Button>
                 </Modal.Footer>
               </Modal.Dialog>
             </div> :
