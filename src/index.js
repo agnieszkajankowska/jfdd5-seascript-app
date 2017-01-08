@@ -18,7 +18,7 @@ import store from "./store";
 
 import {fetchWeather} from './state/weather/actionCreators'
 const fetchWeatherFromApi = () => {
-  store.dispatch(fetchWeather('hel'))
+  store.dispatch(fetchWeather())
 }
 const fetchWeatherForList = () => {
   console.log(store.getState())
@@ -34,11 +34,9 @@ ReactDOM.render(
         <IndexRoute component={DashboardView}/>
 
         <Route path="/form" component={Form}/>
-        <Route path="/place-details" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
+        <Route path="/place-details/:placeName" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
         <Route path="/place-compare" component={PlaceCompare}/>
-        <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}>
-          <Route path="/place-details/:placeName" component={PlaceDetails} onEnter={fetchWeatherForList}/>
-        </Route>
+        <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}/>
 
         <Route path="/favorites" component={Favorites}/>
 
