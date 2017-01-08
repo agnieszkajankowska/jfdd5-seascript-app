@@ -1,3 +1,10 @@
+.PlaceListItemWell {
+  background-image:none;
+  background-color: #ABd5f0;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
 .PlaceListItemIcon img {
   width:100%;
 }
@@ -6,97 +13,135 @@
   font-size: 20px;
   text-align: center;
   text-transform: uppercase;
+  color: black;
 }
 
-.PlaceListItemCityName {
-  /*height: 25px;*/
+.PlaceListItemAllPlaces {
+  margin-top: 10px;
+}
+
+.PlaceListItemCityName p, .PlaceListItemWeather p {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #006a9a;
+  border-top: solid 2px black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 0 5px;
 }
 
 .PlaceListItemCityName p {
-  margin-bottom: 0;
-  text-align: center;
-  background-color: #006a9a;
-  border: solid 1px black;
-  color: black;
-  font-size: 16px;
+  border-left: solid 2px black;
+  border-top-left-radius: 5px;
 }
 
 .PlaceListItemWeather p {
-  margin-bottom: 0;
-  background-color: #006a9a;
-  text-align: center;
-  border: solid 1px black;
-  color: black;
-  font-size: 16px;
+  border-right: solid 2px black;
+  border-top-right-radius: 5px;
 }
 
 .PlaceListItemButton {
   text-transform: uppercase;
+  display:flex;
+  justify-content: center;
+  font-size: 16px;
+  cursor: context-menu;
+  padding: 5px 0 5px;
 }
 
 .PlaceListItemButtonSelectActive {
-  background-color: pink;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  border: solid 1px black;
-
+  background-color: #008CD4;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
+  color: #fff;
 }
 
 .PlaceListItemButtonSelectActive:hover {
   background-color: green;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  border: solid 1px black;
-
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
 }
 
 .PlaceListItemButtonRemove {
-  background-color: aqua;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  border: solid 1px black;
-
+  background-color: #003854;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
 }
 
 .PlaceListItemButtonRemove:hover {
-  display: flex;
-  justify-content: center;
-  background-color: blue;
-  font-size: 16px;
-  border: solid 1px black;
-
+  background-color: red;
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
 }
 
 .PlaceListItemButtonSelectDisabled {
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  border: solid 1px black;
-
+  border-bottom: solid 2px black;
+  border-left: solid 2px black;
+  border-bottom-left-radius: 5px;
+  margin-bottom: 0;
+  background-color: beige;
 }
 
 .PlaceListItemButtonSelectDetails {
-  background-color: red;
-  display: flex;
-  font-size: 16px;
-  border: solid 1px black;
-
-  justify-content: center;
+  background-color: #008CD4;
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 .PlaceListItemButtonSelectDetails:hover {
-  display: flex;
-  justify-content: center;
-  background-color: red;
-  font-size: 16px;
-  border: solid 1px black;
-
+  background-color: green;
+  border-bottom: solid 2px black;
+  border-right: solid 2px black;
+  border-bottom-right-radius: 5px;
 }
 
 .PlaceListItemResetPadding {
   padding-left: 0;
   padding-right: 0;
 }
+
+.PlaceListItemAllPlaces {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .PlaceListItemCityName p {
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .PlaceListItemWeather p {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+  }
+
+  .PlaceListItemButtonSelectActive, .PlaceListItemButtonRemove, .PlaceListItemButtonSelectDisabled  {
+    border-top: solid 2px black;
+    border-left: none;
+    border-bottom-left-radius: 0;
+  }
+
+  .PlaceListItemButtonSelectActive:hover, .PlaceListItemButtonRemove:hover {
+    border-left: none;
+    border-bottom-left-radius: 0;
+  }
+
+  .PlaceListItemButtonSelectDetails, .PlaceListItemButtonSelectDetails:hover  {
+    border-top: solid 2px black;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  }

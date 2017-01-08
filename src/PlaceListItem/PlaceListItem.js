@@ -39,17 +39,18 @@ class placeListItem extends React.Component {
   }
 
   render() {
+
     return (
       <Grid>
-        <Well>
-          <Col xs={12}>
+        <Well className="PlaceListItemWell">
+          <Col xs={12} className="PlaceListItemResetPadding">
             <Col sm={5} md={3}>
               <div className="PlaceListItemIcon">
                 <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.attraction.image}/>
                 <p>{this.props.attraction.name}</p>
               </div>
             </Col>
-            <Col sm={7} md={9}>
+            <Col sm={7} md={9} className="PlaceListItemAllPlaces PlaceListItemResetPadding">
               <Col xs={12}>
                 {
                   places.filter(
@@ -67,7 +68,7 @@ class placeListItem extends React.Component {
                             <p>pogoda</p>
                           </Col>
                         </div>
-                        <div className="PlaceListItemButton">
+                        <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             {
                               this.props.thingsToCompare.find(
@@ -78,24 +79,24 @@ class placeListItem extends React.Component {
                                   )
                                 }
                               ) !== undefined ?
-                                <submit className="PlaceListItemButtonRemove" onClick={() =>
+                                <submit className="PlaceListItemButton PlaceListItemButtonRemove" onClick={() =>
                                   this.props.removeAttractionAndPlaceFromCompare
                                   (this.props.attraction, place)}
                                 >remove</submit>
                                 :
                                 this.props.thingsToCompare.length < 3 ?
-                                  <submit className="PlaceListItemButtonSelectActive" onClick={() =>
+                                  <submit className="PlaceListItemButton PlaceListItemButtonSelectActive" onClick={() =>
                                     this.props.addAttractionAndPlaceToCompare
                                     (this.props.attraction, place)}
                                   >select</submit>
-                                  : <p className="PlaceListItemButtonSelectDisabled">select</p>
+                                  : <p className="PlaceListItemButton PlaceListItemButtonSelectDisabled">select</p>
                             }
                           </Col>
                         </div>
-                        <div className="PlaceListItemButton">
+                        <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to='/place-details'>
-                              <submit className="PlaceListItemButtonSelectDetails">
+                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>
                             </Link>
