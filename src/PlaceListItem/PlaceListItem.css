@@ -5,6 +5,10 @@
   border-radius: 10px;
 }
 
+.PlaceListItemWell a {
+  text-decoration: none;
+}
+
 .PlaceListItemIcon img {
   width:100%;
 }
@@ -50,7 +54,7 @@
 }
 
 .PlaceListItemButtonSelectActive {
-  background-color: #008CD4;
+  background-image: radial-gradient( #008CD4 0%, #265f8f 100%);
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
@@ -58,20 +62,22 @@
 }
 
 .PlaceListItemButtonSelectActive:hover {
-  background-color: green;
+  background-image: radial-gradient( #7BFF72 0%, #1E7F17 100%);
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
 }
 
 .PlaceListItemButtonRemove {
-  background-color: #003854;
+  background-image: radial-gradient( #008CD4 0%, #003854 100%);
+  color: white;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
 }
 
 .PlaceListItemButtonRemove:hover {
+  background-image: radial-gradient( #A04E4E 0%, #ED2C2C 100%);
   background-color: red;
   border-bottom: solid 2px black;
   border-left: solid 2px black;
@@ -79,15 +85,16 @@
 }
 
 .PlaceListItemButtonSelectDisabled {
+  background-image: radial-gradient( #80C6ED 0%, #8797A0 100%);
   border-bottom: solid 2px black;
   border-left: solid 2px black;
   border-bottom-left-radius: 5px;
   margin-bottom: 0;
-  background-color: beige;
+  color:white;
 }
 
 .PlaceListItemButtonSelectDetails {
-  background-color: #008CD4;
+  background-image: radial-gradient( #008CD4 0%, #265f8f 100%);
   border-bottom: solid 2px black;
   border-right: solid 2px black;
   border-bottom-right-radius: 5px;
@@ -96,7 +103,7 @@
 }
 
 .PlaceListItemButtonSelectDetails:hover {
-  background-color: green;
+  background-image: radial-gradient( #7BFF72 0%, #1E7F17 100%);
   border-bottom: solid 2px black;
   border-right: solid 2px black;
   border-bottom-right-radius: 5px;
