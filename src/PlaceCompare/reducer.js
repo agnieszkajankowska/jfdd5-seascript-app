@@ -11,7 +11,8 @@ export default (state=initialState, action) => {
         chosenToFavoritesAttractions: state.chosenToFavoritesAttractions.concat(
           {
             attraction: action.attraction,
-            place: action.place
+            place: action.place,
+            additional: action.additional
           }
         )
       }

@@ -18,19 +18,28 @@ import MdStars  from 'react-icons/lib/md/stars'
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
   chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
-
 })
 
 const mapDispatchToProps = dispatch => ({
   addAttractionToFavorites: (attraction, place) => dispatch({
     type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
     attraction: attraction,
-    place: place
+    place: place,
+    additional: additionals.find(
+      additional => (
+        additional.placeId === place.id &&
+        additional.attractionId === attraction.id
+      ))
   }),
   removeAttractionFromFavorites: (attraction, place) => dispatch({
     type: 'REMOVE_ATTRACTION_AND_PLACE_TO_FAVORITES',
     attraction: attraction,
-    place: place
+    place: place,
+    additional: additionals.find(
+      additional => (
+        additional.placeId === place.id &&
+        additional.attractionId === attraction.id
+      ))
   })
 })
 
@@ -45,10 +54,16 @@ class AttractionView extends React.Component {
       attractionIds.indexOf(additional.attractionId) !== -1
     )
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
+    console.log("zzzzzzzzzz", theLowestPrice)
 
-    const popoverHoverFocus = (
+    const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
         Add to Favorites
+      </Popover>
+    );
+    const removeFromFavoritesPopover = (
+      <Popover id="popover-trigger-hover-focus">
+       Remove from Favorites
       </Popover>
     );
 
@@ -63,7 +78,8 @@ class AttractionView extends React.Component {
             {
               this.props.thingsToCompare.map(
                 thing =>
-                  <td className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
                     {thing.attraction.name} {' '}
                     {
                       this.props.chosenToFavoritesAttractions.find(
@@ -74,16 +90,18 @@ class AttractionView extends React.Component {
                           )
                         }
                       ) !== undefined ?
-                        <OverlayTrigger trigger='hover' placement="top" overlay={popoverHoverFocus}><a className="remove-from-favorites"
-                           onClick={() =>
-                             this.props.removeAttractionFromFavorites
-                             (thing.attraction, thing.place)}
+                        <OverlayTrigger trigger='hover' placement="top" overlay={removeFromFavoritesPopover}><a
+                          className="remove-from-favorites"
+                          onClick={() =>
+                            this.props.removeAttractionFromFavorites
+                            (thing.attraction, thing.place)}
                         ><MdStars /></a></OverlayTrigger>
                         :
-                        <OverlayTrigger trigger='hover' placement="top" overlay={popoverHoverFocus}><a className="favorites"
-                           onClick={() =>
-                             this.props.addAttractionToFavorites
-                             (thing.attraction, thing.place)}
+                        <OverlayTrigger trigger='hover' placement="top" overlay={addToFavoritesPopover}><a
+                          className="favorites"
+                          onClick={() =>
+                            this.props.addAttractionToFavorites
+                            (thing.attraction, thing.place)}
                         ><MdStars/></a></OverlayTrigger>
                     }
                   </td>)

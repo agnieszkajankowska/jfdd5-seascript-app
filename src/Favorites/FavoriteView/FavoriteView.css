@@ -1,0 +1,32 @@
+.favorite-container {
+  padding-bottom: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  border: solid 2px #006a9a;
+  box-shadow: 2px 2px 19px 0 #006a9a;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.company-photo {
+  border-bottom: solid 2px gainsboro;
+  height: 250px;
+  width: 100%;
+}
+
+.favorite-attraction-name {
+  padding: 25px 0 15px 0;
+}
+
+.favorite-place-name {
+  padding: 0 0 15px 0;
+}
+
+.favorites-remove-button {
+  position: absolute;
+  top: 5px;
+  right: 47px;
+  color: darkorange;
+  font-size: 25px;
+}

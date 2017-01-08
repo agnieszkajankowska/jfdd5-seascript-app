@@ -9,7 +9,11 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "“Not worth recommending“"
+    opinion: "“Not worth recommending“",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg",
+    companyWebsite: "www.splash.com"
+
   },
   {
     id: 2,
@@ -21,7 +25,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "Not recommended for beginners"
+    opinion: "Not recommended for beginners",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 3,
@@ -33,7 +39,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 3,
-    opinion: "Flying experience was amazing..."
+    opinion: "Flying experience was amazing...",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 4,
@@ -45,7 +53,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "Fun time and a must try"
+    opinion: "Fun time and a must try",
+    companyName: "Summer Blast",
+    companyPhoto: "summerblast.jpg"
   },
   {
     id: 5,
@@ -57,7 +67,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 5,
-    opinion: "Very good spot. I'll recommend it"
+    opinion: "Very good spot. I'll recommend it",
+    companyName: "Beach House",
+    companyPhoto: "beachhouse.jpg"
   },
   {
     id: 6,
@@ -69,7 +81,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "Avoid. Plenty of geniune others around"
+    opinion: "Avoid. Plenty of geniune others around",
+    companyName: "Summer Blast",
+    companyPhoto: "summerblast.jpg"
   },
   {
     id: 7,
@@ -81,7 +95,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 2,
-    opinion: "Generally, quite ok"
+    opinion: "Generally, quite ok",
+    companyName: "Summer Blast",
+    companyPhoto: "summerblast.jpg"
   },
   {
     id: 8,
@@ -93,7 +109,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Very professional and reasonable prices"
+    opinion: "Very professional and reasonable prices",
+    companyName: "Summer Blast",
+    companyPhoto: "summerblast.jpg"
   },
   {
     id: 9,
@@ -105,7 +123,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Simply the best"
+    opinion: "Simply the best",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 10,
@@ -117,7 +137,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 5,
-    opinion: "A great fun for family and friends"
+    opinion: "A great fun for family and friends",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 11,
@@ -129,7 +151,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Won't go anywhere else"
+    opinion: "Won't go anywhere else",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 12,
@@ -141,7 +165,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Great atmosphere, great service"
+    opinion: "Great atmosphere, great service",
+    companyName: "Splash",
+    companyPhoto: "splash.jpg"
   },
   {
     id: 13,
@@ -153,7 +179,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "What a great time sailing the bay! The crew and service are great and it's an actual"
+    opinion: "What a great time sailing the bay! The crew and service are great and it's an actual",
+    companyName: "Summer Wave",
+    companyPhoto: "summerwave.jpg"
   },
   {
     id: 14,
@@ -165,7 +193,10 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Nice kayak spot. I totally recommend it"
+    opinion: "Nice kayak spot. I totally recommend it",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
+
   },
   {
     id: 15,
@@ -177,7 +208,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "High flying fun..."
+    opinion: "High flying fun...",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
   },
   {
     id: 16,
@@ -189,7 +222,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 5,
-    opinion: "Lovely spot"
+    opinion: "Lovely spot",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
   },
   {
     id: 17,
@@ -201,7 +236,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "bla bla"
+    opinion: "bla bla",
+    companyName: "Gili Challenge",
+    companyPhoto: "gilichallenge.jpg"
   },
   {
     id: 18,
@@ -213,7 +250,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 1,
-    opinion: "Overrated. Nothing worth specifically visiting"
+    opinion: "Overrated. Nothing worth specifically visiting",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
   },
   {
     id: 19,
@@ -225,7 +264,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "bla bla"
+    opinion: "Niesamowicie dobrze!",
+    companyName: "Summer Wave",
+    companyPhoto: "summerwave.jpg"
   },
   {
     id: 20,
@@ -237,7 +278,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "Good spot for Jet Skiing"
+    opinion: "Good spot for Jet Skiing",
+    companyName: "Summer Wave",
+    companyPhoto: "summerwave.jpg"
   },
   {
     id: 21,
@@ -249,7 +292,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "Extremely fun, pricey"
+    opinion: "Extremely fun, pricey",
+    companyName: "Summer Wave",
+    companyPhoto: "summerwave.jpg"
   },
   {
     id: 22,
@@ -261,7 +306,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "bla bla"
+    opinion: "so so",
+    companyName: "Summer Wave",
+    companyPhoto: "summerwave.jpg",
   },
   {
     id: 23,
@@ -273,7 +320,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "Anything fun on the water starts here"
+    opinion: "Anything fun on the water starts here",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
   },
   {
     id: 24,
@@ -285,7 +334,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 2,
-    opinion: "Average"
+    opinion: "Average",
+    companyName: "Sun Set Water Sports",
+    companyPhoto: "sunsetwatersports.png"
   },
   {
     id: 25,
@@ -297,7 +348,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Everybody who was interested got a chance to sail or handle lines, but the captain and mate let us just hang out too."
+    opinion: "Everybody who was interested got a chance to sail or handle lines, but the captain and mate let us just hang out too.",
+    companyName: "Thames Water",
+    companyPhoto: "thameswater.png"
   },
   {
     id: 26,
@@ -309,7 +362,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 5,
-    opinion: "A little place of peace and quiet"
+    opinion: "A little place of peace and quiet",
+    companyName: "Thames Water",
+    companyPhoto: "thameswater.png"
   },
   {
     id: 27,
@@ -321,7 +376,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "The best thing I've done for years"
+    opinion: "The best thing I've done for years",
+    companyName: "Thames Water",
+    companyPhoto: "thameswater.png"
   },
   {
     id: 28,
@@ -333,7 +390,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "bla bla"
+    opinion: "could be better",
+    companyName: "Thames Water",
+    companyPhoto: "thameswater.png"
   },
   {
     id: 29,
@@ -345,7 +404,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "Nothing special"
+    opinion: "Nothing special",
+    companyName: "KO watersports",
+    companyPhoto: "kowatersports.jpg"
   },
   {
     id: 30,
@@ -357,7 +418,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "King of the water!"
+    opinion: "King of the water!",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 31,
@@ -369,7 +432,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Something to experience!"
+    opinion: "Something to experience!",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 32,
@@ -381,7 +446,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Poor service. Poor spot. Not worth it."
+    opinion: "Poor service. Poor spot. Not worth it.",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 33,
@@ -393,7 +460,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "I didn't like it"
+    opinion: "I didn't like it",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 34,
@@ -405,7 +474,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 5,
-    opinion: "I've never had such fun!"
+    opinion: "I've never had such fun!",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 35,
@@ -417,7 +488,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "Fantastic!"
+    opinion: "Fantastic!",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 36,
@@ -429,7 +502,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "Not to be missed!"
+    opinion: "Not to be missed!",
+    companyName: "The Summer Holidays",
+    companyPhoto: "thesummerholidays.jpg"
   },
   {
     id: 37,
@@ -441,7 +516,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "It was a good experience. I would recommend the company"
+    opinion: "It was a good experience. I would recommend the company",
+    companyName: "Water Empire",
+    companyPhoto: "waterempire.png"
   },
   {
     id: 38,
@@ -453,7 +530,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Favorite kayaking spot"
+    opinion: "FavoriteView kayaking spot",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 39,
@@ -465,7 +544,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "It was acceptable, hwever, nothing special"
+    opinion: "It was acceptable, hwever, nothing special",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 40,
@@ -477,7 +558,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "Not an interesting spot"
+    opinion: "Not an interesting spot",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 41,
@@ -489,7 +572,10 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Very clean, in good spot. I loved it!"
+    opinion: "Very clean, in good spot. I loved it!",
+    companyName: "Sea Gate",
+    companyPhoto: "seagate.jpg"
+
   },
   {
     id: 42,
@@ -501,7 +587,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 3,
-    opinion: "Worth every penny"
+    opinion: "Worth every penny",
+    companyName: "Water Empire",
+    companyPhoto: "waterempire.png"
   },
   {
     id: 43,
@@ -513,7 +601,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "Incredible experience"
+    opinion: "Incredible experience",
+    companyName: "Water Empire",
+    companyPhoto: "waterempire.png"
   },
   {
     id: 44,
@@ -525,7 +615,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Fun but with difficulties"
+    opinion: "Fun but with difficulties",
+    companyName: "Water Empire",
+    companyPhoto: "waterempire.png"
   },
   {
     id: 45,
@@ -537,7 +629,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 5,
-    opinion: "It was spectacular!"
+    opinion: "It was spectacular!",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 46,
@@ -549,7 +643,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "A little bit scary"
+    opinion: "A little bit scary",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 47,
@@ -561,7 +657,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "bla bla"
+    opinion: "bla bla",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 48,
@@ -573,7 +671,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Good group fun"
+    opinion: "Good group fun",
+    companyName: "Water Marks",
+    companyPhoto: "watermarks.png"
   },
   {
     id: 49,
@@ -585,7 +685,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "Great, great fun. It was wonderful! We'd do it again!"
+    opinion: "Great, great fun. It was wonderful! We'd do it again!",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 50,
@@ -597,7 +699,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Good for little kids"
+    opinion: "Good for little kids",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 51,
@@ -609,7 +713,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 5,
-    opinion: "Like nothing you experienced"
+    opinion: "Like nothing you experienced",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 52,
@@ -621,7 +727,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Acceptable, I would not go the second time"
+    opinion: "Acceptable, I would not go the second time",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 53,
@@ -633,7 +741,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "I would totally recommend it"
+    opinion: "I would totally recommend it",
+    companyName: "Sea Sentinel",
+    companyPhoto: "seasentinel.jpg"
   },
   {
     id: 54,
@@ -645,7 +755,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Fantastic day"
+    opinion: "Fantastic day",
+    companyName: "Blue Bay Sports",
+    companyPhoto: "bluebaysports.png"
   },
   {
     id: 55,
@@ -657,7 +769,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 5,
-    opinion: "Wonderful experience"
+    opinion: "Wonderful experience",
+    companyName: "Blue Bay Sports",
+    companyPhoto: "bluebaysports.png"
   },
   {
     id: 56,
@@ -669,7 +783,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "A great value for money, amazing time!"
+    opinion: "A great value for money, amazing time!",
+    companyName: "Blue Bay Sports",
+    companyPhoto: "bluebaysports.png"
   },
   {
     id: 57,
@@ -681,7 +797,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 1,
-    opinion: "Too much fun, but over-packed"
+    opinion: "Too much fun, but over-packed",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 58,
@@ -693,7 +811,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "Too much fun!"
+    opinion: "Too much fun!",
+    companyName: "Aqua Things",
+    companyPhoto: "aquathings.png"
   },
   {
     id: 59,
@@ -705,7 +825,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "A must do!"
+    opinion: "A must do!",
+    companyName: "Blue Bay Sports",
+    companyPhoto: "bluebaysports.png"
   },
   {
     id: 60,
@@ -717,7 +839,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Totally loved the place and service!"
+    opinion: "Totally loved the place and service!",
+    companyName: "Blue Bay Sports",
+    companyPhoto: "bluebaysports.png"
   },
   {
     id: 61,
@@ -729,7 +853,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "It was just ok"
+    opinion: "It was just ok",
+    companyName: "Coast Line Water Sports",
+    companyPhoto: "coastlinewatersports.jpg"
   },
   {
     id: 62,
@@ -741,7 +867,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Don't waste your time going here"
+    opinion: "Don't waste your time going here",
+    companyName: "Coast Line Water Sports",
+    companyPhoto: "coastlinewatersports.jpg"
   },
   {
     id: 63,
@@ -753,7 +881,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "My 12-yr son loved it"
+    opinion: "My 12-yr son loved it",
+    companyName: "Coast Line Water Sports",
+    companyPhoto: "coastlinewatersports.jpg"
   },
   {
     id: 64,
@@ -765,7 +895,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Never had a better rafting!"
+    opinion: "Never had a better rafting!",
+    companyName: "Coast Line Water Sports",
+    companyPhoto: "coastlinewatersports.jpg"
   },
   {
     id: 65,
@@ -777,7 +909,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "I have complaints"
+    opinion: "I have complaints",
+    companyName: "Sea Set",
+    companyPhoto: "seaset.png"
   },
   {
     id: 66,
@@ -789,7 +923,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "Totally worth every penny"
+    opinion: "Totally worth every penny",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 67,
@@ -801,7 +937,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "Good instructors. A little bit expensive"
+    opinion: "Good instructors. A little bit expensive",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 68,
@@ -813,7 +951,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 5,
-    opinion: "Can't wait to go back!"
+    opinion: "Can't wait to go back!",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 69,
@@ -825,7 +965,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: ""
+    opinion: "",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 70,
@@ -837,7 +979,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "Best time ever!"
+    opinion: "Best time ever!",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 71,
@@ -849,7 +993,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "I need to do this again"
+    opinion: "I need to do this again",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 72,
@@ -861,7 +1007,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Do not go there!"
+    opinion: "Do not go there!",
+    companyName: "Gazelle Sports",
+    companyPhoto: "gazellesports.jpg"
   },
   {
     id: 73,
@@ -873,7 +1021,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "The boat was average - not too shabby, but not luxe"
+    opinion: "The boat was average - not too shabby, but not luxe",
+    companyName: "H2O Play Things",
+    companyPhoto: "h2oplaythings.gif"
   },
   {
     id: 74,
@@ -885,7 +1035,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "Found here everything that we were looking for"
+    opinion: "Found here everything that we were looking for",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 75,
@@ -897,7 +1049,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "Great fun away form the strip"
+    opinion: "Great fun away form the strip",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 76,
@@ -909,7 +1063,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 2,
-    opinion: "Amazing experience"
+    opinion: "Amazing experience",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 77,
@@ -921,7 +1077,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 5,
-    opinion: "Big, clean, not crowded, a perfect swimming pool"
+    opinion: "Big, clean, not crowded, a perfect swimming pool",
+    companyName: "Sea Wave",
+    companyPhoto: "seawave.png"
   },
   {
     id: 78,
@@ -933,7 +1091,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "So much fun!"
+    opinion: "So much fun!",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 79,
@@ -945,7 +1105,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 3,
-    opinion: "The place is great!"
+    opinion: "The place is great!",
+    companyName: "Summer Fun",
+    companyPhoto: "summerfun.jpg"
   },
   {
     id: 80,
@@ -957,7 +1119,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "Best vacation ever"
+    opinion: "Best vacation ever",
+    companyName: "Summer Fun",
+    companyPhoto: "summerfun.jpg"
   },
   {
     id: 81,
@@ -969,7 +1133,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "It was very good"
+    opinion: "It was very good",
+    companyName: "Summer Fun",
+    companyPhoto: "summerfun.jpg"
   },
   {
     id: 82,
@@ -981,7 +1147,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "A perfect place for a family"
+    opinion: "A perfect place for a family",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 83,
@@ -993,7 +1161,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 3,
-    opinion: "I liked it"
+    opinion: "I liked it",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 84,
@@ -1005,7 +1175,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 2,
-    opinion: "It was just ok"
+    opinion: "It was just ok",
+    companyName: "Summer Sports School",
+    companyPhoto: "summersportsschool.png"
   },
   {
     id: 85,
@@ -1017,7 +1189,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 2,
-    opinion: "I wait to repeat it"
+    opinion: "I wait to repeat it",
+    companyName: "Summer Camp",
+    companyPhoto: "summercamp.jpg"
   },
   {
     id: 86,
@@ -1029,7 +1203,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Very poor service"
+    opinion: "Very poor service",
+    companyName: "Summer Camp",
+    companyPhoto: "summercamp.jpg"
   },
   {
     id: 87,
@@ -1041,7 +1217,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 4,
-    opinion: "Passed with 'flying' colors!"
+    opinion: "Passed with 'flying' colors!",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 88,
@@ -1053,7 +1231,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 4,
-    opinion: "Great view!"
+    opinion: "Great view!",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 89,
@@ -1065,7 +1245,9 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 3,
-    opinion: "It did the work"
+    opinion: "It did the work",
+    companyName: "Sepoy",
+    companyPhoto: "sepoy.png"
   },
   {
     id: 90,
@@ -1077,7 +1259,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 3,
-    opinion: "I liked the professional instructors"
+    opinion: "I liked the professional instructors",
+    companyName: "Summer Camp",
+    companyPhoto: "summercamp.jpg"
   },
   {
     id: 91,
@@ -1089,7 +1273,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 2,
-    opinion: "I would not go back"
+    opinion: "I would not go back",
+    companyName: "Summer Camp",
+    companyPhoto: "summercamp.jpg"
   },
   {
     id: 92,
@@ -1101,7 +1287,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 2,
-    opinion: "Overall experience was fine"
+    opinion: "Overall experience was fine",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 93,
@@ -1113,7 +1301,9 @@ export default [
     availability: 'July-Sept',
     children: true,
     ranking: 1,
-    opinion: "Avoid this place"
+    opinion: "Avoid this place",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 94,
@@ -1125,7 +1315,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Totally worth recommending"
+    opinion: "Totally worth recommending",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 95,
@@ -1137,7 +1329,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Good value for money"
+    opinion: "Good value for money",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   },
   {
     id: 96,
@@ -1149,7 +1343,9 @@ export default [
     availability: 'May-Sept',
     children: true,
     ranking: 5,
-    opinion: "Just do it!"
+    opinion: "Just do it!",
+    companyName: "Fun Time Water Sports",
+    companyPhoto: "funtimewatersports.png"
   }
 ]
 
