@@ -13,9 +13,7 @@ const mapStateToProps = state => ({
   weatherForecast: state.weatherData.weatherForecast,
 })
 
-const mapDispatchToProps = state => ({
-
-})
+const mapDispatchToProps = state => ({})
 
 const getIcon = (props) => {
   let icon = ''
@@ -44,8 +42,6 @@ const extractImportantData = (allData) => ({
   placeCountryCode: (allData.sys.country),
   icon: getIcon(allData)
 })
-
-
 
 
 const ActualWeather = (props) => {
@@ -100,32 +96,32 @@ const ActualWeather = (props) => {
 
 
 const ActualWeatherMinified = (props) => {
-    const {
-        placeName,
-        placeTempreature,
-        placeMainWeather,
-        icon
-    } = extractImportantData(props.weatherCast)
+  const {
+    placeName,
+    placeTempreature,
+    placeMainWeather,
+    icon
+  } = extractImportantData(props.weatherCast)
 
-    return (
-        <Col md={12}>
-            <h2> Actual weather conditions </h2>
-            <Col sm={12}>
-                <h2>{placeName}</h2>
-            </Col>
-            {console.log(icon)}
-            <Col sm={12}>
-                <icon className={icon}/>
-                <h2>{placeMainWeather}</h2>
-            </Col>
-            <Col sm={12}>
-                <h2>{placeTempreature}
-                    <icon className="wi wi-celsius"/>
-                </h2>
-            </Col>
-        </Col>
+  return (
+    <Col md={12}>
+      <h2> Actual weather conditions </h2>
+      <Col sm={12}>
+        <h2>{placeName}</h2>
+      </Col>
+      {console.log(icon)}
+      <Col sm={12}>
+        <icon className={icon}/>
+        <h2>{placeMainWeather}</h2>
+      </Col>
+      <Col sm={12}>
+        <h2>{placeTempreature}
+          <icon className="wi wi-celsius"/>
+        </h2>
+      </Col>
+    </Col>
 
-    )
+  )
 }
 
 
@@ -167,7 +163,8 @@ const ActualWeatherMinified = (props) => {
 // }
 
 export default {
-  actualWeather: connect(mapStateToProps)(ActualWeather)
+  actualWeather: connect(mapStateToProps)(ActualWeather),
+  weatherMinified: connect(mapStateToProps)(ActualWeatherMinified)
 }
 
 
