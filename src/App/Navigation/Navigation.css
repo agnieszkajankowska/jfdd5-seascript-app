@@ -41,6 +41,10 @@ div.nav-bar ul li:hover, .active-item {
   box-shadow: inset 0px -12px 0px 0px rgba(0, 0, 0, 0.6);
 }
 
+.link:focus{
+  background-color: #006a9a;
+  border-radius: 5px;
+}
 
 li.logo, .logo {
   padding: 1em 0.5em;
