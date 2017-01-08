@@ -10,7 +10,7 @@ let city_names = (
   )
 )
 
-const city_name = city_names[3]
+const city_name = city_names[7]
 
 
 export const fetchWeather = () => dispatch => {
