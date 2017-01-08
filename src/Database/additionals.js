@@ -11,7 +11,8 @@ export default [
     ranking: 1,
     opinion: "“Not worth recommending“",
     companyName: "Splash",
-    companyPhoto: "splash.jpg"
+    companyPhoto: "splash.jpg",
+    companyWebsite: "www.splash.com"
 
   },
   {
@@ -529,7 +530,7 @@ export default [
     availability: 'June-Sept',
     children: true,
     ranking: 4,
-    opinion: "Favorite kayaking spot",
+    opinion: "FavoriteView kayaking spot",
     companyName: "Water Marks",
     companyPhoto: "watermarks.png"
   },
