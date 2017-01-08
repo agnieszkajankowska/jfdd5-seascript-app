@@ -104,22 +104,11 @@ const ActualWeatherMinified = (props) => {
   } = extractImportantData(props.weatherCast)
 
   return (
-    <Col md={12}>
-      <h2> Actual weather conditions </h2>
-      <Col sm={12}>
-        <h2>{placeName}</h2>
-      </Col>
-      {console.log(icon)}
-      <Col sm={12}>
-        <icon className={icon}/>
-        <h2>{placeMainWeather}</h2>
-      </Col>
-      <Col sm={12}>
-        <h2>{placeTempreature}
-          <icon className="wi wi-celsius"/>
-        </h2>
-      </Col>
-    </Col>
+    <p>{placeName}{console.log(icon)}
+      <icon className={icon}/>
+      {placeMainWeather}{placeTempreature}
+      <icon className="wi wi-celsius"/>
+    </p>
 
   )
 }

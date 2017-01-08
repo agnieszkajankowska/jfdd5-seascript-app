@@ -19,8 +19,8 @@ import store from "./store";
 import {fetchWeather,fetchWeatherForecast} from './state/weather/actionCreators'
 const fetchWeatherFromApi = () => {
   store.dispatch(fetchWeather('Gdańsk'))
-  //store.dispatch(fetchWeatherForecast())
 }
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
