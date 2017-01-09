@@ -29,10 +29,10 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  // fetchWeatherApi: (place) => dispatch({
-  //   type: 'FETCH_WEATHER_API',
-  //   place: place
-  // })
+  fetchWeatherApi: (place) => dispatch({
+    type: 'FETCH_WEATHER_API',
+    place: place
+  })
 })
 
 
@@ -100,8 +100,7 @@ class placeListItem extends React.Component {
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to={'/place-details/' + place.name}>
-                              {/*onClick={() => this.props.fetchWeatherApi(place.name)}*/}
-                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
+                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails" onClick={() => this.props.fetchWeatherApi(place.name)}>
                                 Details
                               </submit>
                             </Link>

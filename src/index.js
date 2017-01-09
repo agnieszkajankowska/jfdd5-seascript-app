@@ -18,13 +18,13 @@ import store from "./store";
 
 import {fetchWeather} from './state/weather/actionCreators'
 const fetchWeatherFromApi = () => {
-  store.dispatch(fetchWeather())
+  // store.dispatch(fetchWeather())
 }
 const fetchWeatherForList = () => {
-  console.log(store.getState())
-  store.getState()
-  console.log(store.attractionsData)
-  store.dispatch(fetchWeather('Seattle'))
+  // console.log(store.getState())
+  // store.getState()
+  // console.log(store.attractionsData)
+  // store.dispatch(fetchWeather('Seattle'))
 }
 
 ReactDOM.render(
