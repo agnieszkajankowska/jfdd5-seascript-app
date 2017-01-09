@@ -20,15 +20,17 @@ const mapDispatchToProps = dispatch => ({
 
 class PlaceDetails extends React.Component {
   componentDidMount () {
-    if (this.props.cityName) {
+    console.log('lelele')
+
       this.props.fetchWeather(this.props.params.placeName)
-    }
+
   }
 
   componentDidUpdate () {
-    if (this.props.cityName) {
+    console.log('kkkkkkk')
+
       this.props.fetchWeather(this.props.params.placeName)
-    }
+
   }
 
 
