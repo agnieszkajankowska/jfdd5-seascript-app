@@ -5,7 +5,7 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
-import {ActualWeather} from '../ActualWeather'
+// import {ActualWeather} from '../ActualWeather'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -29,10 +29,10 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  fetchWeatherApi: (place) => dispatch({
-    type: 'FETCH_WEATHER_API',
-    place: place
-  })
+  // fetchWeatherApi: (place) => dispatch({
+  //   type: 'FETCH_WEATHER_API',
+  //   place: place
+  // })
 })
 
 
@@ -68,7 +68,8 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <ActualWeather.weatherMinified/>
+                            <p>pogoda</p>
+                            {/*<ActualWeather.weatherMinified/>*/}
                           </Col>
                         </div>
                         <div>
@@ -99,7 +100,8 @@ class placeListItem extends React.Component {
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to={'/place-details/' + place.name}>
-                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails" onClick={() => this.props.fetchWeatherApi(place.name)}>
+                              {/*onClick={() => this.props.fetchWeatherApi(place.name)}*/}
+                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>
                             </Link>
