@@ -34,9 +34,9 @@ export default () => (
        <Link to="/place-compare" className="link">Compare Places <FaAngleRight size={30}/></Link>
       </li>
 
-      <li className="grow menu-link">
-       <Link to="/place-details" className="link">Place Details <FaAngleRight size={30} /></Link>
-      </li>
+      {/*<li className="grow menu-link">*/}
+       {/*<Link to="/place-details" className="link">Place Details <FaAngleRight size={30} /></Link>*/}
+      {/*</li>*/}
 
       <li className="grow menu-link">
         <Link to="/favorites" className="link">Favorites <FaAngleRight size={30} /></Link>

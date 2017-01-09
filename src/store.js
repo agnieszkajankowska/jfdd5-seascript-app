@@ -24,7 +24,7 @@ const enhancer = composeEnhancers(
   applyMiddleware(
     thunkMiddleware // lets us dispatch() functions (thunks) in addition to objects with 'type' attribute
   ),
-  persistState([])
+  // persistState([])
 )
 
 const store = createStore(reducer, enhancer);
