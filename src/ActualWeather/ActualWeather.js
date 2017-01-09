@@ -13,6 +13,8 @@ const mapStateToProps = state => ({
   weatherForecast: state.weatherData.weatherForecast,
 })
 
+const mapDispatchToProps = state => ({})
+
 const getIcon = (props) => {
   let icon = ''
   let iconLabel = ''
@@ -40,8 +42,6 @@ const extractImportantData = (allData) => ({
   placeCountryCode: (allData.sys.country),
   icon: getIcon(allData)
 })
-
-
 
 
 const ActualWeather = (props) => {
@@ -95,6 +95,25 @@ const ActualWeather = (props) => {
 }
 
 
+const ActualWeatherMinified = (props) => {
+  const {
+    placeName,
+    placeTempreature,
+    placeMainWeather,
+    icon
+  } = extractImportantData(props.weatherCast)
+
+  return (
+    <p>{placeName}{console.log(icon)}
+      <icon className={icon}/>
+      {placeMainWeather}{placeTempreature}
+      <icon className="wi wi-celsius"/>
+    </p>
+
+  )
+}
+
+
 //
 // class ForecastWeatherDetailed extends React.Component {
 //   render() {
@@ -133,7 +152,8 @@ const ActualWeather = (props) => {
 // }
 
 export default {
-  actualWeather: connect(mapStateToProps)(ActualWeather)
+  actualWeather: connect(mapStateToProps)(ActualWeather),
+  weatherMinified: connect(mapStateToProps)(ActualWeatherMinified)
 }
 
 

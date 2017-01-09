@@ -5,6 +5,7 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
+// import {ActualWeather} from '../ActualWeather'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -27,15 +28,17 @@ const mapDispatchToProps = dispatch => ({
     type: 'REMOVE_ATTRACTION_AND_PLACE_FROM_COMPARE',
     attraction: attraction,
     place: place
-  })
-
+  }),
+  // fetchWeatherApi: (place) => dispatch({
+  //   type: 'FETCH_WEATHER_API',
+  //   place: place
+  // })
 })
 
 
 class placeListItem extends React.Component {
   constructor() {
     super()
-
   }
 
   render() {
@@ -66,6 +69,7 @@ class placeListItem extends React.Component {
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>pogoda</p>
+                            {/*<ActualWeather.weatherMinified/>*/}
                           </Col>
                         </div>
                         <div>
@@ -95,7 +99,8 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
-                            <Link to='/place-details'>
+                            <Link to={'/place-details/' + place.name}>
+                              {/*onClick={() => this.props.fetchWeatherApi(place.name)}*/}
                               <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>
