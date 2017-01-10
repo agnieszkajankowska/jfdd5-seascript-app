@@ -12,11 +12,11 @@ import {PlaceCompare} from "./PlaceCompare";
 import {NotFoundView} from "./NotFoundView";
 import {PlaceList} from "./PlaceList";
 import {Favorites} from "./Favorites";
+import {CalendarView} from "./CalendarView";
 import {Provider} from "react-redux";
 import store from "./store";
-
-
-import {fetchWeather} from './state/weather/actionCreators'
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import {fetchWeather} from "./state/weather/actionCreators";
 const fetchWeatherFromApi = () => {
   store.dispatch(fetchWeather())
 }
@@ -39,6 +39,8 @@ ReactDOM.render(
         <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}/>
 
         <Route path="/favorites" component={Favorites}/>
+
+        <Route path="/calendar" component={CalendarView} />
 
       </Route>
 

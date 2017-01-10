@@ -1,10 +1,9 @@
 import React from "react";
 import {Link} from "react-router";
 import "./Navigation.css";
-import FaAngleRight from 'react-icons/lib/fa/angle-right'
-
+import FaAngleRight from "react-icons/lib/fa/angle-right";
 import Logo from "./logo.svg";
-import {Button} from "react-bootstrap"
+import {Button} from "react-bootstrap";
 
 export default () => (
   <div className="nav-bar teaser-look">
@@ -40,6 +39,10 @@ export default () => (
 
       <li className="grow menu-link">
         <Link to="/favorites" className="link">Favorites <FaAngleRight size={30} /></Link>
+      </li>
+
+      <li className="grow menu-link">
+        <Link to="/calendar" className="link">Calendar <FaAngleRight size={30} /></Link>
       </li>
 
       {/*<li className="grow menu-link">*/}
