@@ -6,8 +6,11 @@ import FaAngleRight from 'react-icons/lib/fa/angle-right'
 import Logo from "./logo.svg";
 import {Button} from "react-bootstrap"
 
+import {LoginForm} from '../../LoginForm'
+
 export default () => (
   <div className="nav-bar teaser-look">
+
     <div className="nav-responsive-panel">
       <img src={Logo} alt="logo"/>
       <button className="nav-button">
@@ -31,21 +34,24 @@ export default () => (
       </li>
 
       <li className="grow menu-link">
-       <Link to="/place-compare" className="link">Compare Places <FaAngleRight size={30}/></Link>
+        <Link to="/place-compare" className="link">Compare Places <FaAngleRight size={30}/></Link>
       </li>
 
       {/*<li className="grow menu-link">*/}
-       {/*<Link to="/place-details" className="link">Place Details <FaAngleRight size={30} /></Link>*/}
+      {/*<Link to="/place-details" className="link">Place Details <FaAngleRight size={30} /></Link>*/}
       {/*</li>*/}
 
       <li className="grow menu-link">
-        <Link to="/favorites" className="link">Favorites <FaAngleRight size={30} /></Link>
+        <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
       </li>
 
+
+
       {/*<li className="grow menu-link">*/}
-       {/*<Link to="/" className="link">Place Maps></Link>*/}
+      {/*<Link to="/" className="link">Place Maps></Link>*/}
       {/*</li>*/}
       <li className="clear" id="blacked"/>
     </ul>
+
   </div>
 )

@@ -7,6 +7,7 @@ import weatherReducer from './state/weather/reduce'
 import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 import {reducer as chosenAttractionReducer} from "./PlaceCompare"
 import {reducer as placeListReducer} from "./PlaceList"
+import loginFormReducer from './state/login-form/reducer'
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
@@ -14,8 +15,8 @@ const reducer = combineReducers({
   isAMap: placeListReducer,
   weatherData: weatherReducer,
   weatherForecastData: weatherReducer,
-  chosenAttractionsToFavoritesData: chosenAttractionReducer
-
+  chosenAttractionsToFavoritesData: chosenAttractionReducer,
+  loggedInUserData: loginFormReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
