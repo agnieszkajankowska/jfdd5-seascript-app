@@ -16,17 +16,6 @@ import {Provider} from "react-redux";
 import store from "./store";
 
 
-import {fetchWeather} from './state/weather/actionCreators'
-const fetchWeatherFromApi = () => {
-  // store.dispatch(fetchWeather())
-}
-const fetchWeatherForList = () => {
-  // console.log(store.getState())
-  // store.getState()
-  // console.log(store.attractionsData)
-  // store.dispatch(fetchWeather('Seattle'))
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -34,9 +23,9 @@ ReactDOM.render(
         <IndexRoute component={DashboardView}/>
 
         <Route path="/form" component={Form}/>
-        <Route path="/place-details/:placeName" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
+        <Route path="/place-details/:placeName" component={PlaceDetails}/>
         <Route path="/place-compare" component={PlaceCompare}/>
-        <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}/>
+        <Route path="/place-list" component={PlaceList}/>
 
         <Route path="/favorites" component={Favorites}/>
 

@@ -5,9 +5,9 @@ import {
   Col
 } from 'react-bootstrap'
 
-import { fetchWeather} from '../state/weather/actionCreators'
-import {connect} from 'react-redux'
+import {fetchWeather} from '../state/weather/actionCreators'
 import {ActualWeather} from '../ActualWeather'
+import {connect} from 'react-redux'
 import './PlaceDetails.css'
 
 const mapStateToProps = state => ({
@@ -20,14 +20,14 @@ const mapDispatchToProps = dispatch => ({
 
 class PlaceDetails extends React.Component {
   componentDidMount () {
-    console.log('lelele')
+    console.log('Mounted')
 
       this.props.fetchWeather(this.props.params.placeName)
 
   }
 
   componentDidUpdate () {
-    console.log('kkkkkkk')
+    console.log('Updated')
 
       this.props.fetchWeather(this.props.params.placeName)
 

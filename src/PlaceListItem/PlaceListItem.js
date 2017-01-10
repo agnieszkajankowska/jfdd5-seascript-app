@@ -5,7 +5,8 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
-// import {ActualWeather} from '../ActualWeather'
+import {fetchWeather} from '../state/weather/actionCreators'
+import {ActualWeather} from '../ActualWeather'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -29,16 +30,29 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  fetchWeatherApi: (place) => dispatch({
-    type: 'FETCH_WEATHER_API',
-    place: place
-  })
+  fetchWeather: cityName => dispatch(fetchWeather(cityName))
 })
 
 
 class placeListItem extends React.Component {
   constructor() {
     super()
+  }
+
+  componentWillMount() {
+    console.log('Mounted')
+    places.filter(
+      place => place.attractions.indexOf(this.props.attraction.id) !== -1
+    ).map(
+      place => this.props.fetchWeather(place.name)
+    )
+  }
+
+  componentDidUpdate() {
+    console.log('Updated')
+
+    this.props.fetchWeather(this.props.params.placeName)
+
   }
 
   render() {
@@ -68,8 +82,9 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <p>pogoda</p>
-                            {/*<ActualWeather.weatherMinified/>*/}
+                            {/*<p>pogoda</p>*/}
+
+                            <ActualWeather.weatherMinified name={place.name} />
                           </Col>
                         </div>
                         <div>
@@ -100,7 +115,7 @@ class placeListItem extends React.Component {
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
                             <Link to={'/place-details/' + place.name}>
-                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails" onClick={() => this.props.fetchWeatherApi(place.name)}>
+                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>
                             </Link>

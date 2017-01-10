@@ -2,10 +2,11 @@ import {FETCH_WEATHER_API} from './actionTypes'
 
 const initialState = {
   weatherCast: null,
+  weatherlist: [],
   weatherForecast: null
 }
 
-export default (state = initialState, action) => {
+export default (state = initialState, action = {}) => {
   switch(action.type){
     case FETCH_WEATHER_API:
       return {

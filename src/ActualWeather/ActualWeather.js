@@ -102,7 +102,6 @@ const ActualWeatherMinified = (props) => {
     placeMainWeather,
     icon
   } = extractImportantData(props.weatherCast)
-
   return (
     <p>{placeName}{console.log(icon)}
       <icon className={icon}/>
