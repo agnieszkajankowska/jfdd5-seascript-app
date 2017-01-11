@@ -1,3 +1,4 @@
+import React from "react";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
 
@@ -7,14 +8,24 @@ BigCalendar.setLocalizer(
 
 moment.locale("pl");
 
-const Calendar = props => (
+const CalendarView = (props) => (
   <div>
     <BigCalendar
-      events={AttractionList}
+      events={[
+        {
+          allDay: true,
+          start: new Date(),
+          end: new Date(),
+          title: "Ostatni dzień."
+        }
+      ]}
       startAccessor='startDate'
       endAccessor='endDate'
-      />
+
+      defaultView="week"
+      defaultDate={new Date()}
+    />
   </div>
 );
 
-export default Calendar
+export default CalendarView
