@@ -95,7 +95,6 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-
                             <ActualWeather.weatherMinified weatherId={place.weatherId} />
                           </Col>
                         </div>
