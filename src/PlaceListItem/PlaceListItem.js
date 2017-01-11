@@ -5,13 +5,14 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
-import {fetchWeather} from '../state/weather/actionCreators'
+import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
 import {ActualWeather} from '../ActualWeather'
+
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
   placesIds: state.attractionsData.placesIds,
-  thingsToCompare: state.attractionAndPlaceData.thingsToCompare
+  thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -30,7 +31,8 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  fetchWeather: cityName => dispatch(fetchWeather(cityName))
+  fetchWeather: cityName => dispatch(fetchWeather(cityName)),
+  fetchWeatherList: city_id => dispatch(fetchWeatherList(city_id))
 })
 
 
@@ -41,11 +43,22 @@ class placeListItem extends React.Component {
 
   componentWillMount() {
     console.log('Mounted')
+    let cityIdList = []
+
+    // places.filter(
+    //   place => place.attractions.indexOf(this.props.attraction.id) !== -1
+    // ).map(
+    //   place => this.props.fetchWeather(place.name)
+    // )
+
     places.filter(
       place => place.attractions.indexOf(this.props.attraction.id) !== -1
     ).map(
-      place => this.props.fetchWeather(place.name)
+      place => cityIdList.push(place.weatherId)
     )
+    cityIdList = cityIdList.toString()
+    this.props.fetchWeatherList(cityIdList)
+    console.log(cityIdList)
   }
 
   componentDidUpdate() {
@@ -82,9 +95,8 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            {/*<p>pogoda</p>*/}
 
-                            <ActualWeather.weatherMinified name={place.name} />
+                            <ActualWeather.weatherMinified weatherId={place.weatherId} />
                           </Col>
                         </div>
                         <div>

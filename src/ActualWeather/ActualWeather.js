@@ -11,6 +11,7 @@ import {
 const mapStateToProps = state => ({
   weatherCast: state.weatherData.weatherCast,
   weatherForecast: state.weatherData.weatherForecast,
+  weatherList: state.weatherData.weatherList
 })
 
 const mapDispatchToProps = state => ({})
@@ -31,7 +32,7 @@ const getIcon = (props) => {
   return icon
 }
 
-const extractImportantData = (allData) => ({
+const extractWeatherData = (allData) => ({
   placeName: allData.name,
   placeTempreature: (allData.main.temp),
   placeMainWeather: (allData.weather[0].main),
@@ -55,7 +56,7 @@ const ActualWeather = (props) => {
     placeHumidity,
     placeCountryCode,
     icon
-  } = extractImportantData(props.weatherCast)
+  } = extractWeatherData(props.weatherCast)
 
   return (
     <Col md={12}>
@@ -96,12 +97,13 @@ const ActualWeather = (props) => {
 
 
 const ActualWeatherMinified = (props) => {
+  const { weatherId } = props
   const {
     placeName,
     placeTempreature,
     placeMainWeather,
     icon
-  } = extractImportantData(props.weatherCast)
+  } = extractWeatherData(props.weatherList.list.find( item => item.id === weatherId ))
   return (
     <p>{placeName}{console.log(icon)}
       <icon className={icon}/>

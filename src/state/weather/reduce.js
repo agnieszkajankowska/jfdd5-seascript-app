@@ -1,8 +1,8 @@
-import {FETCH_WEATHER_API} from './actionTypes'
+import {FETCH_WEATHER_API, FETCH_WEATHER_LIST_API, FETCH_WEATHER_FORECAST_API} from './actionTypes'
 
 const initialState = {
   weatherCast: null,
-  weatherlist: [],
+  weatherList: null,
   weatherForecast: null
 }
 
@@ -11,7 +11,16 @@ export default (state = initialState, action = {}) => {
     case FETCH_WEATHER_API:
       return {
         ...state,
-        weatherCast: action.weatherCast,
+        weatherCast: action.weatherCast
+      }
+    case FETCH_WEATHER_LIST_API:
+      return{
+        ...state,
+        weatherList: action.weatherList
+      }
+    case FETCH_WEATHER_FORECAST_API:
+      return{
+        ...state,
         weatherForecast: action.weatherForecast
       }
     default:
