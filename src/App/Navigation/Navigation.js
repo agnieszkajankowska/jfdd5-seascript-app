@@ -29,6 +29,8 @@ class Menu extends React.Component {
         <StepButton for="/place-list" stepId="2" currentStepId={currentStepId}>place list</StepButton>
         <StepButton for="/place-compare" stepId="3" currentStepId={currentStepId}>place compare</StepButton>
         <StepButton for="/favorites" stepId="4" currentStepId={currentStepId}>favorites</StepButton>
+
+
         <div className="nav-bar teaser-look">
           <div className="nav-responsive-panel">
             <img src={Logo} alt="logo"/>
