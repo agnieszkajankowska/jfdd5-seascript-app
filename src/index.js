@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./index.css";
 import App from "./App/App";
 import {DashboardView} from "./App/DashboardView";
@@ -15,7 +16,6 @@ import {Favorites} from "./Favorites";
 import {CalendarView} from "./CalendarView";
 import {Provider} from "react-redux";
 import store from "./store";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import {fetchWeather} from "./state/weather/actionCreators";
 const fetchWeatherFromApi = () => {
   store.dispatch(fetchWeather())

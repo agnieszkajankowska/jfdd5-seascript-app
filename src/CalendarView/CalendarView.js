@@ -6,21 +6,22 @@ BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
 
-moment.locale("pl");
+moment.locale("en");
 
 const CalendarView = (props) => (
-  <div>
+  <div style={{height: 300}}>
     <BigCalendar
       events={[
         {
           allDay: true,
           start: new Date(),
-          end: new Date(),
-          title: "Ostatni dzień."
+          end: new Date()
         }
       ]}
       startAccessor='startDate'
       endAccessor='endDate'
+      step={15}
+      timeslots={8}
 
       defaultView="week"
       defaultDate={new Date()}
