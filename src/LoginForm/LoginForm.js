@@ -1,13 +1,20 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import {
   Button, Modal, Form, FormGroup,
   ControlLabel, FormControl, Col, Checkbox
 } from 'react-bootstrap'
-
+import {
+  fetchLoggedInUser
+} from '../state/login-form/actionCreators'
 
 const mapStateToProps = state => ({
-  loggedInUser: state.loggedInUserData.loggedInUser
+  loggedInUserName: state.loggedInUserData.loggedInUser,
+  pendingUserProfileFetch: state.loggedInUserData.pending
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchData: (userName, userPassword) => dispatch(fetchLoggedInUser(userName, userPassword))
 })
 
 
@@ -17,7 +24,9 @@ class LoginForm extends React.Component {
 
     this.state = {
       users: null,
-      showModal: false
+      showModal: false,
+      userName: '',
+      password: ''
     }
 
     this.close = () =>
@@ -52,10 +61,13 @@ class LoginForm extends React.Component {
             <Form horizontal>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Name
+                  Username
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="name" placeholder="Name"/>
+                  <FormControl type="name"
+                               placeholder="Name"
+                               inputValue={this.state.userName}
+                  />
                 </Col>
               </FormGroup>
 
@@ -64,7 +76,11 @@ class LoginForm extends React.Component {
                   Password
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="surname" placeholder="Surname"/>
+                  <FormControl type="surname"
+                               placeholder="Surname"
+                               inputValue={this.state.password}
+
+                  />
                 </Col>
               </FormGroup>
 
@@ -76,9 +92,15 @@ class LoginForm extends React.Component {
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
-                  <Button type="submit">
+                  <Button type="submit"
+                          onClick={(event) => {
+                            event.preventDefault()
+                            this.props.fetchData(this.state.userName, this.state.password)
+                          }}>
                     LOG IN
                   </Button>
+
+                  <p>{this.props.loggedInUserName}</p>
                 </Col>
               </FormGroup>
             </Form>
@@ -93,4 +115,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

@@ -1,3 +1,2 @@
-/**
- * Created by Agnieszka on 2017-01-10.
- */
+export const FETCH_LOGGEDIN_USER__BEGIN = 'login-form/FETCH_LOGGEDIN_USER__BEGIN'
+export const FETCH_LOGGEDIN_USER__END = 'login-form/FETCH_LOGGEDIN_USER__END'

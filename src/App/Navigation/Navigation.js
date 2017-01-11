@@ -45,7 +45,9 @@ export default () => (
         <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
       </li>
 
-
+      <li>
+        <LoginForm/>
+      </li>
 
       {/*<li className="grow menu-link">*/}
       {/*<Link to="/" className="link">Place Maps></Link>*/}
