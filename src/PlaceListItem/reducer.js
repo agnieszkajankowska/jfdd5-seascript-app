@@ -3,7 +3,7 @@ const initialState = {
 }
 
 export default (state=initialState, action) => {
-  console.log( action );
+  //console.log( action );
   switch (action.type) {
     case 'ADD_ATTRACTION_AND_PLACE_TO_COMPARE':
       return {
@@ -25,11 +25,6 @@ export default (state=initialState, action) => {
           )
         )
       }
-    // case 'FETCH_WEATHER_API':
-    //   return{
-    //     ...state,
-    //     place: action.place
-    // }
     default : return state
   }
 }
