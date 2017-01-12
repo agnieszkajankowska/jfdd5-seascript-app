@@ -5,20 +5,21 @@ import {
   from './actionTypes'
 
 const initialState = {
-  user: null
+  user: null,
+  pending: false
 }
-
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_LOGGEDIN_USER__BEGIN:
-      return state.user = {
+      return {
+        ...state,
+        pending: true
       }
     case FETCH_LOGGEDIN_USER__END:
-      return state.user = {
-        loggedInUsername: action.userName,
-        favorites: [],
-        reservations:[]
+      return {
+        ...state,
+        user: action.user
       }
     default:
       return state

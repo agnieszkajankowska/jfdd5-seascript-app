@@ -1,4 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {fetchLoggedInUser} from '../state/login-form/actionCreators'
+
+const mapStateToProps = state => ({
+  userName: state.loggedInUserData.loggedInUserName,
+  favorites: state.loggedInUserData.favorites,
+  reservations: state.loggedInUserData.reservations,
+  pending: state.loggedInUserData.pending
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchData: (username, password) => dispatch(fetchLoggedInUser(username, password))
+})
 
 class LoginFormView extends React.Component {
   constructor() {
@@ -11,38 +24,9 @@ class LoginFormView extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-
-
-      fetch(
-        process.env.PUBLIC_URL + '/users-data/users.json'
-      ).then(
-        response =>
-          response.json()
-      ).then(
-        data => {
-          console.log("xxxxxxx", data)
-          return data
-        }
-      ).then(
-        data =>
-          data.find(
-            data =>  data.name === this.state.username && data.password === this.state.password
-          )
-      ).then(
-        data => {
-          return data.id
-        }
-      ).then(
-        userId =>  fetch(process.env.PUBLIC_URL + '/users-data/user-' + userId + '.json').then(
-          response => response.json()
-        )
-      ).then(
-        data => console.log(data)
-      )
-
+      this.props.fetchData(this.state.username, this.state.password)
     }
-    }
-
+  }
 
 
   render() {
@@ -70,10 +54,12 @@ class LoginFormView extends React.Component {
         </form>
         <p>{this.state.username}</p>
         <p>{this.state.password}</p>
+
+        <p>{this.props.userName}</p>
       </div>
 
     )
   }
 }
 
-export default LoginFormView
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormView)

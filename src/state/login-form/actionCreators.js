@@ -4,7 +4,7 @@ import {
 }
   from './actionTypes'
 
-export const fetchLoggedInUser = (userName, userPassword) => {
+export const fetchLoggedInUser = (username, password) => {
   return (dispatch) => {
     dispatch({
       type: FETCH_LOGGEDIN_USER__BEGIN
@@ -18,13 +18,14 @@ export const fetchLoggedInUser = (userName, userPassword) => {
       }
     ).then(
       data =>
-      data.filter(data =>
-      data.name === userName && data.password === userPassword
-      ).map( data => {
-        return data.id
-        }
+      data.find(data =>
+      data.name === username && data.password === password
       )
     ).then(
+        data => {
+          return data.id
+        }
+      ).then(
         userId =>fetch( process.env.PUBLIC_URL + '/users-data/user-' + userId + '.json')
       ).then(
         response =>
@@ -33,7 +34,7 @@ export const fetchLoggedInUser = (userName, userPassword) => {
       data => {
         dispatch({
           type: FETCH_LOGGEDIN_USER__END,
-          loggedInUserName: data.name
+          user: data
         })
       }
     ).catch(
@@ -41,3 +42,7 @@ export const fetchLoggedInUser = (userName, userPassword) => {
     )
   }
 }
+
+
+
+
