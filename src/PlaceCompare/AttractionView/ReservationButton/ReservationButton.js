@@ -1,6 +1,6 @@
-import React from 'react'
-import { Button, Modal, Form, FormGroup,
-ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
+import React from "react";
+import {Button, Modal, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from "react-bootstrap";
+//import { DatePicker } from "react-bootstrap-date-picker"
 
 
 export default React.createClass({
@@ -65,6 +65,17 @@ export default React.createClass({
                   <FormControl type="email" placeholder="Email" />
                 </Col>
               </FormGroup>
+
+              <FormGroup controlId="formHorizontalEmail">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Date
+                </Col>
+                <Col sm={10}>
+                  <FormControl type="date" placeholder="Date" />
+                </Col>
+              </FormGroup>
+
+
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
