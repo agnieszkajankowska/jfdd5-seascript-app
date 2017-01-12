@@ -1,6 +1,8 @@
 import React from 'react'
+import {PlaceListMarkerPopUp} from './PlaceListMarkerPopUp'
 
 export default (props) => (
+  <div>
     <img src={process.env.PUBLIC_URL + '/images/icons/iconmonstr-pin-12.svg'}
        alt = ""
          style={{
@@ -11,4 +13,8 @@ export default (props) => (
            fill: 'pink'
          }}
     />
+    <PlaceListMarkerPopUp
+    attractions={props.attractions}
+    />
+  </div>
 )

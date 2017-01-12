@@ -113,7 +113,8 @@ class placeList extends React.Component {
                         ).map(
                           place =>
                             <PlaceListMarker lat={place.latitude}
-                                             lng={place.longitude}/>
+                                             lng={place.longitude}
+                                             attractions={place.attractions}/>
                         )
                     )
                   }
