@@ -45,6 +45,10 @@ export default () => (
         <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
       </li>
 
+      <li className="grow menu-link">
+        <Link to="/login-form" className="link">Login Form<FaAngleRight size={30}/></Link>
+      </li>
+
       <li>
         <LoginForm/>
       </li>
