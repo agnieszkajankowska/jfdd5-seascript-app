@@ -104,7 +104,6 @@ const ActualWeatherMinified = (props) => {
   const { weatherId } = props
   if(props.weatherList === null){
     return(<p>Loading Weather...</p>)
-
   }
   const {
     placeTempreature,
