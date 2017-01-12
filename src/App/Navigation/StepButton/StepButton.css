@@ -2,6 +2,10 @@
   color:red;
 }
 
-.StepButtonDisable {
+.StepButtonPrevious {
   color: yellow;
+}
+
+.StepButtonNext {
+  color: green
 }

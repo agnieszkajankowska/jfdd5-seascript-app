@@ -11,7 +11,8 @@ class StepButton extends React.Component {
   render() {
     console.log('current step id ' + this.props.currentStepId);
     console.log('step id ' + this.props.stepId);
-    var currentId = parseInt(this.props.currentStepId);
+    const stepId = parseInt(this.props.stepId, 10);
+    const currentId = parseInt(this.props.currentStepId, 10);
     console.log(currentId)
 
     currentId === 1 ? console.log('form wow') :
@@ -23,11 +24,19 @@ class StepButton extends React.Component {
               )
           )
       );
+
+    const className = currentId === stepId ?
+      'StepButtonActive' :
+      (
+        currentId > stepId ?
+          'StepButtonPrevious' :
+          'StepButtonNext'
+      )
     
     return (
 
 
-      <Link to={this.props.for} className='StepButtonActive'>
+      <Link to={this.props.for} className={className}>
         <button>{this.props.children}</button>
       </Link>
 
