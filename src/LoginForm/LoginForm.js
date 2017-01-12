@@ -112,9 +112,10 @@ class LoginForm extends React.Component {
 
             <p>{this.state.username}</p>
             <p>{this.state.password}</p>
-
+            
           </Modal.Body>
           <Modal.Footer>
+            {this.props.user !== null ? this.close : <p>Check login and password</p>}
             <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
