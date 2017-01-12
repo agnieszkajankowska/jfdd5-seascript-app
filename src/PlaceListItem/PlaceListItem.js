@@ -45,12 +45,6 @@ class placeListItem extends React.Component {
     console.log('Mounted')
     let cityIdList = []
 
-    // places.filter(
-    //   place => place.attractions.indexOf(this.props.attraction.id) !== -1
-    // ).map(
-    //   place => this.props.fetchWeather(place.name)
-    // )
-
     places.filter(
       place => place.attractions.indexOf(this.props.attraction.id) !== -1
     ).map(
@@ -61,10 +55,17 @@ class placeListItem extends React.Component {
     console.log(cityIdList)
   }
 
-  componentDidUpdate() {
+  componentWillUpdate() {
     console.log('Updated')
-
-    this.props.fetchWeather(this.props.params.placeName)
+    let cityIdList = []
+    places.filter(
+      place => place.attractions.indexOf(this.props.attraction.id) !== -1
+    ).map(
+      place => cityIdList.push(place.weatherId)
+    )
+    cityIdList = cityIdList.toString()
+    this.props.fetchWeatherList(cityIdList)
+    console.log(cityIdList)
 
   }
 

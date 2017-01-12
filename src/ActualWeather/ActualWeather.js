@@ -41,11 +41,16 @@ const extractWeatherData = (allData) => ({
   placeClouds: (allData.clouds.all),
   placeHumidity: (allData.main.humidity),
   placeCountryCode: (allData.sys.country),
+  list: (allData.list),
   icon: getIcon(allData)
 })
 
 
 const ActualWeather = (props) => {
+
+  if(props.weatherCast === null){
+    return(<p>Loading...</p>)
+  }
   const {
     placeName,
     placeTempreature,
@@ -63,8 +68,7 @@ const ActualWeather = (props) => {
       <h2> Actual weather conditions </h2>
       <Col sm={12}>
         <h2>{placeName} {placeCountryCode}</h2>
-      </Col>
-      {console.log(icon)}
+      </Col>  
       <Col sm={12}>
         <icon className={icon}/>
         <h2>{placeMainWeather}</h2>
@@ -98,17 +102,17 @@ const ActualWeather = (props) => {
 
 const ActualWeatherMinified = (props) => {
   const { weatherId } = props
+  if(props.weatherList === null){
+    return(<p>Loading Weather...</p>)
+
+  }
   const {
-    placeName,
     placeTempreature,
-    placeMainWeather,
     icon
   } = extractWeatherData(props.weatherList.list.find( item => item.id === weatherId ))
   return (
-    <p>{placeName}{console.log(icon)}
-      <icon className={icon}/>
-      {placeMainWeather}{placeTempreature}
-      <icon className="wi wi-celsius"/>
+    <p>
+      <icon className={icon}/> {placeTempreature}<icon className="wi wi-celsius"/>
     </p>
 
   )
