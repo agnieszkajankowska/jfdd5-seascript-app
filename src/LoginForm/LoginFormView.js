@@ -27,8 +27,7 @@ class LoginFormView extends React.Component {
       this.props.fetchData(this.state.username, this.state.password)
     }
   }
-
-
+  
   render() {
 
     return (
