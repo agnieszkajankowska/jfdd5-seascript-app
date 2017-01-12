@@ -9,7 +9,7 @@ import {attractions, additionals} from '../../Database'
 
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
-import {LoginForm} from '../../LoginForm'
+
 
 import FaStar from 'react-icons/lib/fa/star'
 import GoCheck from 'react-icons/lib/go/check'
@@ -220,7 +220,7 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton /> <LoginForm />
+                    <ReservationButton />
                   </td>)
             }
           </tr>

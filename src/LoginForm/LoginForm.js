@@ -9,12 +9,12 @@ import {
 } from '../state/login-form/actionCreators'
 
 const mapStateToProps = state => ({
-  loggedInUserName: state.loggedInUserData.loggedInUser,
-  pendingUserProfileFetch: state.loggedInUserData.pending
+  user: state.logInStatusData.user,
+  pending: state.logInStatusData.pending
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: (userName, userPassword) => dispatch(fetchLoggedInUser(userName, userPassword))
+  fetchData: (username, password) => dispatch(fetchLoggedInUser(username, password))
 })
 
 
@@ -23,10 +23,14 @@ class LoginForm extends React.Component {
     super()
 
     this.state = {
-      users: null,
-      showModal: false,
-      userName: '',
-      password: ''
+      username: '',
+      password: '',
+      showModal: false
+    }
+
+    this.handleSubmit = (event) => {
+      event.preventDefault()
+      this.props.fetchData(this.state.username, this.state.password)
     }
 
     this.close = () =>
@@ -58,7 +62,7 @@ class LoginForm extends React.Component {
 
             <h4>Log in</h4>
 
-            <Form horizontal>
+            <Form horizontal onSubmit={this.handleSubmit}>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
                   Username
@@ -66,8 +70,12 @@ class LoginForm extends React.Component {
                 <Col sm={10}>
                   <FormControl type="name"
                                placeholder="Name"
-                               inputValue={this.state.userName}
-                  />
+                               value={this.state.username}
+                               onChange={
+                                 event => this.setState({
+                                   username: event.target.value
+                                 })
+                               }/>
                 </Col>
               </FormGroup>
 
@@ -76,11 +84,14 @@ class LoginForm extends React.Component {
                   Password
                 </Col>
                 <Col sm={10}>
-                  <FormControl type="surname"
-                               placeholder="Surname"
-                               inputValue={this.state.password}
-
-                  />
+                  <FormControl type="password"
+                               placeholder="Password"
+                               value={this.state.password}
+                               onChange={
+                                 event => this.setState({
+                                   password: event.target.value
+                                 })
+                               }/>
                 </Col>
               </FormGroup>
 
@@ -92,18 +103,15 @@ class LoginForm extends React.Component {
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
-                  <Button type="submit"
-                          onClick={(event) => {
-                            event.preventDefault()
-                            this.props.fetchData(this.state.userName, this.state.password)
-                          }}>
+                  <Button type="submit">
                     LOG IN
                   </Button>
-
-                  <p>{this.props.loggedInUserName}</p>
                 </Col>
               </FormGroup>
             </Form>
+
+            <p>{this.state.username}</p>
+            <p>{this.state.password}</p>
 
           </Modal.Body>
           <Modal.Footer>

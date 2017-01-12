@@ -6,7 +6,6 @@ import FaAngleRight from 'react-icons/lib/fa/angle-right'
 import Logo from "./logo.svg";
 import {Button} from "react-bootstrap"
 
-import {LoginForm} from '../../LoginForm'
 
 export default () => (
   <div className="nav-bar teaser-look">
@@ -49,9 +48,6 @@ export default () => (
         <Link to="/login-form" className="link">Login Form<FaAngleRight size={30}/></Link>
       </li>
 
-      <li>
-        <LoginForm/>
-      </li>
 
       {/*<li className="grow menu-link">*/}
       {/*<Link to="/" className="link">Place Maps></Link>*/}

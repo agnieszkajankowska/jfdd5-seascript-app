@@ -19,7 +19,8 @@ export default (state = initialState, action = {}) => {
     case FETCH_LOGGEDIN_USER__END:
       return {
         ...state,
-        user: action.user
+        user: action.user,
+        pending: false
       }
     default:
       return state
