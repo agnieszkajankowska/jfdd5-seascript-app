@@ -1,12 +1,10 @@
-import React from 'react'
-import {Link} from 'react-router'
-import {Button} from 'react-bootstrap'
-import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
-import {places, attractions, additionals} from '../Database'
-import {connect} from 'react-redux'
-import './PlaceListItem.css'
-import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
-import {ActualWeather} from '../ActualWeather'
+import React from "react";
+import {Link} from "react-router";
+import {Button, Grid, Col, Well, Clearfix} from "react-bootstrap";
+import {places, additionals} from "../Database";
+import {connect} from "react-redux";
+import "./PlaceListItem.css";
+import {fetchWeather, fetchWeatherList} from "../state/weather/actionCreators";
 
 
 const mapStateToProps = state => ({
@@ -95,7 +93,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <ActualWeather.weatherMinified weatherId={place.weatherId} />
+                            {/*<ActualWeather.weatherMinified weatherId={place.weatherId} />*/}
                           </Col>
                         </div>
                         <div>

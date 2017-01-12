@@ -1,12 +1,17 @@
 import React from "react";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
+import {connect} from "react-redux";
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 );
 
 moment.locale("en");
+
+const mapStateToProps = (props) => {
+
+}
 
 const CalendarView = (props) => (
   <div style={{height: 300}}>
@@ -29,4 +34,4 @@ const CalendarView = (props) => (
   </div>
 );
 
-export default CalendarView
+export default connect(mapStateToProps)(CalendarView)
