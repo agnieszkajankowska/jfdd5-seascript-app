@@ -1,9 +1,18 @@
 import React from "react";
+import {connect} from "react-redux";
 import {Button, Modal, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from "react-bootstrap";
 //import { DatePicker } from "react-bootstrap-date-picker"
 
+const mapStateToProps = state => ({
 
-export default React.createClass({
+})
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+
+class Reservation extends React.Component {
   getInitialState() {
     return { showModal: false };
   },
@@ -100,5 +109,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
 
+export default connect(mapStateToProps, mapDispatchToProps) (Reservation)
