@@ -16,7 +16,7 @@ const reducer = combineReducers({
   weatherData: weatherReducer,
   weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer,
-  loggedInUserData: loginFormReducer
+  logInStatusData: loginFormReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

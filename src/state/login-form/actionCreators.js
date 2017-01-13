@@ -6,6 +6,7 @@ import {
 
 export const fetchLoggedInUser = (username, password) => {
   return (dispatch) => {
+
     dispatch({
       type: FETCH_LOGGEDIN_USER__BEGIN
     })

@@ -1,12 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchLoggedInUser} from '../state/login-form/actionCreators'
+import {LoginForm} from './'
 
 const mapStateToProps = state => ({
-  userName: state.loggedInUserData.loggedInUserName,
-  favorites: state.loggedInUserData.favorites,
-  reservations: state.loggedInUserData.reservations,
-  pending: state.loggedInUserData.pending
+  user: state.logInStatusData.user,
+  pending: state.logInStatusData.pending
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -29,7 +28,6 @@ class LoginFormView extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -54,9 +52,8 @@ class LoginFormView extends React.Component {
         <p>{this.state.username}</p>
         <p>{this.state.password}</p>
 
-        <p>{this.props.userName}</p>
+        <LoginForm/>
       </div>
-
     )
   }
 }
