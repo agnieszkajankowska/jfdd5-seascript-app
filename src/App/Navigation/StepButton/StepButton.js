@@ -15,16 +15,6 @@ class StepButton extends React.Component {
     const currentId = parseInt(this.props.currentStepId, 10);
     console.log(currentId)
 
-    currentId === 1 ? console.log('form wow') :
-      (currentId  ===2 ? console.log('place list wow'):
-          (currentId ===3 ? console.log('place compare wow'):
-              (currentId ===4 ? console.log('favorites wow'):
-                (console.log('inne słowo')
-                )
-              )
-          )
-      );
-
     const className = currentId === stepId ?
       'StepButtonActive' :
       (
@@ -32,12 +22,20 @@ class StepButton extends React.Component {
           'StepButtonPrevious' :
           'StepButtonNext'
       )
-    
+
+    const buttonView = currentId === stepId ?
+      '' :
+      (
+        currentId > stepId ?
+          '' :
+          'disabled'
+      )
+
     return (
 
 
       <Link to={this.props.for} className={className}>
-        <button>{this.props.children}</button>
+        <button disabled={buttonView}>{this.props.children}</button>
       </Link>
 
     )
