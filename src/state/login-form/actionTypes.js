@@ -1,2 +1,3 @@
 export const FETCH_LOGGEDIN_USER__BEGIN = 'login-form/FETCH_LOGGEDIN_USER__BEGIN'
 export const FETCH_LOGGEDIN_USER__END = 'login-form/FETCH_LOGGEDIN_USER__END'
+export const FETCH_USER_FAVS = 'login-form/FETCH_USER_FAVS'
