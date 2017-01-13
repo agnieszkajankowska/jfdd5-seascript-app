@@ -1,29 +1,30 @@
 import React from "react";
 import {connect} from "react-redux";
-import {Button, Modal, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 //import { DatePicker } from "react-bootstrap-date-picker"
 
-const mapStateToProps = state => ({
-
-})
-
-const mapDispatchToProps = dispatch => ({
-
-})
 
 
-class Reservation extends React.Component {
-  getInitialState() {
-    return { showModal: false };
-  },
+class ReservationModal extends React.Component {
 
-  close() {
-    this.setState({ showModal: false });
-  },
+  constructor() {
+    super()
 
-  open() {
-    this.setState({ showModal: true });
-  },
+    this.state = {
+      showModal: false,
+      name: '',
+      surname: ''
+    }
+
+    this.close = () =>
+      this.setState({showModal: false});
+
+
+    this.open = () =>
+      this.setState({showModal: true});
+  }
+
+
 
   render() {
     return (
@@ -47,60 +48,6 @@ class Reservation extends React.Component {
 
             <h4>In order to make a reservation you have to supply us with contact data</h4>
 
-            <Form horizontal>
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Name
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="name" placeholder="Name" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Surname
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="surname" placeholder="Surname" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Email
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="email" placeholder="Email" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Date
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="date" placeholder="Date" />
-                </Col>
-              </FormGroup>
-
-
-
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Checkbox>I agree on terms and conditions</Checkbox>
-                </Col>
-              </FormGroup>
-
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Button type="submit">
-                    BOOK
-                  </Button>
-                </Col>
-              </FormGroup>
-            </Form>
-
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
@@ -111,4 +58,4 @@ class Reservation extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (Reservation)
+export default connect(mapStateToProps, mapDispatchToProps) (ReservationModal)
