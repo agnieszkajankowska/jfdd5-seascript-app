@@ -1,6 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
 import {Button, Modal} from "react-bootstrap";
+import ReservationView from "./ReservationView/ReservationView";
 //import { DatePicker } from "react-bootstrap-date-picker"
 
 
@@ -47,6 +47,7 @@ class ReservationModal extends React.Component {
 
 
             <h4>In order to make a reservation you have to supply us with contact data</h4>
+            <ReservationView />
 
           </Modal.Body>
           <Modal.Footer>
@@ -58,4 +59,4 @@ class ReservationModal extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (ReservationModal)
+export default ReservationModal
