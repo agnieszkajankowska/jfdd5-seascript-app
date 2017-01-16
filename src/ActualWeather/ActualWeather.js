@@ -11,6 +11,7 @@ import {
 const mapStateToProps = state => ({
   weatherCast: state.weatherData.weatherCast,
   weatherForecast: state.weatherData.weatherForecast,
+  weatherList: state.weatherData.weatherList
 })
 
 const mapDispatchToProps = state => ({})
@@ -31,7 +32,7 @@ const getIcon = (props) => {
   return icon
 }
 
-const extractImportantData = (allData) => ({
+const extractWeatherData = (allData) => ({
   placeName: allData.name,
   placeTempreature: (allData.main.temp),
   placeMainWeather: (allData.weather[0].main),
@@ -40,11 +41,16 @@ const extractImportantData = (allData) => ({
   placeClouds: (allData.clouds.all),
   placeHumidity: (allData.main.humidity),
   placeCountryCode: (allData.sys.country),
+  list: (allData.list),
   icon: getIcon(allData)
 })
 
 
 const ActualWeather = (props) => {
+
+  if(props.weatherCast === null){
+    return(<p>Loading...</p>)
+  }
   const {
     placeName,
     placeTempreature,
@@ -55,15 +61,14 @@ const ActualWeather = (props) => {
     placeHumidity,
     placeCountryCode,
     icon
-  } = extractImportantData(props.weatherCast)
+  } = extractWeatherData(props.weatherCast)
 
   return (
     <Col md={12}>
       <h2> Actual weather conditions </h2>
       <Col sm={12}>
         <h2>{placeName} {placeCountryCode}</h2>
-      </Col>
-      {console.log(icon)}
+      </Col>  
       <Col sm={12}>
         <icon className={icon}/>
         <h2>{placeMainWeather}</h2>
@@ -96,18 +101,17 @@ const ActualWeather = (props) => {
 
 
 const ActualWeatherMinified = (props) => {
+  const { weatherId } = props
+  if(props.weatherList === null){
+    return(<p>Loading Weather...</p>)
+  }
   const {
-    placeName,
     placeTempreature,
-    placeMainWeather,
     icon
-  } = extractImportantData(props.weatherCast)
-
+  } = extractWeatherData(props.weatherList.list.find( item => item.id === weatherId ))
   return (
-    <p>{placeName}{console.log(icon)}
-      <icon className={icon}/>
-      {placeMainWeather}{placeTempreature}
-      <icon className="wi wi-celsius"/>
+    <p>
+      <icon className={icon}/> {placeTempreature}<icon className="wi wi-celsius"/>
     </p>
 
   )
