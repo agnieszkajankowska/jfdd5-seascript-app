@@ -57,6 +57,9 @@ class Navigation extends React.Component {
             <Link to="/login-form" className="link">Login Form<FaAngleRight size={30}/></Link>
           </li>
 
+          <li className="grow menu-link">
+            <Link to="/registration-form" className="link">Registration Form<FaAngleRight size={30}/></Link>
+          </li>
 
           {/*<li className="grow menu-link">*/}
           {/*<Link to="/" className="link">Place Maps></Link>*/}

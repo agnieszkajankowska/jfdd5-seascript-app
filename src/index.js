@@ -13,6 +13,7 @@ import {NotFoundView} from "./NotFoundView";
 import {PlaceList} from "./PlaceList";
 import {Favorites} from "./Favorites";
 import {LoginFormView} from "./LoginForm";
+import {RegistrationFormView} from "./RegistrationForm";
 import {Provider} from "react-redux";
 import store from "./store";
 
@@ -42,6 +43,7 @@ ReactDOM.render(
         <Route path="/favorites" component={Favorites}/>
 
         <Route path="/login-form" component={LoginFormView}/>
+        <Route path="/registration-form" component={RegistrationFormView}/>
 
       </Route>
 

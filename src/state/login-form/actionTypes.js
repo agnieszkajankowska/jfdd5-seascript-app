@@ -1,3 +1,6 @@
 export const FETCH_LOGIN_USER__BEGIN = 'login-form/FETCH_LOGIN_USER__BEGIN'
 export const FETCH_LOGIN_USER__SUCCESS = 'login-form/FETCH_LOGIN_USER__SUCCESS'
+export const FETCH_LOGIN_USER__FAILURE = 'login-form/FETCH_LOGIN_USER__FAILURE'
+export const RECEIVE_USER = 'login-form/RECEIVE_USER'
+export const LOGOUT_SUCCESS = 'login-form/LOGOUT_SUCCESS'
 export const FETCH_USER_FAVS = 'login-form/FETCH_USER_FAVS'

@@ -1,12 +1,14 @@
 import {
   FETCH_LOGIN_USER__BEGIN,
   FETCH_LOGIN_USER__SUCCESS,
-  FETCH_USER_FAVS
-
+  FETCH_USER_FAVS,
+  FETCH_LOGIN_USER__FAILURE,
+  RECEIVE_USER,
+  LOGOUT_SUCCESS
 }
   from './actionTypes'
 
-export const fetchLoggedInUser = (username, password) => {
+export const logIn = (username, password) => {
   return (dispatch) => {
 
     dispatch({
@@ -26,18 +28,24 @@ export const fetchLoggedInUser = (username, password) => {
       }
     ).then(
       response => {
-        return response.json()
+        if (response.status == '401') {
+          dispatch({
+            type: FETCH_LOGIN_USER__FAILURE
+          })
+        }
+        else {
+          return response.json()
+        }
       }
     ).then(
-      data => {
-        dispatch({
-          type: FETCH_USER_FAVS,
-          favPlaces: data.favorites
-        })
+      userData => {
         dispatch({
           type: FETCH_LOGIN_USER__SUCCESS,
-          user: data
+          user: userData,
+          token: userData.id
         })
+
+        dispatch(fetchUser(userData.id, userData.userId))
       }
     ).catch(
       error => console.log(error)
@@ -45,6 +53,81 @@ export const fetchLoggedInUser = (username, password) => {
   }
 }
 
+export const fetchUser = (token, userId) => {
+  return (dispatch) => {
+    fetch('http://localhost:8000/api/users/' + userId + '?access_token=' + token
+    ).then(
+      response => response.json()
+    ).then(user => {
+        console.log(user)
+        dispatch({
+          type: RECEIVE_USER,
+          user: user
+        })
+      }
+    )
+  }
+}
 
+
+export const logOut = (token) => {
+  return (dispatch) => {
+    fetch('http://localhost:8000/api/users/logout?access_token=' + token, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(
+      response =>
+        dispatch({
+          type: LOGOUT_SUCCESS
+        })
+    )
+  }
+}
+
+// export const fetchLoggedInUser = (username, password) => {
+//   return (dispatch) => {
+//
+//     dispatch({
+//       type: FETCH_LOGIN_USER__BEGIN
+//     })
+//
+//     fetch(
+//       'http://localhost:8000/api/users/login', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//           username: username,
+//           password: password
+//         })
+//       }
+//     ).then(
+//       response => {
+//         if (response.status == '401') {
+//           console.log("źle")
+//         }
+//         else {
+//           return response.json()
+//         }
+//       }
+//     ).then(
+//       data => {
+//         dispatch({
+//           type: FETCH_USER_FAVS,
+//           favPlaces: data.favorites
+//         })
+//         dispatch({
+//           type: FETCH_LOGIN_USER__SUCCESS,
+//           user: data
+//         })
+//       }
+//     ).catch(
+//       error => console.log(error)
+//     )
+//   }
+// }
 
 

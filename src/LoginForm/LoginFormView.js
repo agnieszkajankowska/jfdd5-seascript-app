@@ -1,15 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchLoggedInUser} from '../state/login-form/actionCreators'
+import {logIn, logOut} from '../state/login-form/actionCreators'
 import {LoginForm} from './'
 
 const mapStateToProps = state => ({
+  token: state.logInStatusData.token,
   user: state.logInStatusData.user,
   pending: state.logInStatusData.pending
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: (username, password) => dispatch(fetchLoggedInUser(username, password))
+  fetchUserData: (username, password) => dispatch(logIn(username, password)),
+  logOut: (token) => dispatch(logOut(token))
 })
 
 class LoginFormView extends React.Component {
@@ -23,7 +25,7 @@ class LoginFormView extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      this.props.fetchData(this.state.username, this.state.password)
+      this.props.fetchUserData(this.state.username, this.state.password)
     }
   }
 
@@ -49,6 +51,13 @@ class LoginFormView extends React.Component {
                  }/>
           <button type="submit">Log in</button>
         </form>
+        <button type="submit"
+                onClick={(event) => {
+                  event.preventDefault()
+                  this.props.logOut(this.props.token)
+                }
+                }>Log out
+        </button>
         <p>{this.state.username}</p>
         <p>{this.state.password}</p>
 

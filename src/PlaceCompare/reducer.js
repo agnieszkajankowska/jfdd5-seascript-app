@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export default (state=initialState, action) => {
-  console.log( "aaaaaaaaaaaaaaaaa", action );
+  // console.log( "aaaaaaaaaaaaaaaaa", action );
   switch (action.type) {
     case 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES':
       return {

@@ -1,3 +1,1 @@
-/**
- * Created by Agnieszka on 2017-01-16.
- */
+export { default as RegistrationFormView } from './RegistrationFormView'
