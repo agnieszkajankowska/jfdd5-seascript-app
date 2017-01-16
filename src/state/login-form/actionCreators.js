@@ -1,6 +1,6 @@
 import {
-  FETCH_LOGGEDIN_USER__BEGIN,
-  FETCH_LOGGEDIN_USER__END,
+  FETCH_LOGIN_USER__BEGIN,
+  FETCH_LOGIN_USER__SUCCESS,
   FETCH_USER_FAVS
 
 }
@@ -10,29 +10,24 @@ export const fetchLoggedInUser = (username, password) => {
   return (dispatch) => {
 
     dispatch({
-      type: FETCH_LOGGEDIN_USER__BEGIN
+      type: FETCH_LOGIN_USER__BEGIN
     })
 
     fetch(
-      process.env.PUBLIC_URL + '/users-data/users.json'
+      'http://localhost:8000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      }
     ).then(
       response => {
         return response.json()
       }
-    ).then(
-      data =>
-        data.find(data =>
-          data.name === username && data.password === password
-        )
-    ).then(
-      data => {
-        return data.id
-      }
-    ).then(
-      userId =>fetch(process.env.PUBLIC_URL + '/users-data/user-' + userId + '.json')
-    ).then(
-      response =>
-        response.json()
     ).then(
       data => {
         dispatch({
@@ -40,7 +35,7 @@ export const fetchLoggedInUser = (username, password) => {
           favPlaces: data.favorites
         })
         dispatch({
-          type: FETCH_LOGGEDIN_USER__END,
+          type: FETCH_LOGIN_USER__SUCCESS,
           user: data
         })
       }
