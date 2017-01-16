@@ -29,7 +29,8 @@ export const fetchLoggedInUser = (username, password) => {
         return data.id
       }
     ).then(
-      userId =>fetch(process.env.PUBLIC_URL + '/users-data/user-' + userId + '.json')
+      userId =>
+        fetch(process.env.PUBLIC_URL + '/users-data/user-' + userId + '.json')
     ).then(
       response =>
         response.json()
