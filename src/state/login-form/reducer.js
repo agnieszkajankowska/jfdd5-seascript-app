@@ -1,6 +1,6 @@
 import {
-  FETCH_LOGGEDIN_USER__BEGIN,
-  FETCH_LOGGEDIN_USER__END
+  FETCH_LOGIN_USER__BEGIN,
+  FETCH_LOGIN_USER__SUCCESS
 }
   from './actionTypes'
 
@@ -11,12 +11,12 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_LOGGEDIN_USER__BEGIN:
+    case FETCH_LOGIN_USER__BEGIN:
       return {
         ...state,
         pending: true
       }
-    case FETCH_LOGGEDIN_USER__END:
+    case FETCH_LOGIN_USER__SUCCESS:
       return {
         ...state,
         user: action.user,
