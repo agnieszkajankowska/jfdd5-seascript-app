@@ -31,41 +31,13 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  fetchWeather: cityName => dispatch(fetchWeather(cityName)),
-  fetchWeatherList: city_id => dispatch(fetchWeatherList(city_id))
+  // fetchWeather: cityName => dispatch(fetchWeather(cityName))
 })
 
 
 class placeListItem extends React.Component {
   constructor() {
     super()
-  }
-
-  componentWillMount() {
-    console.log('Mounted')
-    let cityIdList = []
-
-    places.filter(
-      place => place.attractions.indexOf(this.props.attraction.id) !== -1
-    ).map(
-      place => cityIdList.push(place.weatherId)
-    )
-    cityIdList = cityIdList.toString()
-    this.props.fetchWeatherList(cityIdList)
-    console.log(cityIdList)
-  }
-
-  componentWillUpdate() {
-    console.log('Updated')
-    let cityIdList = []
-    places.filter(
-      place => place.attractions.indexOf(this.props.attraction.id) !== -1
-    ).map(
-      place => cityIdList.push(place.weatherId)
-    )
-    cityIdList = cityIdList.toString()
-    this.props.fetchWeatherList(cityIdList)
-    console.log(cityIdList)
 
   }
 
@@ -96,7 +68,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <ActualWeather.weatherMinified weatherId={place.weatherId} />
+                            <p> nope </p>
                           </Col>
                         </div>
                         <div>
