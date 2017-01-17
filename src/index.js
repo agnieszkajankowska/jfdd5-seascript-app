@@ -40,7 +40,7 @@ ReactDOM.render(
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}/>
 
-        <Route path="/favorites" component={Favorites}/>
+          <Route path="/favorites" component={Favorites}/>
 
         <Route path="/login-form" component={LoginFormView}/>
         <Route path="/registration-form" component={RegistrationFormView}/>

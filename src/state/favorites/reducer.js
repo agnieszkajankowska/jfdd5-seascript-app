@@ -1,7 +1,14 @@
-import { FETCH_USER_FAVS } from '../state/login-form/actionTypes'
+import { FETCH_USER_FAVS } from '../login-form/actionTypes'
+import {
+  FETCH_USER_FAVORITES__BEGIN,
+  FETCH_USER_FAVORITES__SUCCESS,
+  FETCH_USER_FAVORITES__FAILURE
+}
+  from './actionTypes'
 
 const initialState = {
-  chosenToFavoritesAttractions: []
+  chosenToFavoritesAttractions: [],
+  favoritesItemsIds: []
 }
 
 export default (state=initialState, action) => {
@@ -32,6 +39,16 @@ export default (state=initialState, action) => {
       return {
         ...state,
         chosenToFavoritesAttractions: action.favPlaces
+      }
+    case FETCH_USER_FAVORITES__SUCCESS:
+      return {
+        ...state,
+        favoritesItemsIds: action.favoritesItemsIds
+      }
+    case FETCH_USER_FAVORITES__FAILURE:
+      return {
+        ...state,
+        favoritesItemsIds: []
       }
     default : return state
   }

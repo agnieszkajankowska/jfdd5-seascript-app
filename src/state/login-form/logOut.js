@@ -6,6 +6,7 @@ import {
 
 export const logOut = (token) => {
   return (dispatch) => {
+    dispatch({ type:  LOG_OUT_BEGIN})
     fetch('http://localhost:3001/api/users/logout?access_token=' + token, {
       method: 'POST',
       headers: {
