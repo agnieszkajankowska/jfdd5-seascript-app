@@ -1,12 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logIn, logOut} from '../state/login-form/actionCreators'
+import {logOut} from '../state/login-form/logOut'
+import {logIn} from '../state/login-form/logIn'
 import {LoginForm} from './'
 
 const mapStateToProps = state => ({
   token: state.logInStatusData.token,
   user: state.logInStatusData.user,
-  pending: state.logInStatusData.pending
+  pending: state.logInStatusData.pending,
+  session: state.logInStatusData.session
 })
 
 const mapDispatchToProps = dispatch => ({

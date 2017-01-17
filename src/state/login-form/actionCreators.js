@@ -4,7 +4,7 @@ import {
   FETCH_USER_FAVS,
   FETCH_LOGIN_USER__FAILURE,
   RECEIVE_USER,
-  LOGOUT_SUCCESS
+  LOG_OUT_SUCCESS
 }
   from './actionTypes'
 
@@ -16,7 +16,7 @@ export const logIn = (username, password) => {
     })
 
     fetch(
-      'http://localhost:8000/api/users/login', {
+      'http://localhost:3001/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export const logIn = (username, password) => {
       userData => {
         dispatch({
           type: FETCH_LOGIN_USER__SUCCESS,
-          user: userData,
+          session: userData,
           token: userData.id
         })
 
@@ -55,7 +55,7 @@ export const logIn = (username, password) => {
 
 export const fetchUser = (token, userId) => {
   return (dispatch) => {
-    fetch('http://localhost:8000/api/users/' + userId + '?access_token=' + token
+    fetch('http://localhost:3001/api/users/' + userId + '?access_token=' + token
     ).then(
       response => response.json()
     ).then(user => {
@@ -72,7 +72,7 @@ export const fetchUser = (token, userId) => {
 
 export const logOut = (token) => {
   return (dispatch) => {
-    fetch('http://localhost:8000/api/users/logout?access_token=' + token, {
+    fetch('http://localhost:3001/api/users/logout?access_token=' + token, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export const logOut = (token) => {
     }).then(
       response =>
         dispatch({
-          type: LOGOUT_SUCCESS
+          type: LOG_OUT_SUCCESS
         })
     )
   }

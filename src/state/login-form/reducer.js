@@ -2,14 +2,16 @@ import {
   FETCH_LOGIN_USER__BEGIN,
   FETCH_LOGIN_USER__SUCCESS,
   FETCH_LOGIN_USER__FAILURE,
-  RECEIVE_USER,
-  LOGOUT_SUCCESS
+  LOG_OUT_SUCCESS,
+  LOG_OUT_BEGIN,
+  LOG_OUT_FAIL
 }
   from './actionTypes'
 
 const initialState = {
   user: null,
-  pending: false
+  pending: false,
+  session: null
 }
 
 export default (state = initialState, action = {}) => {
@@ -22,24 +24,17 @@ export default (state = initialState, action = {}) => {
     case FETCH_LOGIN_USER__SUCCESS:
       return {
         ...state,
-        user: action.user,
-        token: action.token,
+        session: action.session,
         pending: false
       }
     case FETCH_LOGIN_USER__FAILURE:
-      return {
-        ...state,
-        user: null,
-        pending: false
-      }
-    case RECEIVE_USER:
-      return {
-        user: action.user
-      }
-    case LOGOUT_SUCCESS:
+      return initialState
+    case LOG_OUT_SUCCESS:
       return {
         user: null
     }
+    case LOG_OUT_FAIL:
+      return initialState
     default:
       return state
   }
