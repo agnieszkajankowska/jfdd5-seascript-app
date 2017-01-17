@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
+import {fetchUser} from '../state/login-form/fetchUserData'
 import {LoginForm} from './'
 
 const mapStateToProps = state => ({

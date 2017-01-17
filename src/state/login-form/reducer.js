@@ -35,6 +35,11 @@ export default (state = initialState, action = {}) => {
     }
     case LOG_OUT_FAIL:
       return initialState
+    case FETCH_LOGIN_USER__SUCCESS:
+      return {
+        ...state,
+        user: action.userData
+      }
     default:
       return state
   }
