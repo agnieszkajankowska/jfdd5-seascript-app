@@ -5,7 +5,7 @@ import {
   Col
 } from 'react-bootstrap'
 
-import {fetchWeather} from '../state/weather/actionCreators'
+import {fetchWeather, fetchWeatherForecast} from '../state/weather/actionCreators'
 import {ActualWeather} from '../ActualWeather'
 import {connect} from 'react-redux'
 import './PlaceDetails.css'
@@ -15,32 +15,37 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchWeather: cityName => dispatch(fetchWeather(cityName))
+  fetchWeather: cityName => dispatch(fetchWeather(cityName)),
+  fetchWeatherForecast: cityName => dispatch(fetchWeatherForecast(cityName))
 })
 
 class PlaceDetails extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     console.log('Mounted')
 
-      this.props.fetchWeather(this.props.params.placeName)
+    this.props.fetchWeather(this.props.params.placeName)
+    this.props.fetchWeatherForecast(this.props.params.placeName)
 
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     console.log('Updated')
 
-      this.props.fetchWeather(this.props.params.placeName)
-
+    this.props.fetchWeather(this.props.params.placeName)
+    this.props.fetchWeatherForecast(this.props.params.placeName)
   }
 
 
   render() {
     return (
-      <Grid className="place-Details">
-        <Row>
-          <ActualWeather.actualWeather/>
-        </Row>
-      </Grid>
+        <Grid className="place-Details">
+          <Row>
+            <ActualWeather.actualWeather/>
+          </Row>
+          <Row>
+            <ActualWeather.weatherForecast/>
+          </Row>
+        </Grid>
     )
   }
 }
