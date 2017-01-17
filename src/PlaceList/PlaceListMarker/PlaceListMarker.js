@@ -13,8 +13,5 @@ export default (props) => (
            fill: 'pink'
          }}
     />
-    <PlaceListMarkerPopUp
-    attractions={props.attractions}
-    />
   </div>
 )

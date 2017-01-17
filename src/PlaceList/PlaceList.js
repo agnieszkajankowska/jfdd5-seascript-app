@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Col} from 'react-bootstrap'
+import { Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {connect} from 'react-redux'
