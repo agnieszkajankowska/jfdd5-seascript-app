@@ -11,58 +11,22 @@ import PlaceListMarker from './PlaceListMarker/PlaceListMarker'
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
-  placesIds: state.attractionsData.placesIds,
-  mapData: state.isAMap.mapData
+  placesIds: state.attractionsData.placesIds
 });
 
-const mapDispatchToProps = dispatch => ({
-  showMap: () => dispatch({
-    type: 'SHOW_MAP'
-  }),
-  hideMap: () => dispatch({
-    type: 'HIDE_MAP'
-  })
-});
+
 
 class placeList extends React.Component {
   constructor() {
     super()
+    
+    this.state = {
+      mapVisible: false
+    }
   }
 
   render() {
 
-    {
-      attractions.filter(
-        attraction =>
-        this.props.attractionsIds.indexOf(attraction.id) !== -1
-      ).map(
-        attraction => {
-          attraction.id,
-            places.filter(
-              place =>
-              place.attractions.indexOf(attraction.id) !== -1
-            ).map(
-              place =>
-                console.log(place.name)
-            )
-        }
-      )
-    }
-    {
-      attractions.filter(
-        attraction =>
-        this.props.attractionsIds.indexOf(attraction.id) !== -1
-      ).map(
-        attraction =>
-          places.filter(
-            place =>
-            place.attractions.indexOf(attraction.id) !== -1
-          ).map(
-            place =>
-              console.log("zzzzzzzzz", place.name)
-          )
-      )
-    }
 
     return (
 
@@ -77,7 +41,9 @@ class placeList extends React.Component {
         </div>
         <Col xs={2}/>
         <Col xs={4}>
-          <submit className="PlaceListButton" onClick={() => this.props.showMap()}>Map</submit>
+          <submit className="PlaceListButton" onClick={() => this.setState({
+          mapVisible: true
+          })}>Map</submit>
         </Col>
         <Col xs={4}>
           <Link className="PlaceListLink" to='/place-compare'>
@@ -86,7 +52,7 @@ class placeList extends React.Component {
         </Col>
         <Col xs={2}/>
         {
-          this.props.mapData[this.props.mapData.length - 1].isMapVisible ?
+          this.state.mapVisible ?
             <div className="PlaceListMapPopupPosition">
             <div className="PlaceListMapPopup">
               <div className="PlaceListMapPopupHeader">
@@ -122,7 +88,9 @@ class placeList extends React.Component {
               </div>
 
               <div className="PlaceListMapPopupFooter">
-                <submit className="PlaceListCloseButton" onClick={() => this.props.hideMap()}>Close</submit>
+                <submit className="PlaceListCloseButton" onClick={() => this.setState({
+                mapVisible: false
+                })}>Close</submit>
               </div>
             </div>
             </div>
@@ -134,4 +102,4 @@ class placeList extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(placeList)
+export default connect(mapStateToProps)(placeList)
