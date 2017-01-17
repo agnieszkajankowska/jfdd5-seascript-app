@@ -1,19 +1,15 @@
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import ReservationView from "./ReservationView/ReservationView";
-//import { DatePicker } from "react-bootstrap-date-picker"
-
-
 
 class ReservationModal extends React.Component {
 
   constructor() {
     super()
 
+
     this.state = {
-      showModal: false,
-      name: '',
-      surname: ''
+      showModal: false
     }
 
     this.close = () =>
@@ -41,7 +37,7 @@ class ReservationModal extends React.Component {
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Make a reservation</Modal.Title>
+            <Modal.Title>Make a reservation {this.props.attractionName} in {this.props.place} </Modal.Title>
           </Modal.Header>
           <Modal.Body>
 

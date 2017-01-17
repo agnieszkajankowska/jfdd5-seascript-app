@@ -4,7 +4,7 @@ import {Button, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 
 
 
 const mapStateToProps = state => ({
- //wrzucić wybrane atrakcje i miejsce
+ thingsToCompare: state.attractionAndPlaceData
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -27,6 +27,7 @@ class ReservationView extends React.Component {
 
   render() {
     return (
+
     <Form horizontal onSubmit={(event) => {
       event.preventDefault()
       this.props.makeReservation({
