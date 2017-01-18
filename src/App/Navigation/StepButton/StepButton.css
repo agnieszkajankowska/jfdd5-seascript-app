@@ -1,0 +1,11 @@
+.StepButtonActive {
+  color:red;
+}
+
+.StepButtonPrevious {
+  color: yellow;
+}
+
+.StepButtonNext {
+  color: green
+}

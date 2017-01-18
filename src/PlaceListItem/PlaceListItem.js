@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
 class placeListItem extends React.Component {
   constructor() {
     super()
-
+    
   }
 
   render() {
