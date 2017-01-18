@@ -6,6 +6,7 @@ import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 import {reducer as chosenAttractionReducer} from "./PlaceCompare";
 import {reducer as placeListReducer} from "./PlaceList";
 import makeReservationReducer from "./state/reservation/reducer";
+import persistState from "redux-localstorage";
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
@@ -24,7 +25,7 @@ const enhancer = composeEnhancers(
   applyMiddleware(
     thunkMiddleware // lets us dispatch() functions (thunks) in addition to objects with 'type' attribute
   ),
-  // persistState([])
+  persistState([])
 )
 
 const store = createStore(reducer, enhancer);
