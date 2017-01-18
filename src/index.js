@@ -23,7 +23,7 @@ ReactDOM.render(
         <IndexRoute component={DashboardView}/>
 
         <Route path="/form" component={Form}/>
-        <Route path="/place-details/:placeName" component={PlaceDetails}/>
+        <Route path="/place-details/:placeName/:attractionName" component={PlaceDetails}/>
         <Route path="/place-compare" component={PlaceCompare}/>
         <Route path="/place-list" component={PlaceList}/>
 
