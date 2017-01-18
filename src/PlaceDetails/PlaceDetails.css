@@ -1,13 +1,34 @@
-.place-Details {
+.place-details {
     background: #fff;
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
-.place-Details icon {
+.place-details icon {
     font-size: 5em;
 }
 
-.place-Details h2 icon {
+
+.place-details .main-weather{
+    height: 100vh;
+}
+
+.place-details h2 icon,
+.place-details .weather-forecast p icon{
     font-size: 1em;
+}
+
+.place-details .weather-forecast p{
+    font-size: 2.5em;
+    padding: 10px;
+}
+.place-details .weather-forecast .singleItem{
+    background: rgba(0, 123, 180, 1);
+    color: #fff;
+    border: 4px solid #fff;
+
+}
+
+.place-details .weather-forecast icon{
+    font-size: 3em;
 }

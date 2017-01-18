@@ -38,9 +38,6 @@ function timeConverter(UNIX_timestamp) {
   const year = a.getFullYear()
   const month = months[a.getMonth()]
   const date = a.getDate()
-  // const hour = a.getHours()
-  // const min = a.getMinutes()
-  // const sec = a.getSeconds()
   const setTime = date + ' ' + month + ' ' + year
   return setTime;
 }
@@ -79,35 +76,39 @@ const ActualWeather = (props) => {
   } = extractWeatherData(props.weatherCast)
 
   return (
-      <Col md={12}>
+      <Col xs={12}>
         <h2> Actual weather conditions </h2>
-        <Col sm={12}>
+        <Col xs={12}>
           <h2>{placeName} {placeCountryCode}</h2>
         </Col>
-        <Col sm={12}>
+        <Col xs={12} md={12}>
           <icon className={icon}/>
           <h2>{placeMainWeather}</h2>
         </Col>
 
-        <Col sm={12}>
+        <Col xs={12}>
           <h2>{placeTempreature}
             <icon className="wi wi-celsius"/>
           </h2>
         </Col>
 
-        <Col sm={4}>
+        <Col xs={4}>
           <icon className="wi wi-strong-wind"/>
           <h2>{placeWind}m/s {placeWindDirection}</h2>
         </Col>
 
-        <Col sm={4}>
+        <Col xs={4}>
           <icon className="wi wi-cloudy"/>
           <h2>{placeClouds}%</h2>
         </Col>
 
-        <Col sm={4}>
+        <Col xs={4}>
           <icon className="wi wi-smoke"/>
           <h2>{placeHumidity}%</h2>
+        </Col>
+
+        <Col xs={12}>
+          <h2>Weather condition for {props.attractionName}</h2>
         </Col>
       </Col>
 
@@ -121,17 +122,21 @@ const ActualWeatherForecast = (props) => {
   }
   console.debug('WEATHERFORECAST LOG', props.weatherForecast)
   return (
-      <Row>
-        <h2> Forecast for next 12 days </h2>
+      <Row className="forecast">
+        <div>
+          <h2> Forecast for next 12 days </h2>
 
-        {props.weatherForecast.list.map(
-            forecast =>
-                <Col sm={2}>
-                  <h2>{timeConverter(forecast.dt)}</h2>
-                  <icon className={getIcon(forecast)}></icon>
-                  <p>{forecast.temp.day}<icon className="wi wi-celsius"/></p>
-                </Col>
-        )}
+          {props.weatherForecast.list.map(
+              forecast =>
+                  <Col className='singleItem' xs={3} md={3}>
+                    <p>{timeConverter(forecast.dt)}</p>
+                    <icon className={getIcon(forecast)}></icon>
+                    <p>{forecast.temp.day}
+                      <icon className="wi wi-celsius"/>
+                    </p>
+                  </Col>
+          )}
+        </div>
       </Row>
 
   )

@@ -98,7 +98,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
-                            <Link to={'/place-details/' + place.name + '&' + this.props.attraction.name}>
+                            <Link to={'/place-details/' + place.name + '/' + this.props.attraction.name}>
                               <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>
