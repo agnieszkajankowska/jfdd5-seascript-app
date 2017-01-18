@@ -32,15 +32,15 @@ const getIcon = (props) => {
 }
 
 
-function timeConverter(UNIX_timestamp){
+function timeConverter(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000)
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   const year = a.getFullYear()
   const month = months[a.getMonth()]
   const date = a.getDate()
-  const hour = a.getHours()
-  const min = a.getMinutes()
-  const sec = a.getSeconds()
+  // const hour = a.getHours()
+  // const min = a.getMinutes()
+  // const sec = a.getSeconds()
   const setTime = date + ' ' + month + ' ' + year
   return setTime;
 }
@@ -63,67 +63,74 @@ const extractWeatherData = (allData) => ({
 
 const ActualWeather = (props) => {
 
-  if(props.weatherCast === null){
-    return(<p>Loading...</p>)
+  if (props.weatherCast === null) {
+    return (<p>Loading...</p>)
   }
   const {
-    placeName,
-    placeTempreature,
-    placeMainWeather,
-    placeWind,
-    placeWindDirection,
-    placeClouds,
-    placeHumidity,
-    placeCountryCode,
-    icon
+      placeName,
+      placeTempreature,
+      placeMainWeather,
+      placeWind,
+      placeWindDirection,
+      placeClouds,
+      placeHumidity,
+      placeCountryCode,
+      icon
   } = extractWeatherData(props.weatherCast)
 
   return (
-    <Col md={12}>
-      <h2> Actual weather conditions </h2>
-      <Col sm={12}>
-        <h2>{placeName} {placeCountryCode}</h2>
-      </Col>  
-      <Col sm={12}>
-        <icon className={icon}/>
-        <h2>{placeMainWeather}</h2>
-      </Col>
+      <Col md={12}>
+        <h2> Actual weather conditions </h2>
+        <Col sm={12}>
+          <h2>{placeName} {placeCountryCode}</h2>
+        </Col>
+        <Col sm={12}>
+          <icon className={icon}/>
+          <h2>{placeMainWeather}</h2>
+        </Col>
 
-      <Col sm={12}>
-        <h2>{placeTempreature}
-          <icon className="wi wi-celsius"/>
-        </h2>
-      </Col>
+        <Col sm={12}>
+          <h2>{placeTempreature}
+            <icon className="wi wi-celsius"/>
+          </h2>
+        </Col>
 
-      <Col sm={4}>
-        <icon className="wi wi-strong-wind"/>
-        <h2>{placeWind}m/s {placeWindDirection}</h2>
-      </Col>
+        <Col sm={4}>
+          <icon className="wi wi-strong-wind"/>
+          <h2>{placeWind}m/s {placeWindDirection}</h2>
+        </Col>
 
-      <Col sm={4}>
-        <icon className="wi wi-cloudy"/>
-        <h2>{placeClouds}%</h2>
-      </Col>
+        <Col sm={4}>
+          <icon className="wi wi-cloudy"/>
+          <h2>{placeClouds}%</h2>
+        </Col>
 
-      <Col sm={4}>
-        <icon className="wi wi-smoke"/>
-        <h2>{placeHumidity}%</h2>
+        <Col sm={4}>
+          <icon className="wi wi-smoke"/>
+          <h2>{placeHumidity}%</h2>
+        </Col>
       </Col>
-    </Col>
 
   )
 }
 
 
 const ActualWeatherForecast = (props) => {
-  if(props.weatherForecast === null){
-    return(<p>Loading Weather Forecast...</p>)
+  if (props.weatherForecast === null) {
+    return (<p>Loading Weather Forecast...</p>)
   }
   console.debug('WEATHERFORECAST LOG', props.weatherForecast)
   return (
       <Row>
+        <h2> Forecast for next 12 days </h2>
+
         {props.weatherForecast.list.map(
-            forecast => <Col sm={2}><p> {timeConverter(forecast.dt)}</p> <p>{forecast.temp.day}</p> </Col>
+            forecast =>
+                <Col sm={2}>
+                  <h2>{timeConverter(forecast.dt)}</h2>
+                  <icon className={getIcon(forecast)}></icon>
+                  <p>{forecast.temp.day}<icon className="wi wi-celsius"/></p>
+                </Col>
         )}
       </Row>
 
@@ -131,17 +138,19 @@ const ActualWeatherForecast = (props) => {
 }
 
 const ActualWeatherMinified = (props) => {
-  const { weatherId } = props
-  if(props.weatherList === null){
-    return(<p>Loading Weather...</p>)
+  const {weatherId} = props
+  if (props.weatherList === null) {
+    return (<p>Loading Weather...</p>)
   }
   const {
       placeTempreature,
       icon
-  } = extractWeatherData(props.weatherList.list.find( item => item.id === weatherId ))
+  } = extractWeatherData(props.weatherList.list.find(item => item.id === weatherId))
   return (
       <p>
-        <icon className={icon}/> {placeTempreature}<icon className="wi wi-celsius"/>
+        <icon className={icon}/>
+        {placeTempreature}
+        <icon className="wi wi-celsius"/>
       </p>
 
   )

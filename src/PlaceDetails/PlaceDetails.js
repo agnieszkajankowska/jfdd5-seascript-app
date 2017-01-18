@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   Grid,
-  Row,
-  Col
+  Row
 } from 'react-bootstrap'
 
 import {fetchWeather, fetchWeatherForecast} from '../state/weather/actionCreators'

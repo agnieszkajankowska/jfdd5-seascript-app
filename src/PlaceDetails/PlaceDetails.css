@@ -1,13 +1,13 @@
-.place-Details{
-  background: #ffffff;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
+.place-Details {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 .place-Details icon {
-  font-size:5em;
+    font-size: 5em;
 }
 
 .place-Details h2 icon {
-  font-size: 1em;
+    font-size: 1em;
 }
