@@ -20,7 +20,8 @@ const mapDispatchToProps = dispatch => ({
 class PlaceCompare extends React.Component {
 
   componentWillMount () {
-    this.props.fetchFavorites(this.props.session.userId, this.props.session.id)
+    this.props.session !== null ?
+    this.props.fetchFavorites(this.props.session.userId, this.props.session.id) : ''
   }
 
   render () {

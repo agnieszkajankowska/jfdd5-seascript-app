@@ -10,6 +10,7 @@ import {attractions, additionals} from '../../Database'
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
 
+import {addToFavorites} from '../../state/favorites/addToFavorites'
 
 import FaStar from 'react-icons/lib/fa/star'
 import GoCheck from 'react-icons/lib/go/check'
@@ -18,7 +19,8 @@ import MdStars  from 'react-icons/lib/md/stars'
 
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
-  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
+  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
+  session: state.logInStatusData.session
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -41,7 +43,9 @@ const mapDispatchToProps = dispatch => ({
         additional.placeId === place.id &&
         additional.attractionId === attraction.id
       ))
-  })
+  }),
+  addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId))
+
 })
 
 
@@ -103,15 +107,16 @@ class AttractionView extends React.Component {
                         <OverlayTrigger trigger='hover' placement="top" overlay={addToFavoritesPopover}><a
                           className="favorites"
                           onClick={() =>
-                            this.props.addAttractionToFavorites
-                            (thing.attraction, thing.place)}
+                            this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id )}
                         ><MdStars/></a></OverlayTrigger>
                     }
                   </td>)
             }
           </tr>
 
-
+          {/*addToFavorites*/}
+          {/*(this.props.session.userId, this.props.session.id, thing.additional.id )*/}
+          {/*this.props.addAttractionToFavorites(thing.attraction, thing.place)*/}
           <tr>
             <td className='table-header'> Price:</td>
             {

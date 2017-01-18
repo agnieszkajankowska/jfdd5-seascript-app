@@ -2,7 +2,10 @@ import { FETCH_USER_FAVS } from '../login-form/actionTypes'
 import {
   FETCH_USER_FAVORITES__BEGIN,
   FETCH_USER_FAVORITES__SUCCESS,
-  FETCH_USER_FAVORITES__FAILURE
+  FETCH_USER_FAVORITES__FAILURE,
+  ADD_USER_FAVORITES__BEGIN,
+  ADD_USER_FAVORITES__FAILURE,
+  ADD_USER_FAVORITES__SUCCESS
 }
   from './actionTypes'
 
@@ -49,6 +52,11 @@ export default (state=initialState, action) => {
       return {
         ...state,
         favoritesItemsIds: []
+      }
+    case ADD_USER_FAVORITES__SUCCESS:
+      return {
+        ...state,
+        favoritesItemsIds: state.favoritesItemsIds.concat(action.favoriteItem.itemId)
       }
     default : return state
   }

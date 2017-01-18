@@ -6,7 +6,8 @@ import {additionals} from '../Database'
 import './Favorites.css'
 
 const mapStateToProps = state => ({
-  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions
+  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
+  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -40,13 +41,13 @@ const Favorites = props => {
       <Grid>
         <Row>
         {
-          props.chosenToFavoritesAttractions.map(
+          props.favoritesItemsIds.map(
             attraction =>
                 <Col xs={12} sm={6} md={4}>
                   <FavoriteView attraction={attraction}
                                 addAttractionToFavorites={props.addAttractionToFavorites}
                                 removeAttractionFromFavorites={props.removeAttractionFromFavorites}
-                                chosenToFavoritesAttractions={props.chosenToFavoritesAttractions}
+                                chosenToFavoritesAttractions={props.favoritesItemsIds}
                   />
                 </Col>
           )
