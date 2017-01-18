@@ -78,7 +78,8 @@ class placeList extends React.Component {
                           place.attractions.indexOf(attraction.id) !== -1
                         ).map(
                           place =>
-                            <PlaceListMarker lat={place.latitude}
+                            <PlaceListMarker key={place.id} 
+                                             lat={place.latitude}
                                              lng={place.longitude}
                                              attractions={place.attractions}/>
                         )
@@ -92,6 +93,17 @@ class placeList extends React.Component {
                 mapVisible: false
                 })}>Close</submit>
               </div>
+              <ul>
+                {
+                  attractions.filter(
+                    attraction =>
+                    this.props.attractionsIds.indexOf(attraction.id) !== -1
+                  ).map(
+                    attraction =>
+                      <li key={attraction.id}>{attraction.name}</li>
+                  )
+                }
+              </ul>
             </div>
             </div>
             :
