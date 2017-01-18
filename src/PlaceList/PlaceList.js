@@ -78,7 +78,8 @@ class placeList extends React.Component {
                           place.attractions.indexOf(attraction.id) !== -1
                         ).map(
                           place =>
-                            <PlaceListMarker lat={place.latitude}
+                            <PlaceListMarker key={place.id} 
+                                             lat={place.latitude}
                                              lng={place.longitude}
                                              attractions={place.attractions}/>
                         )

@@ -9,11 +9,8 @@ class StepButton extends React.Component {
   }
 
   render() {
-    console.log('current step id ' + this.props.currentStepId);
-    console.log('step id ' + this.props.stepId);
     const stepId = parseInt(this.props.stepId, 10);
     const currentId = parseInt(this.props.currentStepId, 10);
-    console.log(currentId)
 
     const className = currentId === stepId ?
       'StepButtonActive' :

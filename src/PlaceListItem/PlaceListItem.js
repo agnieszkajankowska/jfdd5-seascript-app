@@ -60,7 +60,7 @@ class placeListItem extends React.Component {
                     place => place.attractions.indexOf(this.props.attraction.id) !== -1
                   ).map(
                     place =>
-                      <Col>
+                      <Col key={place.id}>
                         <div className="PlaceListItemCityName">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>{place.name}</p>
@@ -68,7 +68,9 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <p> nope </p>
+                            <p> 
+                              price
+                            </p>
                           </Col>
                         </div>
                         <div>
