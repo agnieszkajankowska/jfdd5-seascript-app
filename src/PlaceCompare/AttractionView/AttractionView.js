@@ -44,6 +44,8 @@ const mapDispatchToProps = dispatch => ({
   })
 })
 
+
+
 class AttractionView extends React.Component {
 
   render() {

@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
   fetchFavorites: (userId, token) => dispatch(fetchFavorites(userId, token))
 })
 
+
 class PlaceCompare extends React.Component {
 
   componentWillMount () {
