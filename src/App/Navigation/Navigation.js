@@ -28,7 +28,6 @@ class Menu extends React.Component {
         <StepButton for="/form" stepId="1" currentStepId={currentStepId}>form</StepButton>
         <StepButton for="/place-list" stepId="2" currentStepId={currentStepId}>place list</StepButton>
         <StepButton for="/place-compare" stepId="3" currentStepId={currentStepId}>place compare</StepButton>
-        <StepButton for="/favorites" stepId="4" currentStepId={currentStepId}>favorites</StepButton>
 
 
         <div className="nav-bar teaser-look">
@@ -78,4 +77,3 @@ class Menu extends React.Component {
 }
 
 export default Menu
-// var breadcrumbs = {'/form':['/form'],'/placelist':['/form','/placelist'],'/place-compare':['/form','/placelist','/place-compare']}
