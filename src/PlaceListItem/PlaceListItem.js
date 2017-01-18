@@ -1,10 +1,12 @@
-import React from "react";
-import {Link} from "react-router";
-import {Button, Grid, Col, Well, Clearfix} from "react-bootstrap";
-import {places, additionals} from "../Database";
-import {connect} from "react-redux";
-import "./PlaceListItem.css";
-import {fetchWeather, fetchWeatherList} from "../state/weather/actionCreators";
+import React from 'react'
+import {Link} from 'react-router'
+import {Button} from 'react-bootstrap'
+import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
+import {places, attractions, additionals} from '../Database'
+import {connect} from 'react-redux'
+import './PlaceListItem.css'
+import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
+import {ActualWeather} from '../ActualWeather'
 
 
 const mapStateToProps = state => ({
@@ -29,41 +31,14 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  fetchWeather: cityName => dispatch(fetchWeather(cityName)),
-  fetchWeatherList: city_id => dispatch(fetchWeatherList(city_id))
+  // fetchWeather: cityName => dispatch(fetchWeather(cityName))
 })
 
 
 class placeListItem extends React.Component {
   constructor() {
     super()
-  }
-
-  componentWillMount() {
-    console.log('Mounted')
-    let cityIdList = []
-
-    // places.filter(
-    //   place => place.attractions.indexOf(this.props.attraction.id) !== -1
-    // ).map(
-    //   place => this.props.fetchWeather(place.name)
-    // )
-
-    places.filter(
-      place => place.attractions.indexOf(this.props.attraction.id) !== -1
-    ).map(
-      place => cityIdList.push(place.weatherId)
-    )
-    cityIdList = cityIdList.toString()
-    this.props.fetchWeatherList(cityIdList)
-    console.log(cityIdList)
-  }
-
-  componentDidUpdate() {
-    console.log('Updated')
-
-    this.props.fetchWeather(this.props.params.placeName)
-
+    
   }
 
   render() {
@@ -85,7 +60,7 @@ class placeListItem extends React.Component {
                     place => place.attractions.indexOf(this.props.attraction.id) !== -1
                   ).map(
                     place =>
-                      <Col>
+                      <Col key={place.id}>
                         <div className="PlaceListItemCityName">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>{place.name}</p>
@@ -93,7 +68,11 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            {/*<ActualWeather.weatherMinified weatherId={place.weatherId} />*/}
+                            <p>
+                              {
+                               additionals.find(item => item.placeId === place.id && item.attractionId === this.props.attraction.id).price
+                              }
+                            </p>
                           </Col>
                         </div>
                         <div>

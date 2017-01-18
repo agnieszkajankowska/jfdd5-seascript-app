@@ -10,11 +10,10 @@ import {
 
 const mapStateToProps = state => ({
   weatherCast: state.weatherData.weatherCast,
-  weatherForecast: state.weatherData.weatherForecast,
+  weatherForecast: state.weatherForecastData.weatherForecast,
   weatherList: state.weatherData.weatherList
 })
 
-const mapDispatchToProps = state => ({})
 
 const getIcon = (props) => {
   let icon = ''
@@ -32,8 +31,24 @@ const getIcon = (props) => {
   return icon
 }
 
+
+function timeConverter(UNIX_timestamp){
+  const a = new Date(UNIX_timestamp * 1000)
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  const year = a.getFullYear()
+  const month = months[a.getMonth()]
+  const date = a.getDate()
+  const hour = a.getHours()
+  const min = a.getMinutes()
+  const sec = a.getSeconds()
+  const setTime = date + ' ' + month + ' ' + year
+  return setTime;
+}
+
 const extractWeatherData = (allData) => ({
+  city: allData.city,
   placeName: allData.name,
+  placeDate: allData.dt,
   placeTempreature: (allData.main.temp),
   placeMainWeather: (allData.weather[0].main),
   placeWind: (allData.wind.speed),
@@ -41,11 +56,16 @@ const extractWeatherData = (allData) => ({
   placeClouds: (allData.clouds.all),
   placeHumidity: (allData.main.humidity),
   placeCountryCode: (allData.sys.country),
+  list: (allData.list),
   icon: getIcon(allData)
 })
 
 
 const ActualWeather = (props) => {
+
+  if(props.weatherCast === null){
+    return(<p>Loading...</p>)
+  }
   const {
     placeName,
     placeTempreature,
@@ -63,8 +83,7 @@ const ActualWeather = (props) => {
       <h2> Actual weather conditions </h2>
       <Col sm={12}>
         <h2>{placeName} {placeCountryCode}</h2>
-      </Col>
-      {console.log(icon)}
+      </Col>  
       <Col sm={12}>
         <icon className={icon}/>
         <h2>{placeMainWeather}</h2>
@@ -96,65 +115,43 @@ const ActualWeather = (props) => {
 }
 
 
+const ActualWeatherForecast = (props) => {
+  if(props.weatherForecast === null){
+    return(<p>Loading Weather Forecast...</p>)
+  }
+  console.debug('WEATHERFORECAST LOG', props.weatherForecast)
+  return (
+      <Row>
+        {props.weatherForecast.list.map(
+            forecast => <Col sm={2}><p> {timeConverter(forecast.dt)}</p> <p>{forecast.temp.day}</p> </Col>
+        )}
+      </Row>
+
+  )
+}
+
 const ActualWeatherMinified = (props) => {
   const { weatherId } = props
+  if(props.weatherList === null){
+    return(<p>Loading Weather...</p>)
+  }
   const {
-    placeName,
-    placeTempreature,
-    placeMainWeather,
-    icon
+      placeTempreature,
+      icon
   } = extractWeatherData(props.weatherList.list.find( item => item.id === weatherId ))
   return (
-    <p>{placeName}{console.log(icon)}
-      <icon className={icon}/>
-      {placeMainWeather}{placeTempreature}
-      <icon className="wi wi-celsius"/>
-    </p>
+      <p>
+        <icon className={icon}/> {placeTempreature}<icon className="wi wi-celsius"/>
+      </p>
 
   )
 }
 
 
-//
-// class ForecastWeatherDetailed extends React.Component {
-//   render() {
-//     let forecastTemp = ''
-//     if (this.props.list !== undefined) {
-//       console.log(this.props.list)
-//       forecastTemp = this.props.list.map(forecast =>
-//         <Col sm={2} key={this.props.list}>
-//           {this.props.list[1].weather[0].main}
-//         </Col>
-//       )
-//       console.log(this.props.list.weather[0].main)
-//     }
-//     let icon = ''
-//     let iconLabel = ''
-//     const prefix = 'wi wi-'
-//     const code = (this.props.weather && this.props.weather[0].id)
-//
-//
-//     if (code === undefined) {
-//     } else {
-//       iconLabel = (icons[code].icon)
-//       if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-//         icon = prefix + 'day-' + iconLabel;
-//       } else {
-//         icon = prefix + iconLabel;
-//       }
-//     }
-//     return (
-//       <Col md={12}>
-//         <h2> 5 days forecast </h2>
-//         {forecastTemp}
-//       </Col>
-//     )
-//   }
-// }
-
 export default {
   actualWeather: connect(mapStateToProps)(ActualWeather),
-  weatherMinified: connect(mapStateToProps)(ActualWeatherMinified)
+  weatherMinified: connect(mapStateToProps)(ActualWeatherMinified),
+  weatherForecast: connect(mapStateToProps)(ActualWeatherForecast)
 }
 
 
