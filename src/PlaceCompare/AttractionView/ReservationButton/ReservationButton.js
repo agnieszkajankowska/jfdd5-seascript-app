@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import ReservationView from "./ReservationView/ReservationView";
 
+
 class ReservationModal extends React.Component {
 
   constructor() {
@@ -43,7 +44,7 @@ class ReservationModal extends React.Component {
 
 
             <h4>In order to make a reservation you have to supply us with contact data</h4>
-            <ReservationView />
+            <ReservationView attractionName={this.props.attractionName} place={this.props.place} />
 
           </Modal.Body>
           <Modal.Footer>

@@ -17,8 +17,8 @@ class ReservationView extends React.Component {
     super()
 
     this.state = {
-      name: '',
-      surname: '',
+      //name: '',
+      //surname: '',
       email: '',
       date: ''
     }
@@ -32,28 +32,11 @@ class ReservationView extends React.Component {
       event.preventDefault()
       this.props.makeReservation({
         ...this.state,
-        //dodać te wybrane atrakcje i miejsca
+        place: this.props.place,
+        attractionName: this.props.attractionName
       })
     }}>
-      <FormGroup controlId="formHorizontalEmail">
-        <Col componentClass={ControlLabel} sm={2}>
-          Name
-        </Col>
-        <Col sm={10}>
-          <FormControl type="name" placeholder="Name" value={this.state.name}
-                       onChange={(event) => this.setState({name: event.target.value})}/>
-        </Col>
-      </FormGroup>
 
-      <FormGroup controlId="formHorizontalPassword">
-        <Col componentClass={ControlLabel} sm={2}>
-          Surname
-        </Col>
-        <Col sm={10}>
-          <FormControl type="surname" placeholder="Surname" value={this.state.surname}
-                       onChange={(event) => this.setState({surname: event.target.value})}/>
-        </Col>
-      </FormGroup>
 
       <FormGroup controlId="formHorizontalEmail">
         <Col componentClass={ControlLabel} sm={2}>
