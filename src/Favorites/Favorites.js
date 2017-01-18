@@ -5,9 +5,12 @@ import {FavoriteView} from './FavoriteView'
 import {additionals} from '../Database'
 import './Favorites.css'
 
+import {fetchFavorites} from '../state/favorites/fetchFavorites'
+
 const mapStateToProps = state => ({
   chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
-  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds
+  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds,
+  session: state.logInStatusData.session
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -30,32 +33,40 @@ const mapDispatchToProps = dispatch => ({
         additional.placeId === place.id &&
         additional.attractionId === attraction.id
       ))
-  })
+  }),
+  fetchFavorites: (userId, token) => dispatch(fetchFavorites(userId, token))
 })
 
-const Favorites = props => {
-  console.log(props.chosenToFavoritesAttractions)
-  return (
-    <div>
-      <h1 className="favorites-header">Your list of favorites:</h1>
-      <Grid>
-        <Row>
-        {
-          props.favoritesItemsIds.map(
-            attraction =>
-                <Col xs={12} sm={6} md={4}>
-                  <FavoriteView attraction={attraction}
-                                addAttractionToFavorites={props.addAttractionToFavorites}
-                                removeAttractionFromFavorites={props.removeAttractionFromFavorites}
-                                chosenToFavoritesAttractions={props.favoritesItemsIds}
-                  />
-                </Col>
-          )
-        }
-        </Row>
-      </Grid>
-    </div>
-  )
+class Favorites extends React.Component {
+
+  componentWillMount() {
+    this.props.session !== null ?
+      this.props.fetchFavorites(this.props.session.userId, this.props.session.id) : ''
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 className="favorites-header">Your list of favorites:</h1>
+        <Grid>
+          <Row>
+            {
+              this.props.favoritesItemsIds.map(
+                attraction =>
+                  <Col xs={12} sm={6} md={4}>
+                    <FavoriteView attraction={attraction}
+                                  addAttractionToFavorites={this.props.addAttractionToFavorites}
+                                  removeAttractionFromFavorites={this.props.removeAttractionFromFavorites}
+                                  chosenToFavoritesAttractions={this.props.favoritesItemsIds}
+                    />
+                  </Col>
+              )
+            }
+          </Row>
+        </Grid>
+      </div>
+    )
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites)

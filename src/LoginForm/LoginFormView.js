@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
-import {LoginForm} from './'
+
 
 const mapStateToProps = state => ({
   user: state.logInStatusData.user,
@@ -62,7 +62,6 @@ class LoginFormView extends React.Component {
         <p>{this.state.username}</p>
         <p>{this.state.password}</p>
 
-        <LoginForm/>
       </div>
     )
   }

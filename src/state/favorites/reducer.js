@@ -5,7 +5,10 @@ import {
   FETCH_USER_FAVORITES__FAILURE,
   ADD_USER_FAVORITES__BEGIN,
   ADD_USER_FAVORITES__FAILURE,
-  ADD_USER_FAVORITES__SUCCESS
+  ADD_USER_FAVORITES__SUCCESS,
+  REMOVE_USER_FAVORITES__BEGIN,
+  REMOVE_USER_FAVORITES__SUCCESS,
+  REMOVE_USER_FAVORITES__FAILURE
 }
   from './actionTypes'
 
@@ -56,7 +59,13 @@ export default (state=initialState, action) => {
     case ADD_USER_FAVORITES__SUCCESS:
       return {
         ...state,
-        favoritesItemsIds: state.favoritesItemsIds.concat(action.favoriteItem.itemId)
+        favoritesItemsIds: state.favoritesItemsIds.concat(action.favoriteItem)
+      }
+    case REMOVE_USER_FAVORITES__SUCCESS:
+      return {
+        favoritesItemsIds: state.favoritesItemsIds.filter(
+          favoriteId =>
+          favoriteId !== action.favoriteItem.itemId)
       }
     default : return state
   }

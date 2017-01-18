@@ -11,7 +11,7 @@ import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
 
 import {addToFavorites} from '../../state/favorites/addToFavorites'
-
+import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
 import FaStar from 'react-icons/lib/fa/star'
 import GoCheck from 'react-icons/lib/go/check'
 import GoX from 'react-icons/lib/go/x'
@@ -20,7 +20,8 @@ import MdStars  from 'react-icons/lib/md/stars'
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
   chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
-  session: state.logInStatusData.session
+  session: state.logInStatusData.session,
+  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -44,10 +45,10 @@ const mapDispatchToProps = dispatch => ({
         additional.attractionId === attraction.id
       ))
   }),
-  addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId))
+  addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId)),
+  removeFromFavorites: (userId, token, favoriteId) => dispatch(removeFromFavorites(userId, token, favoriteId))
 
 })
-
 
 
 class AttractionView extends React.Component {
@@ -89,22 +90,21 @@ class AttractionView extends React.Component {
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
                     {thing.attraction.name} {' '}
                     {
-                      this.props.chosenToFavoritesAttractions.find(
+                      this.props.favoritesItemsIds.find(
                         attraction => {
                           return (
-                            attraction.attraction.id === thing.attraction.id &&
-                            attraction.place.id === thing.place.id
+                            attraction.itemId === thing.additional.id
                           )
                         }
                       ) !== undefined ?
-                        <OverlayTrigger trigger='hover' placement="top" overlay={removeFromFavoritesPopover}><a
+                        <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={removeFromFavoritesPopover}><a
                           className="remove-from-favorites"
                           onClick={() =>
-                            this.props.removeAttractionFromFavorites
-                            (thing.attraction, thing.place)}
+                            this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, thing.additional.id)
+                            }
                         ><MdStars /></a></OverlayTrigger>
                         :
-                        <OverlayTrigger trigger='hover' placement="top" overlay={addToFavoritesPopover}><a
+                        <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={addToFavoritesPopover}><a
                           className="favorites"
                           onClick={() =>
                             this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id )}
@@ -113,6 +113,8 @@ class AttractionView extends React.Component {
                   </td>)
             }
           </tr>
+
+
 
           {/*addToFavorites*/}
           {/*(this.props.session.userId, this.props.session.id, thing.additional.id )*/}
