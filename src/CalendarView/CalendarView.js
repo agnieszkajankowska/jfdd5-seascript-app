@@ -10,31 +10,32 @@ BigCalendar.setLocalizer(
 moment.locale("en");
 
 const mapStateToProps = state => ({
-reservationView: state.makeReservationData.reservations[0]
+reservations: state.makeReservationData.reservations
 })
 
 
-const CalendarView = (props) => (
-  <div style={{height: 300}}>
-    <p>{props.reservationView}</p>
-    <BigCalendar
-      events={[
-        {
-          allDay: true,
-          start: new Date(),
-          end: new Date()
-        }
-      ]}
-      startAccessor='startDate'
-      endAccessor='endDate'
-      step={15}
-      timeslots={8}
+const CalendarView = (props) => {
+  
+  return (
+    <div style={{height: 300}}>
+      <BigCalendar
+        events={props.reservations.map( reservation => ({
+            title: reservation.name,
+            allDay: true,
+            start: new Date(reservation.date),
+            end: new Date(reservation.date),
+          })
+        )}
 
-      defaultView="week"
-      defaultDate={new Date()}
-    />
-  </div>
+        step={15}
+        timeslots={8}
 
-);
+        defaultView="week"
+        defaultDate={new Date()}
+      />
+    </div>
+
+  );
+}
 
 export default connect(mapStateToProps)(CalendarView)
