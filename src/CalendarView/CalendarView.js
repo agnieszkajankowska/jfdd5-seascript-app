@@ -9,12 +9,14 @@ BigCalendar.setLocalizer(
 
 moment.locale("en");
 
-const mapStateToProps = (props) => {
+const mapStateToProps = state => ({
+reservationView: state.makeReservationData.reservations[0]
+})
 
-}
 
 const CalendarView = (props) => (
   <div style={{height: 300}}>
+    <p>{props.reservationView}</p>
     <BigCalendar
       events={[
         {
@@ -32,6 +34,7 @@ const CalendarView = (props) => (
       defaultDate={new Date()}
     />
   </div>
+
 );
 
 export default connect(mapStateToProps)(CalendarView)
