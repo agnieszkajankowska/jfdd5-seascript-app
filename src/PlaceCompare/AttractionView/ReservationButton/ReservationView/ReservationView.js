@@ -20,23 +20,25 @@ class ReservationView extends React.Component {
       //name: '',
       //surname: '',
       email: '',
-      date: ''
+      date: '',
+      didSubmit: false
     }
 
   }
 
   render() {
-    return (
+    return ( this.state.didSubmit ? <p>Your reservation has been succesfully sent!!!</p> :
 
     <Form horizontal onSubmit={(event) => {
       event.preventDefault()
+      this.setState({ didSubmit: true })
       this.props.makeReservation({
         ...this.state,
         place: this.props.place,
         attractionName: this.props.attractionName
       })
     }}>
-
+      <h4>In order to make a reservation you have to supply us with contact data</h4>
 
       <FormGroup controlId="formHorizontalEmail">
         <Col componentClass={ControlLabel} sm={2}>
