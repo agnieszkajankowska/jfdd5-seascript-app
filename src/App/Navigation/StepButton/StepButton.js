@@ -32,7 +32,10 @@ class StepButton extends React.Component {
 
 
       <Link to={this.props.for} className={className}>
-        <button disabled={buttonView}>{this.props.children}</button>
+        <button disabled={buttonView} className="stepButton">
+          {this.props.children}
+          <img src={process.env.PUBLIC_URL + '/images/icons/iconmonstr-arrow-29.svg'} alt=""/>
+        </button>
       </Link>
 
     )
