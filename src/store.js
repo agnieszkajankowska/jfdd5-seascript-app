@@ -8,7 +8,6 @@ import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
 import {reducer as chosenAttractionReducer} from "./PlaceCompare";
 import {reducer as placeListReducer} from "./PlaceList";
 import makeReservationReducer from "./state/reservation/reducer";
-import persistState from "redux-localstorage";
 import loginFormReducer from './state/login-form/reducer'
 
 const reducer = combineReducers({
