@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => ({
 
 class PlaceDetails extends React.Component {
   componentDidMount() {
-    this.props.fetchWeather(this.props.params.placeName)
-    this.props.fetchWeatherForecast(this.props.params.placeName)
+    this.props.fetchWeather(this.props.placeName || this.props.params.placeName)
+    this.props.fetchWeatherForecast(this.props.placeName || this.props.params.placeName)
 
   }
 
@@ -37,7 +37,7 @@ class PlaceDetails extends React.Component {
     return (
         <Grid className="place-details">
           <Row className="main-weather">
-            <ActualWeather.actualWeather attractionName={this.props.params.attractionName}/>
+            <ActualWeather.actualWeather/>
           </Row>
           <Row className="weather-forecast">
             <ActualWeather.weatherForecast/>

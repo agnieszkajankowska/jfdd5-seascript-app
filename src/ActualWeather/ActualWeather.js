@@ -35,10 +35,11 @@ const getIcon = (props) => {
 function timeConverter(UNIX_timestamp) {
   const a = new Date(UNIX_timestamp * 1000)
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const year = a.getFullYear()
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   const month = months[a.getMonth()]
   const date = a.getDate()
-  const setTime = date + ' ' + month + ' ' + year
+  const day = days[a.getDay()]
+  const setTime = day + ' ' + date + ' ' + month
   return setTime;
 }
 
@@ -76,40 +77,44 @@ const ActualWeather = (props) => {
   } = extractWeatherData(props.weatherCast)
 
   return (
-      <Col xs={12}>
+      <Col xs={12} className="actual-weather">
         <h2> Actual weather conditions </h2>
-        <Col xs={12}>
-          <h2>{placeName} {placeCountryCode}</h2>
-        </Col>
-        <Col xs={12} md={12}>
-          <icon className={icon}/>
-          <h2>{placeMainWeather}</h2>
+
+        <Col xs={6}>
+          <Col xs={12}>
+            <h2>{placeName} {placeCountryCode}</h2>
+          </Col>
+
+          <Col xs={4}>
+            <icon className="wi wi-strong-wind"/>
+            <h2>{placeWind}m/s {placeWindDirection}</h2>
+          </Col>
+
+          <Col xs={4}>
+            <icon className="wi wi-cloudy"/>
+            <h2>{placeClouds}%</h2>
+          </Col>
+
+          <Col xs={4}>
+            <icon className="wi wi-smoke"/>
+            <h2>{placeHumidity}%</h2>
+          </Col>
         </Col>
 
-        <Col xs={12}>
-          <h2>{placeTempreature}
-            <icon className="wi wi-celsius"/>
-          </h2>
+        <Col xs={6}>
+          <Col xs={12}>
+            <icon className={icon}/>
+            <h2>{placeMainWeather}</h2>
+          </Col>
+
+          <Col xs={12}>
+            <h2>{placeTempreature}
+              <icon className="wi wi-celsius"/>
+            </h2>
+          </Col>
         </Col>
 
-        <Col xs={4}>
-          <icon className="wi wi-strong-wind"/>
-          <h2>{placeWind}m/s {placeWindDirection}</h2>
-        </Col>
 
-        <Col xs={4}>
-          <icon className="wi wi-cloudy"/>
-          <h2>{placeClouds}%</h2>
-        </Col>
-
-        <Col xs={4}>
-          <icon className="wi wi-smoke"/>
-          <h2>{placeHumidity}%</h2>
-        </Col>
-
-        <Col xs={12}>
-          <h2>Weather condition for {props.attractionName}</h2>
-        </Col>
       </Col>
 
   )
@@ -120,20 +125,19 @@ const ActualWeatherForecast = (props) => {
   if (props.weatherForecast === null) {
     return (<p>Loading Weather Forecast...</p>)
   }
-  console.debug('WEATHERFORECAST LOG', props.weatherForecast)
   return (
       <Row className="forecast">
         <div>
-          <h2> Forecast for next 12 days </h2>
-
           {props.weatherForecast.list.map(
               forecast =>
-                  <Col className='singleItem' xs={3} md={3}>
-                    <p>{timeConverter(forecast.dt)}</p>
+                  <Col className='singleItem' xs={3} md={2}>
                     <icon className={getIcon(forecast)}></icon>
+
                     <p>{forecast.temp.day}
                       <icon className="wi wi-celsius"/>
                     </p>
+
+                    <p className="date">{timeConverter(forecast.dt)}</p>
                   </Col>
           )}
         </div>

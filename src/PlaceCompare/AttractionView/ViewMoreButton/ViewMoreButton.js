@@ -38,7 +38,7 @@ export default React.createClass({
             <Modal.Title>Weather conditions</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <PlaceDetails />
+            <PlaceDetails placeName={this.props.placeName}/>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
