@@ -52,14 +52,23 @@ class ReservationView extends React.Component {
 
       <FormGroup controlId="formHorizontalEmail">
         <Col componentClass={ControlLabel} sm={2}>
-          Date
+          Start date
         </Col>
         <Col sm={10}>
-          <FormControl type="date" placeholder="Date" value={this.state.date}
+          <FormControl type="date" placeholder="Start date" value={this.state.date}
                        onChange={(event) => this.setState({date: event.target.value})}/>
         </Col>
       </FormGroup>
 
+      <FormGroup controlId="formHorizontalEmail">
+        <Col componentClass={ControlLabel} sm={2}>
+          End date
+        </Col>
+        <Col sm={10}>
+          <FormControl type="date" placeholder="End date" value={this.state.date}
+                       onChange={(event) => this.setState({date: event.target.value})}/>
+        </Col>
+      </FormGroup>
 
       <FormGroup>
         <Col smOffset={2} sm={10}>
