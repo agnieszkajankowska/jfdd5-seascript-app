@@ -5,8 +5,10 @@ import thunkMiddleware from 'redux-thunk'
 import {reducer as attractionsReducer} from "./Form"
 import weatherReducer from './state/weather/reduce'
 import {reducer as attractionAndPlacesReducer} from "./PlaceListItem";
-import {reducer as chosenAttractionReducer} from "./PlaceCompare"
-import {reducer as placeListReducer} from "./PlaceList"
+import {reducer as chosenAttractionReducer} from "./PlaceCompare";
+import {reducer as placeListReducer} from "./PlaceList";
+import makeReservationReducer from "./state/reservation/reducer";
+import persistState from "redux-localstorage";
 import loginFormReducer from './state/login-form/reducer'
 
 const reducer = combineReducers({
@@ -14,8 +16,10 @@ const reducer = combineReducers({
   attractionAndPlaceData: attractionAndPlacesReducer,
   isAMap: placeListReducer,
   weatherData: weatherReducer,
+  weatherListData: weatherReducer,
   weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer,
+  makeReservationData: makeReservationReducer,
   logInStatusData: loginFormReducer
 });
 

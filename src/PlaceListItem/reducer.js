@@ -24,11 +24,6 @@ export default (state=initialState, action) => {
           )
         )
       }
-    // case 'FETCH_WEATHER_API':
-    //   return{
-    //     ...state,
-    //     place: action.place
-    // }
     default : return state
   }
 }

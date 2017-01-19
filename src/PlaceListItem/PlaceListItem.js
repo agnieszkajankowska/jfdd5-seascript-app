@@ -5,12 +5,14 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
-// import {ActualWeather} from '../ActualWeather'
+import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
+import {ActualWeather} from '../ActualWeather'
+
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
   placesIds: state.attractionsData.placesIds,
-  thingsToCompare: state.attractionAndPlaceData.thingsToCompare
+  thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -29,16 +31,14 @@ const mapDispatchToProps = dispatch => ({
     attraction: attraction,
     place: place
   }),
-  // fetchWeatherApi: (place) => dispatch({
-  //   type: 'FETCH_WEATHER_API',
-  //   place: place
-  // })
+  // fetchWeather: cityName => dispatch(fetchWeather(cityName))
 })
 
 
 class placeListItem extends React.Component {
   constructor() {
     super()
+    
   }
 
   render() {
@@ -60,7 +60,7 @@ class placeListItem extends React.Component {
                     place => place.attractions.indexOf(this.props.attraction.id) !== -1
                   ).map(
                     place =>
-                      <Col>
+                      <Col key={place.id}>
                         <div className="PlaceListItemCityName">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>{place.name}</p>
@@ -68,8 +68,11 @@ class placeListItem extends React.Component {
                         </div>
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
-                            <p>pogoda</p>
-                            {/*<ActualWeather.weatherMinified/>*/}
+                            <p>
+                              {
+                               additionals.find(item => item.placeId === place.id && item.attractionId === this.props.attraction.id).price
+                              }
+                            </p>
                           </Col>
                         </div>
                         <div>
@@ -99,8 +102,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
-                            <Link to={'/place-details/' + place.name}>
-                              {/*onClick={() => this.props.fetchWeatherApi(place.name)}*/}
+                            <Link to={'/place-details/' + place.name + '/' + this.props.attraction.name}>
                               <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
                               </submit>

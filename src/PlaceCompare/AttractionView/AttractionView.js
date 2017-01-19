@@ -208,7 +208,7 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton />
+                    <ReservationButton attractionName={thing.attraction.name} place={thing.place.name} />
                   </td>)
             }
           </tr>

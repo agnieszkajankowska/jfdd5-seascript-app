@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {Router, Route, IndexRoute, browserHistory} from "react-router";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./index.css";
 import App from "./App/App";
 import {DashboardView} from "./App/DashboardView";
@@ -14,20 +15,10 @@ import {PlaceList} from "./PlaceList";
 import {Favorites} from "./Favorites";
 import {LoginFormView} from "./LoginForm";
 import {RegistrationFormView} from "./RegistrationForm";
+import {CalendarView} from "./CalendarView";
 import {Provider} from "react-redux";
 import store from "./store";
 
-
-import {fetchWeather} from './state/weather/actionCreators'
-const fetchWeatherFromApi = () => {
-  store.dispatch(fetchWeather())
-}
-const fetchWeatherForList = () => {
-  console.log(store.getState())
-  store.getState()
-  console.log(store.attractionsData)
-  store.dispatch(fetchWeather('Seattle'))
-}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -36,19 +27,13 @@ ReactDOM.render(
         <IndexRoute component={DashboardView}/>
 
         <Route path="/form" component={Form}/>
-        <Route path="/place-details/:placeName" component={PlaceDetails} onEnter={fetchWeatherFromApi}/>
+        <Route path="/place-details/:placeName/:attractionName" component={PlaceDetails}/>
         <Route path="/place-compare" component={PlaceCompare}/>
-        <Route path="/place-list" component={PlaceList} onEnter={fetchWeatherForList}/>
+        <Route path="/place-list" component={PlaceList}/>
 
+        <Route path="/favorites" component={Favorites}/>
 
-        <Route path="/favorites" component={Favorites} onEnter={(nextState, replace) => {
-          if (store.getState().logInStatusData.session === null) {
-            replace(`/login-form`)
-          }
-        }}/>
-
-        <Route path="/login-form" component={LoginFormView}/>
-        <Route path="/registration-form" component={RegistrationFormView}/>
+        <Route path="/calendar" component={CalendarView} />
 
       </Route>
 
@@ -57,3 +42,12 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+
+// <Route path="/favorites" component={Favorites} onEnter={(nextState, replace) => {
+//   if (store.getState().logInStatusData.session === null) {
+//     replace(`/login-form`)
+//   }
+// }}/>
+//
+// <Route path="/login-form" component={LoginFormView}/>
+//   <Route path="/registration-form" component={RegistrationFormView}/>

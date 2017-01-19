@@ -3,73 +3,40 @@ import {Link} from "react-router";
 import {connect} from 'react-redux'
 
 import "./Navigation.css";
-import FaAngleRight from 'react-icons/lib/fa/angle-right'
+import {StepButton} from './StepButton'
 
-import Logo from "./logo.svg";
-import {Button} from "react-bootstrap"
 
-const mapStateToProps = state => ({
-  session: state.logInStatusData.session,
-  pending: state.logInStatusData.pending
-})
+class Menu extends React.Component {
+  constructor() {
+    super()
+  }
 
-class Navigation extends React.Component {
   render() {
+
+    const urlMap = {
+      '/form': 1,
+      '/place-list': 2,
+      '/place-compare':3,
+      '/favorites':4
+    }
+
+    const currentStepId = urlMap[document.location.pathname];
+
     return (
-      <div className="nav-bar teaser-look">
-
-        <div className="nav-responsive-panel">
-          <img src={Logo} alt="logo"/>
-          <button className="nav-button">
-            <span className="icon-menu5"/>
-          </button>
-        </div>
-
-        <ul id="top-menu" className="responsive-menu">
-          <li className="logo grow">
-            <Link to="#teaser" className="link">
-              <img src={Logo} alt="logo"/> Wave
-            </Link>
-          </li>
-
-          <li className="grow menu-link">
-            <Link to="/form" className="link">Form <FaAngleRight size={30}/></Link>
-          </li>
-
-          <li className="grow menu-link">
-            <Link to="/place-list" className="link">Place List <FaAngleRight size={30}/></Link>
-          </li>
-
-          <li className="grow menu-link">
-            <Link to="/place-compare" className="link">Compare Places <FaAngleRight size={30}/></Link>
-          </li>
-
-          {/*<li className="grow menu-link">*/}
-          {/*<Link to="/place-details" className="link">Place Details <FaAngleRight size={30} /></Link>*/}
-          {/*</li>*/}
-
-          {this.props.session !== null ?
-          <li className="grow menu-link">
-            <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
-          </li> : "" }
-
-          <li className="grow menu-link">
-            <Link to="/login-form" className="link">Login Form<FaAngleRight size={30}/></Link>
-          </li>
-
-          <li className="grow menu-link">
-            <Link to="/registration-form" className="link">Registration Form<FaAngleRight size={30}/></Link>
-          </li>
-
-          {/*<li className="grow menu-link">*/}
-          {/*<Link to="/" className="link">Place Maps></Link>*/}
-          {/*</li>*/}
-          <li className="clear" id="blacked"/>
-        </ul>
-
+      <div>
+        <StepButton for="/form" stepId="1" currentStepId={currentStepId}>form</StepButton>
+        <StepButton for="/place-list" stepId="2" currentStepId={currentStepId}>place list</StepButton>
+        <StepButton for="/place-compare" stepId="3" currentStepId={currentStepId}>place compare</StepButton>
+        <button><Link to="/favorites" className="link">Favorites</Link></button>
+        <button><Link to="/calendar" className="link">Calendar</Link></button>
       </div>
-      )
+    )
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default Menu
+
+// {this.props.session !== null ?
+//   <li className="grow menu-link">
+//     <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
+//   </li> : "" }
