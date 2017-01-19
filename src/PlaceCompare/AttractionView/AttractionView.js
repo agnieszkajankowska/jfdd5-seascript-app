@@ -5,7 +5,7 @@ import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
 
 import './AttractionView.css'
 
-import {attractions, additionals} from '../../Database'
+import { attractions, additionals } from '../../Database'
 
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
