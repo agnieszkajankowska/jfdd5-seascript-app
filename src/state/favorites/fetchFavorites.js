@@ -20,7 +20,7 @@ export const fetchFavorites = (userId, token) => {
           response.json().then(
             favoriteItems => dispatch({
               type: FETCH_USER_FAVORITES__SUCCESS,
-              favoritesItemsIds: favoriteItems
+              favoritesItems: favoriteItems
             })
           )
         }

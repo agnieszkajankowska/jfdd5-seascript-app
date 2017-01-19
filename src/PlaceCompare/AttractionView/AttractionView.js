@@ -20,12 +20,12 @@ import MdStars  from 'react-icons/lib/md/stars'
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
   session: state.logInStatusData.session,
-  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds
+  favoritesItems: state.chosenAttractionsToFavoritesData.favoritesItems
 })
 
 const mapDispatchToProps = dispatch => ({
   addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId)),
-  removeFromFavorites: (userId, token, favoriteId) => dispatch(removeFromFavorites(userId, token, favoriteId))
+  removeFromFavorites: (userId, token, favoriteItemToRemoveId) => dispatch(removeFromFavorites(userId, token, favoriteItemToRemoveId))
 })
 
 
@@ -52,8 +52,9 @@ class AttractionView extends React.Component {
        Remove from Favorites
       </Popover>
     );
+    
 
-    return (
+      return (
       <div>
         <table>
           <tbody>
@@ -61,40 +62,48 @@ class AttractionView extends React.Component {
             <td className='table-header'>
               Activity:
             </td>
-            {
+            {this.props.session !== null ?
+
               this.props.thingsToCompare.map(
                 thing => {
-                  const favoriteItemToRemove = this.props.favoritesItemsIds.find(
-                      favoriteItem => {
-                        return (
-                          favoriteItem.itemId === thing.additional.id
-                        )
-                      }
-                    )
+                  const favoriteItemToRemove = this.props.favoritesItems.find(
+                    favoriteItem => {
+                      return (
+                        favoriteItem.itemId === thing.additional.id
+                      )
+                    }
+                  )
 
                   return (
                     <td
                       className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
                       {thing.attraction.name} {' '}
                       {
-                         favoriteItemToRemove !== undefined ?
-                          <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={removeFromFavoritesPopover}><a
+                        favoriteItemToRemove !== undefined ?
+                          <OverlayTrigger trigger={['hover', 'focus']} placement="top"
+                                          overlay={removeFromFavoritesPopover}><a
                             className="remove-from-favorites"
                             onClick={() =>
                               this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, favoriteItemToRemove.id)
                             }
                           ><MdStars /></a></OverlayTrigger>
                           :
-                          <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={addToFavoritesPopover}><a
+                          <OverlayTrigger trigger={['hover', 'focus']} placement="top"
+                                          overlay={addToFavoritesPopover}><a
                             className="favorites"
                             onClick={() =>
-                              this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id )}
+                              this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id)}
                           ><MdStars/></a></OverlayTrigger>
                       }
                     </td>
                   )
                 }
-              )
+              ) :
+              this.props.thingsToCompare.map(
+                thing =>
+              <td
+              className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
+              {thing.attraction.name} {' '} </td>)
             }
           </tr>
 

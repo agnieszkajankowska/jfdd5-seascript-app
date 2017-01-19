@@ -6,13 +6,13 @@ import {
   from './actionTypes'
 
 
-export const removeFromFavorites = (userId, token, favoriteId) => {
+export const removeFromFavorites = (userId, token, favoriteItemToRemoveId) => {
   return (dispatch) => {
     dispatch({
       type: REMOVE_USER_FAVORITES__BEGIN
     })
 
-    fetch('http://localhost:3001/api/users/' + userId + '/favoriteItems/' + favoriteId + '?access_token=' + token, {
+    fetch('http://localhost:3001/api/users/' + userId + '/favoriteItems/' + favoriteItemToRemoveId + '?access_token=' + token, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export const removeFromFavorites = (userId, token, favoriteId) => {
         if (response.status === 204) {
           dispatch({
             type: REMOVE_USER_FAVORITES__SUCCESS,
-            favoriteId: favoriteId
+            favoriteId: favoriteItemToRemoveId
           })
         }
         else {

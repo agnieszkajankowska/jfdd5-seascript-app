@@ -12,31 +12,11 @@ import {fetchFavorites} from '../state/favorites/fetchFavorites'
 
 const mapStateToProps = state => ({
   chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
-  favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds,
+  favoritesItems: state.chosenAttractionsToFavoritesData.favoritesItems,
   session: state.logInStatusData.session
 })
 
 const mapDispatchToProps = dispatch => ({
-  addAttractionToFavorites: (attraction, place) => dispatch({
-    type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
-    attraction: attraction,
-    place: place,
-    additional: additionals.find(
-      additional => (
-        additional.placeId === place.id &&
-        additional.attractionId === attraction.id
-      ))
-  }),
-  removeAttractionFromFavorites: (attraction, place) => dispatch({
-    type: 'REMOVE_ATTRACTION_AND_PLACE_TO_FAVORITES',
-    attraction: attraction,
-    place: place,
-    additional: additionals.find(
-      additional => (
-        additional.placeId === place.id &&
-        additional.attractionId === attraction.id
-      ))
-  }),
   fetchFavorites: (userId, token) => dispatch(fetchFavorites(userId, token)),
   addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId)),
   removeFromFavorites: (userId, token, favoriteId) => dispatch(removeFromFavorites(userId, token, favoriteId))
@@ -50,7 +30,6 @@ class Favorites extends React.Component {
   }
 
 
-
   render() {
     return (
       <div>
@@ -58,7 +37,7 @@ class Favorites extends React.Component {
         <Grid>
           <Row>
             {
-              this.props.favoritesItemsIds.map(
+              this.props.favoritesItems.map(
                 favorite =>
                   <Col xs={12} sm={6} md={4}>
                     <FavoriteView favorite={favorite}
