@@ -65,7 +65,7 @@ export default (state=initialState, action) => {
       return {
         favoritesItemsIds: state.favoritesItemsIds.filter(
           favoriteId =>
-          favoriteId !== action.favoriteItem.itemId)
+          favoriteId.id !== action.favoriteId)
       }
     default : return state
   }

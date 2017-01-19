@@ -85,32 +85,38 @@ class AttractionView extends React.Component {
             </td>
             {
               this.props.thingsToCompare.map(
-                thing =>
-                  <td
-                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
-                    {thing.attraction.name} {' '}
-                    {
-                      this.props.favoritesItemsIds.find(
-                        attraction => {
-                          return (
-                            attraction.itemId === thing.additional.id
-                          )
-                        }
-                      ) !== undefined ?
-                        <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={removeFromFavoritesPopover}><a
-                          className="remove-from-favorites"
-                          onClick={() =>
-                            this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, thing.additional.id)
+                thing => {
+                  const fav = this.props.favoritesItemsIds.find(
+                      attraction => {
+                        return (
+                          attraction.itemId === thing.additional.id
+                        )
+                      }
+                    )
+
+                  return (
+                    <td
+                      className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
+                      {thing.attraction.name} {' '}
+                      {
+                         fav !== undefined ?
+                          <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={removeFromFavoritesPopover}><a
+                            className="remove-from-favorites"
+                            onClick={() =>
+                              this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, fav.id)
                             }
-                        ><MdStars /></a></OverlayTrigger>
-                        :
-                        <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={addToFavoritesPopover}><a
-                          className="favorites"
-                          onClick={() =>
-                            this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id )}
-                        ><MdStars/></a></OverlayTrigger>
-                    }
-                  </td>)
+                          ><MdStars /></a></OverlayTrigger>
+                          :
+                          <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={addToFavoritesPopover}><a
+                            className="favorites"
+                            onClick={() =>
+                              this.props.addToFavorites(this.props.session.userId, this.props.session.id, thing.additional.id )}
+                          ><MdStars/></a></OverlayTrigger>
+                      }
+                    </td>
+                  )
+                }
+              )
             }
           </tr>
 

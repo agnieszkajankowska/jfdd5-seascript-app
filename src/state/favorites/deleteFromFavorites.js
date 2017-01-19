@@ -21,13 +21,10 @@ export const removeFromFavorites = (userId, token, favoriteId) => {
     ).then(
       response => {
         if (response.status === 204) {
-          response.json().then(
-            favoriteId =>
-              dispatch({
-                type: REMOVE_USER_FAVORITES__SUCCESS,
-                favoriteItem: favoriteId
-              })
-          )
+          dispatch({
+            type: REMOVE_USER_FAVORITES__SUCCESS,
+            favoriteId: favoriteId
+          })
         }
         else {
           return response.json().then(
