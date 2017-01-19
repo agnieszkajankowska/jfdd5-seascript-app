@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 
 class FavoriteView extends React.Component {
   render() {
+
     const popoverHoverFocus = (
       <Popover id="popover-trigger-hover-focus">
         Remove from Favorites
@@ -19,18 +20,14 @@ class FavoriteView extends React.Component {
 
     const chosenAdditional = additionals.find(company =>
      company.id === this.props.favorite.itemId )
-    console.log("Favorite",this.props.favorite)
-    console.log("chosenAdditional", chosenAdditional)
 
     const chosenAttraction = attractions.find(attraction =>
     attraction.id === chosenAdditional.attractionId )
-    console.log("chosenAdditional", chosenAdditional)
 
     const chosenPlace = places.find(place =>
     place.id === chosenAdditional.placeId
     )
 
-    console.log("dane wejściowe", this.props.session.userId, this.props.session.id, this.props.favorite.itemId)
     return (
       <div className="favorite-container">
         <div className="favorite-photo-container">

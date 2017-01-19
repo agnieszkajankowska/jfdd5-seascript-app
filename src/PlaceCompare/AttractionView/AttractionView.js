@@ -1,17 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
-
 import './AttractionView.css'
 
 import { attractions, additionals } from '../../Database'
 
+import {addToFavorites} from '../../state/favorites/addToFavorites'
+import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
+
 import {ReservationButton} from './ReservationButton'
 import {ViewMoreButton} from './ViewMoreButton'
 
-import {addToFavorites} from '../../state/favorites/addToFavorites'
-import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
+import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
 import FaStar from 'react-icons/lib/fa/star'
 import GoCheck from 'react-icons/lib/go/check'
 import GoX from 'react-icons/lib/go/x'
@@ -19,35 +19,13 @@ import MdStars  from 'react-icons/lib/md/stars'
 
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
-  chosenToFavoritesAttractions: state.chosenAttractionsToFavoritesData.chosenToFavoritesAttractions,
   session: state.logInStatusData.session,
   favoritesItemsIds: state.chosenAttractionsToFavoritesData.favoritesItemsIds
 })
 
 const mapDispatchToProps = dispatch => ({
-  addAttractionToFavorites: (attraction, place) => dispatch({
-    type: 'ADD_ATTRACTION_AND_PLACE_TO_FAVORITES',
-    attraction: attraction,
-    place: place,
-    additional: additionals.find(
-      additional => (
-        additional.placeId === place.id &&
-        additional.attractionId === attraction.id
-      ))
-  }),
-  removeAttractionFromFavorites: (attraction, place) => dispatch({
-    type: 'REMOVE_ATTRACTION_AND_PLACE_TO_FAVORITES',
-    attraction: attraction,
-    place: place,
-    additional: additionals.find(
-      additional => (
-        additional.placeId === place.id &&
-        additional.attractionId === attraction.id
-      ))
-  }),
   addToFavorites: (userId, token, favoriteId) => dispatch(addToFavorites(userId, token, favoriteId)),
   removeFromFavorites: (userId, token, favoriteId) => dispatch(removeFromFavorites(userId, token, favoriteId))
-
 })
 
 
@@ -86,10 +64,10 @@ class AttractionView extends React.Component {
             {
               this.props.thingsToCompare.map(
                 thing => {
-                  const fav = this.props.favoritesItemsIds.find(
-                      attraction => {
+                  const favoriteItemToRemove = this.props.favoritesItemsIds.find(
+                      favoriteItem => {
                         return (
-                          attraction.itemId === thing.additional.id
+                          favoriteItem.itemId === thing.additional.id
                         )
                       }
                     )
@@ -99,11 +77,11 @@ class AttractionView extends React.Component {
                       className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
                       {thing.attraction.name} {' '}
                       {
-                         fav !== undefined ?
+                         favoriteItemToRemove !== undefined ?
                           <OverlayTrigger trigger={['hover', 'focus']} placement="top" overlay={removeFromFavoritesPopover}><a
                             className="remove-from-favorites"
                             onClick={() =>
-                              this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, fav.id)
+                              this.props.removeFromFavorites(this.props.session.userId, this.props.session.id, favoriteItemToRemove.id)
                             }
                           ><MdStars /></a></OverlayTrigger>
                           :
@@ -120,11 +98,6 @@ class AttractionView extends React.Component {
             }
           </tr>
 
-
-
-          {/*addToFavorites*/}
-          {/*(this.props.session.userId, this.props.session.id, thing.additional.id )*/}
-          {/*this.props.addAttractionToFavorites(thing.attraction, thing.place)*/}
           <tr>
             <td className='table-header'> Price:</td>
             {
