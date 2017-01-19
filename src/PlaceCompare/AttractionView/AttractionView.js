@@ -52,7 +52,7 @@ class AttractionView extends React.Component {
        Remove from Favorites
       </Popover>
     );
-    
+
 
       return (
       <div>

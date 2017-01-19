@@ -17,7 +17,10 @@ class Menu extends React.Component {
       '/form': 1,
       '/place-list': 2,
       '/place-compare':3,
-      '/favorites':4
+      '/favorites':4,
+      '/calendar':5,
+      '/login-form':6,
+      '/registration':7
     }
 
     const currentStepId = urlMap[document.location.pathname];
@@ -32,7 +35,7 @@ class Menu extends React.Component {
         <button><Link to="/calendar" className="link">Calendar</Link></button>
         <button><Link to="/login-form" className="link">Log in</Link></button>
         <button><Link to="/registration" className="link">Registration</Link></button>
-        <button><Link to="/form" className="link">Form2</Link></button>
+
       </div>
     )
   }
