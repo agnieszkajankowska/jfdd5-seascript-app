@@ -1,7 +1,6 @@
 import {FETCH_WEATHER_API,FETCH_WEATHER_LIST_API,FETCH_WEATHER_FORECAST_API} from './actionTypes'
 
 const api_key = 'dc2f2e72b22d9a90fd58cf8ed86be518'
-let city_name = 'Gdańsk'
 
 export const fetchWeather = (city_name) => dispatch => {
   fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&APPID=" + api_key + "&units=metric").then(
@@ -19,7 +18,7 @@ export const fetchWeather = (city_name) => dispatch => {
 }
 
 export const fetchWeatherForecast = (city_name) => dispatch => {
-  fetch("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city_name + "&APPID=" + api_key + "&units=metric&cnt=6").then(
+  fetch("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city_name + "&APPID=" + api_key + "&units=metric&cnt=12").then(
     (response) => { return response.json() }
   ).then(
     (weatherForecastData) => {
