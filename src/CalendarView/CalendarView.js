@@ -3,7 +3,7 @@ import BigCalendar from "react-big-calendar";
 import moment from "moment";
 import {connect} from "react-redux";
 import {Grid, Row, Col} from "react-bootstrap";
-import {attractions} from "../Database/attractions";
+
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
@@ -23,7 +23,7 @@ console.log(props.reservations)
       <Row>
         <Col xs={4}>
           <div className="PlaceListItemIcon">
-            {props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + props.reservations[0].attractionImage } /> : null }
+            {props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + props.reservations[0].attractionImage } role="presentation" /> : null }
             <p></p>
           </div>
         </Col>

@@ -1,10 +1,8 @@
-import React from 'react'
-import {Grid, Row, Col} from 'react-bootstrap'
-
-import {AttractionView} from './AttractionView'
-
-import './PlaceCompare.css'
-import './AttractionView/AttractionView.css'
+import React from "react";
+import {Grid, Row} from "react-bootstrap";
+import {AttractionView} from "./AttractionView";
+import "./PlaceCompare.css";
+import "./AttractionView/AttractionView.css";
 
 const PlaceCompare = () => {
   return (
