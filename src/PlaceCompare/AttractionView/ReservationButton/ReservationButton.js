@@ -44,7 +44,7 @@ class ReservationModal extends React.Component {
 
 
 
-            <ReservationView attractionName={this.props.attractionName} place={this.props.place} />
+            <ReservationView attractionName={this.props.attractionName} attractionImage={this.props.attractionImage} place={this.props.place} />
 
           </Modal.Body>
           <Modal.Footer>

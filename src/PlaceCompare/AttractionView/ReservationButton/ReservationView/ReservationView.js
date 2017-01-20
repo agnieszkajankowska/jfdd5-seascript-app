@@ -4,7 +4,7 @@ import {Button, Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 
 
 
 const mapStateToProps = state => ({
- thingsToCompare: state.attractionAndPlaceData
+ thingsToCompare: state.attractionAndPlaceData,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -20,12 +20,12 @@ class ReservationView extends React.Component {
       //name: '',
       //surname: '',
       email: '',
-      date: '',
+      startDate: '',
+      endDate: '',
       didSubmit: false
     }
 
   }
-
   render() {
     return ( this.state.didSubmit ? <p>Your reservation has been succesfully sent!!!</p> :
 
@@ -35,7 +35,8 @@ class ReservationView extends React.Component {
       this.props.makeReservation({
         ...this.state,
         place: this.props.place,
-        attractionName: this.props.attractionName
+        attractionName: this.props.attractionName,
+        attractionImage: this.props.attractionImage
       })
     }}>
       <h4>In order to make a reservation you have to supply us with contact data</h4>
@@ -55,8 +56,8 @@ class ReservationView extends React.Component {
           Start date
         </Col>
         <Col sm={10}>
-          <FormControl type="date" placeholder="Start date" value={this.state.date}
-                       onChange={(event) => this.setState({date: event.target.value})}/>
+          <FormControl type="date" placeholder="Start date" value={this.state.startDate}
+                       onChange={(event) => this.setState({startDate: event.target.value})}/>
         </Col>
       </FormGroup>
 
@@ -65,8 +66,8 @@ class ReservationView extends React.Component {
           End date
         </Col>
         <Col sm={10}>
-          <FormControl type="date" placeholder="End date" value={this.state.date}
-                       onChange={(event) => this.setState({date: event.target.value})}/>
+          <FormControl type="date" placeholder="End date" value={this.state.endDate}
+                       onChange={(event) => this.setState({endDate: event.target.value})}/>
         </Col>
       </FormGroup>
 
