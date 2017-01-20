@@ -1,20 +1,27 @@
-import React from 'react'
-import { Button, Modal, Form, FormGroup,
-ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
+import React from "react";
+import {Button, Modal} from "react-bootstrap";
+import ReservationView from "./ReservationView/ReservationView";
 
 
-export default React.createClass({
-  getInitialState() {
-    return { showModal: false };
-  },
+class ReservationModal extends React.Component {
 
-  close() {
-    this.setState({ showModal: false });
-  },
+  constructor() {
+    super()
 
-  open() {
-    this.setState({ showModal: true });
-  },
+
+    this.state = {
+      showModal: false,
+    }
+
+    this.close = () =>
+      this.setState({showModal: false});
+
+
+    this.open = () =>
+      this.setState({showModal: true});
+  }
+
+
 
   render() {
     return (
@@ -29,57 +36,15 @@ export default React.createClass({
           BOOK NOW
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={this.state.showModal} onHide={this.close} >
           <Modal.Header closeButton>
-            <Modal.Title>Make a reservation</Modal.Title>
+            <Modal.Title>{this.props.attractionName} in {this.props.place} </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body id="reservationModalBody" >
 
 
-            <h4>In order to make a reservation you have to supply us with contact data</h4>
 
-            <Form horizontal>
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Name
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="name" placeholder="Name" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Surname
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="surname" placeholder="Surname" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Email
-                </Col>
-                <Col sm={10}>
-                  <FormControl type="email" placeholder="Email" />
-                </Col>
-              </FormGroup>
-
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Checkbox>I agree on terms and conditions</Checkbox>
-                </Col>
-              </FormGroup>
-
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Button type="submit">
-                    BOOK
-                  </Button>
-                </Col>
-              </FormGroup>
-            </Form>
+            <ReservationView attractionName={this.props.attractionName} attractionImage={this.props.attractionImage} place={this.props.place} />
 
           </Modal.Body>
           <Modal.Footer>
@@ -89,5 +54,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
 
+export default ReservationModal

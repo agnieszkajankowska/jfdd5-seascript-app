@@ -1,19 +1,14 @@
-import React from 'react'
-import {connect} from 'react-redux'
-
-import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
-
-import './AttractionView.css'
-
-import {attractions, additionals} from '../../Database'
-
-import {ReservationButton} from './ReservationButton'
-import {ViewMoreButton} from './ViewMoreButton'
-
-import FaStar from 'react-icons/lib/fa/star'
-import GoCheck from 'react-icons/lib/go/check'
-import GoX from 'react-icons/lib/go/x'
-import MdStars  from 'react-icons/lib/md/stars'
+import React from "react";
+import {connect} from "react-redux";
+import {Button, Popover, OverlayTrigger} from "react-bootstrap";
+import "./AttractionView.css";
+import {attractions, additionals} from "../../Database";
+import {ReservationButton} from "./ReservationButton";
+import {ViewMoreButton} from "./ViewMoreButton";
+import FaStar from "react-icons/lib/fa/star";
+import GoCheck from "react-icons/lib/go/check";
+import GoX from "react-icons/lib/go/x";
+import MdStars from "react-icons/lib/md/stars";
 
 const mapStateToProps = state => ({
   thingsToCompare: state.attractionAndPlaceData.thingsToCompare,
@@ -219,7 +214,7 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton />
+                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image} place={thing.place.name} />
                   </td>)
             }
           </tr>
