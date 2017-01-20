@@ -1,8 +1,7 @@
-import React from 'react'
-import {Button, Grid, Col, Row, Popover, OverlayTrigger} from "react-bootstrap";
-
-import MdStars  from 'react-icons/lib/md/stars'
-import './FavoriteView.css'
+import React from "react";
+import {Button, Popover, OverlayTrigger} from "react-bootstrap";
+import MdStars from "react-icons/lib/md/stars";
+import "./FavoriteView.css";
 
 class FavoriteView extends React.Component {
   render() {
