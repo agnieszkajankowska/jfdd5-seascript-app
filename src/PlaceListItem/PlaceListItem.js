@@ -8,9 +8,6 @@ import './PlaceListItem.css'
 
 import {ViewMoreButton} from "../PlaceCompare/AttractionView/ViewMoreButton";
 
-import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
-import {ActualWeather} from '../ActualWeather'
-
 
 const mapStateToProps = state => ({
   attractionsIds: state.attractionsData.attractionsIds,
@@ -33,8 +30,7 @@ const mapDispatchToProps = dispatch => ({
     type: 'REMOVE_ATTRACTION_AND_PLACE_FROM_COMPARE',
     attraction: attraction,
     place: place
-  }),
-  // fetchWeather: cityName => dispatch(fetchWeather(cityName))
+  })
 })
 
 
