@@ -1,9 +1,18 @@
 .place-details-view {
-  width: 600px;
+    width: 600px;
+}
+
+.modal-content {
+    /*background: rgba(0, 123, 180, 0.7);*/
+}
+
+.modal-header, .modal-footer {
+    border: 0;
+    text-align: center;
 }
 
 .modal-width {
-  width: 95%;
+    width: 90%;
 }
 
 

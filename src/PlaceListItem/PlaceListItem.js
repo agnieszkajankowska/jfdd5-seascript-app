@@ -5,6 +5,9 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
+
+import {ViewMoreButton} from "../PlaceCompare/AttractionView/ViewMoreButton";
+
 import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
 import {ActualWeather} from '../ActualWeather'
 
@@ -102,6 +105,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
+                            <ViewMoreButton placeName={place.name}/>
                             <Link to={'/place-details/' + place.name + '/' + this.props.attraction.name}>
                               <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
                                 Details
