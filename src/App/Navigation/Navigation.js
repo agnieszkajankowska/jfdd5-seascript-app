@@ -5,8 +5,11 @@ import {connect} from 'react-redux'
 import "./Navigation.css";
 import {StepButton} from './StepButton'
 
+// const mapStateToProps = state => ({
+//   session: state.logInStatusData.session
+// })
 
-class Menu extends React.Component {
+class Navigation extends React.Component {
   constructor() {
     super()
   }
@@ -31,8 +34,10 @@ class Menu extends React.Component {
         <StepButton for="/place-list" stepId="2" currentStepId={currentStepId}>place list</StepButton>
         <StepButton for="/place-compare" stepId="3" currentStepId={currentStepId}>place compare</StepButton>
 
+
         <button><Link to="/favorites" className="link">Favorites</Link></button>
         <button><Link to="/calendar" className="link">Calendar</Link></button>
+
         <button><Link to="/login-form" className="link">Log in</Link></button>
         <button><Link to="/registration" className="link">Registration</Link></button>
 
@@ -41,7 +46,9 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu
+export default Navigation
+
+// export default connect(mapStateToProps)(Navigation)
 
 // {this.props.session !== null ?
 //   <li className="grow menu-link">
