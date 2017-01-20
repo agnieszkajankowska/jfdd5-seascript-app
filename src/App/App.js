@@ -12,7 +12,7 @@ import './Navigation/Navigation.css'
 
 export default (props) => (
       <Grid>
-        <Navigation/>
+        <Navigation {...props}/>
         <Row>
           <Col md={12}>
             {props.children}
