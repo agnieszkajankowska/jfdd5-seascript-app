@@ -2,7 +2,7 @@ import {MAKE_RESERVATION} from "./actionTypes";
 
 
 const initialState = {
-  reservations: []
+  reservations: [],
 }
 
 export default ( state = initialState, action ) => {
@@ -10,7 +10,8 @@ export default ( state = initialState, action ) => {
     case MAKE_RESERVATION:
       return {
         ...state,
-        reservations: state.reservations.concat(action.formState)
+        reservations: state.reservations.concat(action.formState),
+
       }
     default: return state
   }

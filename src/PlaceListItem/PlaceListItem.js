@@ -72,9 +72,9 @@ class placeListItem extends React.Component {
                         <div className="PlaceListItemWeather">
                           <Col xs={6} md={4} className="PlaceListItemResetPadding">
                             <p>
-                              {
+                              Price {
                                additionals.find(item => item.placeId === place.id && item.attractionId === this.props.attraction.id).price
-                              }
+                              } zł
                             </p>
                           </Col>
                         </div>
