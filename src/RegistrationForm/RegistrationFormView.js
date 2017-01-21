@@ -13,7 +13,7 @@ class RegistrationFormView extends React.Component {
     this.handleSubmit = (event) => {
       event.preventDefault()
       fetch(
-        'http://localhost:3001/api/users/', {
+        'https://powerful-fortress-34565.herokuapp.com/api/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

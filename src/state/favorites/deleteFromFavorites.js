@@ -12,7 +12,7 @@ export const removeFromFavorites = (userId, token, favoriteItemToRemoveId) => {
       type: REMOVE_USER_FAVORITES__BEGIN
     })
 
-    fetch('http://localhost:3001/api/users/' + userId + '/favoriteItems/' + favoriteItemToRemoveId + '?access_token=' + token, {
+    fetch('https://powerful-fortress-34565.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favoriteItemToRemoveId + '?access_token=' + token, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

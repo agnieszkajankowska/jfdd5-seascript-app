@@ -13,7 +13,7 @@ export const addReservations = (userId, token, reservation) => {
       type: ADD_USER_RESERVATIONS__BEGIN
     })
 
-    fetch('http://localhost:3001/api/users/' + userId + '/events?access_token=' + token, {
+    fetch('https://powerful-fortress-34565.herokuapp.com/api/users/' + userId + '/events?access_token=' + token, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

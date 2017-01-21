@@ -4,9 +4,14 @@ import {connect} from 'react-redux'
 
 import "./Navigation.css";
 import {StepButton} from './StepButton'
+import {logOut} from '../../state/login-form/logOut'
 
 const mapStateToProps = state => ({
   session: state.logInStatusData.session
+})
+
+const mapDispatchToProps = dispatch => ({
+  logOut: (token) => dispatch(logOut(token))
 })
 
 class Navigation extends React.Component {
@@ -28,7 +33,7 @@ class Navigation extends React.Component {
 
     const currentStepId = urlMap[this.props.location.pathname];
 
-    console.log(process.env.API_PREFIX)
+
     console.log(this.props.location.pathname, currentStepId)
     return (
       <div>
@@ -42,19 +47,26 @@ class Navigation extends React.Component {
         {this.props.session !== null ?
           <button><Link to="/calendar" className="link">Calendar</Link></button> : ''
         }
-        <button><Link to="/login-form" className="link">Log in</Link></button>
-        <button><Link to="/registration" className="link">Registration</Link></button>
 
+        {this.props.session === null ?
+        <button><Link to="/login-form" className="link">Sign in</Link></button> :
+        <button type="submit"
+                onClick={(event) => {
+                  event.preventDefault()
+                  this.props.logOut(this.props.session.id)
+                }
+                }>Sign out
+        </button> }
+        {this.props.session === null ?
+          <button><Link to="/registration" className="link">Sign up</Link></button> : ''
+        }
       </div>
     )
   }
 }
 
-// export default Navigation
 
-export default connect(mapStateToProps)(Navigation)
 
-// {this.props.session !== null ?
-//   <li className="grow menu-link">
-//     <Link to="/favorites" className="link">Favorites <FaAngleRight size={30}/></Link>
-//   </li> : "" }
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
+
+

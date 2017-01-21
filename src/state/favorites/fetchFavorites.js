@@ -13,7 +13,7 @@ export const fetchFavorites = (userId, token) => {
     })
 
     fetch(
-      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + token
+      'https://powerful-fortress-34565.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + token
     ).then(
       response => {
         if (response.status === 200) {

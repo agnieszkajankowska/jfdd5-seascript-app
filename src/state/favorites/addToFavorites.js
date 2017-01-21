@@ -13,7 +13,7 @@ export const addToFavorites = (userId, token, favoriteId) => {
       type: ADD_USER_FAVORITES__BEGIN
     })
 
-    fetch('http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + token, {
+    fetch('https://powerful-fortress-34565.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + token, {
         method: 'POST',
       headers: {
         'Content-Type': 'application/json'

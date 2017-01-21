@@ -17,7 +17,7 @@ export const logIn = (username, password) => {
     })
 
     fetch(
-      'http://localhost:3001/api/users/login', {
+      'https://powerful-fortress-34565.herokuapp.com/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

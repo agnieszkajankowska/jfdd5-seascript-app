@@ -7,7 +7,7 @@ import {
 export const logOut = (token) => {
   return (dispatch) => {
     dispatch({ type:  LOG_OUT_BEGIN})
-    fetch('http://localhost:3001/api/users/logout?access_token=' + token, {
+    fetch('https://powerful-fortress-34565.herokuapp.com/api/users/logout?access_token=' + token, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
