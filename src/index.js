@@ -39,7 +39,12 @@ ReactDOM.render(
 
         <Route path="/calendar" component={CalendarView}/>
 
-        <Route path="/login-form" component={LoginFormView}/>
+        <Route path="/login-form" component={LoginFormView}  onEnter={(nextState, replace) => {
+          if (store.getState().logInStatusData.success === true) {
+            replace(`/form`)
+          }
+        }}/>
+
         <Route path="/registration" component={RegistrationFormView}/>
 
       </Route>
