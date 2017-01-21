@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
 
+import './LoginFormView.css'
 
 const mapStateToProps = state => ({
   user: state.logInStatusData.user,
@@ -32,7 +33,7 @@ class LoginFormView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form">
         <form onSubmit={this.handleSubmit}>
           Username:
           <input value={this.state.username}
