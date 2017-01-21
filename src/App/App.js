@@ -15,10 +15,8 @@ import './Navigation/Navigation.css'
 export default (props) => (
      <div>
         <Navigation {...props}/>
-        <Row>
-          <Col md={12}>
+<div>
             {props.children}
-          </Col>
-        </Row>
+</div>
      </div>
 )

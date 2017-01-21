@@ -1,3 +1,6 @@
 .login-form {
-  background: url('./Large_breaking_wave.jpg')
+  background: url('./surfer.jpg') no-repeat;
+  background-size: cover;
+  height: 500px;
+  opacity: 0.7;
 }

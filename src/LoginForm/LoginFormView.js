@@ -33,7 +33,7 @@ class LoginFormView extends React.Component {
 
   render() {
     return (
-      <div className="login-form">
+      <div className="login-form container-fluid">
         <form onSubmit={this.handleSubmit}>
           Username:
           <input value={this.state.username}

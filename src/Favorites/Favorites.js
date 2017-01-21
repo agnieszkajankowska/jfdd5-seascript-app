@@ -33,8 +33,12 @@ class Favorites extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="favorites-header">Your list of favorites:</h1>
         <Grid>
+          <Row>
+            <Col xs={12}>
+              <h1 className="favorites-header">Your list of favorites:</h1>
+            </Col>
+          </Row>
           <Row>
             {
               this.props.favoritesItems.map(
