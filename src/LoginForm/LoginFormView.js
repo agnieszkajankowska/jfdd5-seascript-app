@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
 import Loader from 'react-loader'
+import {WelcomeView} from '../WelcomeUserView/'
 
 import {RegistrationFormView} from '../RegistrationForm'
 
@@ -38,7 +39,7 @@ class LoginFormView extends React.Component {
 
   render() {
     return (
-
+      this.props.session === null ?
       <div className="login-form container-fluid">
         <Grid>
           <Row>
@@ -91,7 +92,7 @@ class LoginFormView extends React.Component {
               </Col>
           </Row>
         </Grid>
-      </div>
+      </div> : <WelcomeView/>
     )
   }
 }

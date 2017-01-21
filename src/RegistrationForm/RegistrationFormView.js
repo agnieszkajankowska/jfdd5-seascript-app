@@ -1,15 +1,32 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import './RegistrationFormView.css'
+import Loader from 'react-loader'
+
+import {logIn} from '../state/login-form/logIn'
+import {logOut} from '../state/login-form/logOut'
 
 import {Grid, Row, Col, Button, Form, FormGroup, ControlLabel, FormControl, Checkbox} from 'react-bootstrap'
+
+const mapStateToProps = state => ({
+  user: state.logInStatusData.user,
+  pending: state.logInStatusData.pending,
+  session: state.logInStatusData.session,
+  failure: state.logInStatusData.failure
+})
+
+const mapDispatchToProps = dispatch => ({
+  logIn: (username, password) => dispatch(logIn(username, password)),
+  logOut: (token) => dispatch(logOut(token)),
+})
 
 class RegistrationFormView extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
 
@@ -22,7 +39,7 @@ class RegistrationFormView extends React.Component {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            username: this.state.username,
+            email: this.state.email,
             password: this.state.password
           })
         }
@@ -53,12 +70,12 @@ class RegistrationFormView extends React.Component {
           <FormGroup controlId="formHorizontalEmail" className="login-form-username">
 
             <Col sm={8} smOffset={2}>
-              <FormControl type="text"
-                           placeholder="Username"
-                           value={this.state.username}
+              <FormControl type="email"
+                           placeholder="Email"
+                           value={this.state.email}
                            onChange={
                              event => this.setState({
-                               username: event.target.value
+                               email: event.target.value
                              })
                            }/>
             </Col>
@@ -90,4 +107,4 @@ class RegistrationFormView extends React.Component {
   }
 }
 
-export default RegistrationFormView
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationFormView)
