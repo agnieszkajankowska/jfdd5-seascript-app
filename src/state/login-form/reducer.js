@@ -13,7 +13,9 @@ import {
 const initialState = {
   user: null,
   pending: false,
-  session: null
+  session: null,
+  failure: false,
+  success:false
 }
 
 export default (state = initialState, action = {}) => {
@@ -21,16 +23,24 @@ export default (state = initialState, action = {}) => {
     case FETCH_LOGIN_USER__BEGIN:
       return {
         ...state,
-        pending: true
+        pending: true,
+        failure: false
       }
     case FETCH_LOGIN_USER__SUCCESS:
       return {
         ...state,
         session: action.session,
-        pending: false
+        pending: false,
+        failure: false,
+        success: true
       }
     case FETCH_LOGIN_USER__FAILURE:
-      return initialState
+      return {
+        user: null,
+        pending: false,
+        session: null,
+        failure: true
+      }
 
     case LOG_OUT_SUCCESS:
      return initialState

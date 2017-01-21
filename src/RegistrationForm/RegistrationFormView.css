@@ -1,10 +1,3 @@
-.login-form {
-  background: url('./surfer4.png') no-repeat;
-  background-size: cover;
-  height: 500px;
-  color: #000;
-  text-align: center;
-}
 
 .login-header {
   text-align: center;
@@ -54,18 +47,10 @@
   margin: 5px;
   border-radius: 10px;
   border: 1px solid white;
-  }
+}
 
 .submit-button:hover {
   background-color: #006a9a;
   border-color: #006a9a;
   transition: 1s;
-}
-
-.loader-container {
-  padding-top: 500px;
-}
-
-.login-failure-message {
-  color: #fff;
 }

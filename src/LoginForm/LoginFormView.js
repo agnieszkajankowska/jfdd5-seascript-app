@@ -2,13 +2,18 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
+import Loader from 'react-loader'
 
+import {RegistrationFormView} from '../RegistrationForm'
+
+import {Grid, Row, Col, Button, Form, FormGroup, ControlLabel, FormControl, Checkbox} from 'react-bootstrap'
 import './LoginFormView.css'
 
 const mapStateToProps = state => ({
   user: state.logInStatusData.user,
   pending: state.logInStatusData.pending,
-  session: state.logInStatusData.session
+  session: state.logInStatusData.session,
+  failure: state.logInStatusData.failure
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -33,36 +38,59 @@ class LoginFormView extends React.Component {
 
   render() {
     return (
-      <div className="login-form container-fluid">
-        <form onSubmit={this.handleSubmit}>
-          Username:
-          <input value={this.state.username}
-                 type="text"
-                 onChange={
-                   event => this.setState({
-                     username: event.target.value
-                   })
-                 }/>
-          Password:
-          <input value={this.state.password}
-                 type="text"
-                 onChange={
-                   event => this.setState({
-                     password: event.target.value
-                   })
-                 }/>
-          <button type="submit">Log in</button>
-        </form>
-        <button type="submit"
-                onClick={(event) => {
-                  event.preventDefault()
-                  this.props.logOut(this.props.session.id)
-                }
-                }>Log out
-        </button>
-        <p>{this.state.username}</p>
-        <p>{this.state.password}</p>
 
+      <div className="login-form container-fluid">
+        <Grid>
+          <Row>
+            <Col xs={12} sm={6}>
+              <h2 className="login-header">I have an account</h2>
+              <Form horizontal onSubmit={this.handleSubmit}>
+                <FormGroup controlId="formHorizontalEmail" className="login-form-username">
+
+                  <Col sm={8} smOffset={2}>
+                    <FormControl type="text"
+                                 placeholder="Username"
+                                 value={this.state.username}
+                                 onChange={
+                                   event => this.setState({
+                                     username: event.target.value
+                                   })
+                                 }/>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup controlId="formHorizontalPassword" className="login-form-password">
+                  <Col sm={8} smOffset={2}>
+                    <FormControl type="password"
+                                 placeholder="Password"
+                                 value={this.state.password}
+                                 onChange={
+                      event => this.setState({
+                        password: event.target.value
+                      })
+                    }/>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup>
+                  <Col xs={12}>
+                    <button type="submit" className="submit-button">
+                      Sign in
+                    </button>
+                  </Col>
+                </FormGroup>
+                {this.props.failure === true ? <p className="login-failure-message">Incorrect username or password</p> : ''}
+                <div className="loader-container">
+                <Loader loaded={!this.props.pending} color="#fff"/>
+                  </div>
+              </Form>
+            </Col>
+            <Col xs={12} sm={6}>
+              <h2 className="registration-header">New user</h2>
+              <RegistrationFormView />
+              </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

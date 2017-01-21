@@ -1,12 +1,15 @@
 import React from 'react'
 
+import './RegistrationFormView.css'
+
+import {Grid, Row, Col, Button, Form, FormGroup, ControlLabel, FormControl, Checkbox} from 'react-bootstrap'
+
 class RegistrationFormView extends React.Component {
   constructor() {
     super()
 
     this.state = {
       username: '',
-      email: '',
       password: ''
     }
 
@@ -20,7 +23,6 @@ class RegistrationFormView extends React.Component {
           },
           body: JSON.stringify({
             username: this.state.username,
-            email: this.state.email,
             password: this.state.password
           })
         }
@@ -46,37 +48,43 @@ class RegistrationFormView extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          Username:
-          <input value={this.state.username}
-                 type="text"
-                 onChange={
-                   event => this.setState({
-                     username: event.target.value
-                   })
-                 }/>
-          Email:
-          <input value={this.state.email}
-                 type="text"
-                 onChange={
-                   event => this.setState({
-                     email: event.target.value
-                   })
-                 }/>
-          Password:
-          <input value={this.state.password}
-                 type="text"
-                 onChange={
-                   event => this.setState({
-                     password: event.target.value
-                   })
-                 }/>
-          <button type="submit">Register</button>
-        </form>
 
-        <p>{this.state.username}</p>
-        <p>{this.state.password}</p>
+        <Form horizontal onSubmit={this.handleSubmit}>
+          <FormGroup controlId="formHorizontalEmail" className="login-form-username">
 
+            <Col sm={8} smOffset={2}>
+              <FormControl type="text"
+                           placeholder="Username"
+                           value={this.state.username}
+                           onChange={
+                             event => this.setState({
+                               username: event.target.value
+                             })
+                           }/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup controlId="formHorizontalPassword" className="login-form-password">
+            <Col sm={8} smOffset={2}>
+              <FormControl type="password"
+                           placeholder="Password"
+                           value={this.state.password}
+                           onChange={
+                             event => this.setState({
+                               password: event.target.value
+                             })
+                           }/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col xs={12}>
+              <button type="submit" className="submit-button">
+                Register
+              </button>
+            </Col>
+          </FormGroup>
+        </Form>
       </div>
     )
   }

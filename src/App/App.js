@@ -15,8 +15,6 @@ import './Navigation/Navigation.css'
 export default (props) => (
      <div>
         <Navigation {...props}/>
-<div>
             {props.children}
-</div>
      </div>
 )
