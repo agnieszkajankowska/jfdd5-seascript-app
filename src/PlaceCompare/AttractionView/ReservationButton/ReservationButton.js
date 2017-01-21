@@ -10,7 +10,7 @@ class ReservationModal extends React.Component {
 
 
     this.state = {
-      showModal: false
+      showModal: false,
     }
 
     this.close = () =>
@@ -36,15 +36,15 @@ class ReservationModal extends React.Component {
           BOOK NOW
         </Button>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={this.state.showModal} onHide={this.close} >
           <Modal.Header closeButton>
-            <Modal.Title>Make a reservation {this.props.attractionName} in {this.props.place} </Modal.Title>
+            <Modal.Title>{this.props.attractionName} in {this.props.place} </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body id="reservationModalBody" >
 
 
-            <h4>In order to make a reservation you have to supply us with contact data</h4>
-            <ReservationView attractionName={this.props.attractionName} place={this.props.place} />
+
+            <ReservationView attractionName={this.props.attractionName} attractionImage={this.props.attractionImage} place={this.props.place} />
 
           </Modal.Body>
           <Modal.Footer>

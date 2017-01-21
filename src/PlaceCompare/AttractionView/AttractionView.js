@@ -40,7 +40,6 @@ class AttractionView extends React.Component {
       attractionIds.indexOf(additional.attractionId) !== -1
     )
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
-    console.log("zzzzzzzzzz", theLowestPrice)
 
     const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
@@ -217,7 +216,7 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton attractionName={thing.attraction.name} place={thing.place.name} />
+                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image} place={thing.place.name} />
                   </td>)
             }
           </tr>

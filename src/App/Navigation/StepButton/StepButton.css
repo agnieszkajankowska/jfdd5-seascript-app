@@ -9,3 +9,8 @@
 .StepButtonNext {
   color: green
 }
+
+.stepButton {
+  width: 120px;
+  height: 40px;
+}
