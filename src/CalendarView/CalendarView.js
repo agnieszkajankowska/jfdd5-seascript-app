@@ -33,13 +33,13 @@ class CalendarView extends React.Component {
         <Row>
           <Col xs={4}>
             <div className="PlaceListItemIcon">
-              {props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + props.reservations[0].attractionImage } role="presentation" /> : null }
+              {this.props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.reservations[0].attractionImage } role="presentation" /> : null }
               <p></p>
             </div>
           </Col>
           <Col xs={8}>
             <div style={{height: 300}}>
-              <p>{props.reservationsPlace}</p>
+              <p>{this.props.reservationsPlace}</p>
         <BigCalendar
           events={this.props.reservations.map(reservation => ({
               title: reservation.details.place + ' ' + reservation.details.attractionName,
@@ -55,6 +55,9 @@ class CalendarView extends React.Component {
           defaultDate={new Date()}
         />
       </div>
+            </Col>
+          </Row>
+        </Grid>
 
     );
   }
