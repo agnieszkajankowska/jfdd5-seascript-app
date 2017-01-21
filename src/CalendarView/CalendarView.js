@@ -33,7 +33,7 @@ class CalendarView extends React.Component {
         <Row>
           <Col xs={4}>
             <div className="PlaceListItemIcon">
-              {this.props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.reservations[0].attractionImage } role="presentation" /> : null }
+              {this.props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/' + this.props.reservations[0].details.attractionImage } role="presentation" /> : null }
               <p></p>
             </div>
           </Col>
@@ -44,8 +44,8 @@ class CalendarView extends React.Component {
           events={this.props.reservations.map(reservation => ({
               title: reservation.details.place + ' ' + reservation.details.attractionName,
               allDay: true,
-              start: new Date(reservation.details.date),
-              end: new Date(reservation.details.date),
+              start: new Date(reservation.details.startDate),
+              end: new Date(reservation.details.endDate),
             })
           )}
 
@@ -64,3 +64,4 @@ class CalendarView extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarView)
+
