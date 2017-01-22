@@ -4,6 +4,7 @@ import moment from "moment";
 import {connect} from "react-redux";
 import {fetchReservations} from '../state/reservation/fetchReservations'
 import {Grid, Row, Col} from "react-bootstrap";
+import './CalendarView.css';
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
@@ -33,16 +34,10 @@ class CalendarView extends React.Component {
         <Row>
           <Col xs={4}>
             <div className="PlaceListItemIcon">
-                <p>{this.props.reservations.map(placeInformation => (
-                        placeInformation.details.place + ' ' + placeInformation.details.attractionName
-                    )
-                )}
-                </p>
-                <p>{this.props.reservations.map(information => (
-                        'from: ' + information.details.startDate + ' to: ' + information.details.endDate
-                    )
-                )}
-                </p>
+                <p className="calendarInformation">{this.props.reservations.map(placeInformation => ('place: ' + placeInformation.details.place))}</p>
+                <p>{this.props.reservations.map(placeInformation => (' attraction: ' + placeInformation.details.attractionName))}</p>
+                <p>{this.props.reservations.map(information => ('from: ' + information.details.startDate))}</p>
+                <p>{this.props.reservations.map(information => (' to: ' + information.details.endDate))}</p>
               {this.props.reservations.length > 0 ? <img src={process.env.PUBLIC_URL + '/images/icons/attractions/'
               + this.props.reservations[0].details.attractionImage } role="presentation" /> : null }
             </div>
