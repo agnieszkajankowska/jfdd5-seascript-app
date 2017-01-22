@@ -26,7 +26,7 @@ class Form extends React.Component {
         <Grid>
         <h1 className="form-header">Choose attraction that best suit you</h1>
         <form>
-          <ListGroup>
+          <ListGroup className="list-group">
 
             <Row className="show-grid">
 
@@ -39,7 +39,7 @@ class Form extends React.Component {
                                  onClick={() => this.props.chooseAttraction(attraction.id)}
                                  className="Form-chosenAttraction">
                         <p className="chosenAttractionName">{attraction.name}</p>
-                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/question-icon4.png'} className="icon-chosen" role="presentation"/>
+
 
                       </Thumbnail> :
 
@@ -47,7 +47,7 @@ class Form extends React.Component {
                                  onClick={() => this.props.removeAttraction(attraction.id)}
                                  className="Form-removedAttraction">
                         <p className="removeAttractionName">{attraction.name}</p>
-                        <img src={process.env.PUBLIC_URL + '/images/icons/attractions/chosen-icon2.png'} className="icon-question" role="presentation"/>
+                       <img src={process.env.PUBLIC_URL + '/images/icons/attractions/chosen-icon2.png'} className="icon-chosen" role="presentation"/>
                       </Thumbnail>
                   }
                 </Col>
