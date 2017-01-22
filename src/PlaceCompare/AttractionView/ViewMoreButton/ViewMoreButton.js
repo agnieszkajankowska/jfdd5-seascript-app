@@ -1,11 +1,12 @@
 import React from 'react'
 import {
-  Button, Modal
+   Modal
 } from 'react-bootstrap'
 
 import {PlaceDetails} from '../../../PlaceDetails'
 
 import './ViewMoreButton.css'
+import '../../../PlaceListItem/PlaceListItem.css'
 
 
 export default React.createClass({
@@ -24,13 +25,12 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <Button
-          bsStyle="primary"
-          bsSize="large"
+        <button
           onClick={this.open}
+          className="PlaceListButton PlaceListItemButtonSelectDetails"
         >
-          Weather conditions
-        </Button>
+          Weather
+        </button>
 
         <Modal show={this.state.showModal} onHide={this.close} bsStyle="primary" bsSize="large" dialogClassName="modal-width" >
           <Modal.Header closeButton>
