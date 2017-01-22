@@ -1,16 +1,24 @@
-.StepButtonActive {
-  color:red;
+.StepButtonActive button {
+  background-color: #006a9a;
+  color: white;
 }
 
-.StepButtonPrevious {
-  color: yellow;
+.StepButtonPrevious button {
+  background-color: whitesmoke;
 }
 
-.StepButtonNext {
-  color: green
+.StepButtonNext button {
+  background-color: darkgrey;
 }
 
-.stepButton {
+.stepButton, .ButtonAfterLog {
   width: 120px;
   height: 40px;
+  margin-top: 3px;
+  border: 2px solid black;
+  color: black
+}
+
+.ButtonAfterLog {
+  background-color: white;
 }
