@@ -5,8 +5,8 @@ import {Grid, Col, Well, Clearfix} from 'react-bootstrap'
 import {places, attractions, additionals} from '../Database'
 import {connect} from 'react-redux'
 import './PlaceListItem.css'
-import {fetchWeather, fetchWeatherList} from '../state/weather/actionCreators'
-import {ActualWeather} from '../ActualWeather'
+
+import {ViewMoreButton} from "../PlaceCompare/AttractionView/ViewMoreButton";
 
 
 const mapStateToProps = state => ({
@@ -30,8 +30,7 @@ const mapDispatchToProps = dispatch => ({
     type: 'REMOVE_ATTRACTION_AND_PLACE_FROM_COMPARE',
     attraction: attraction,
     place: place
-  }),
-  // fetchWeather: cityName => dispatch(fetchWeather(cityName))
+  })
 })
 
 
@@ -102,11 +101,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
-                            <Link to={'/place-details/' + place.name + '/' + this.props.attraction.name}>
-                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
-                                Details
-                              </submit>
-                            </Link>
+                            <ViewMoreButton placeName={place.weatherId}/>
                           </Col>
                         </div>
                       </Col>
