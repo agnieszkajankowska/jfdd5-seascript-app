@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col} from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {PlaceListItem} from '../PlaceListItem'
 import {connect} from 'react-redux'
@@ -15,11 +15,10 @@ const mapStateToProps = state => ({
 });
 
 
-
 class placeList extends React.Component {
   constructor() {
     super()
-    
+
     this.state = {
       mapVisible: false
     }
@@ -42,69 +41,60 @@ class placeList extends React.Component {
         <Col xs={2}/>
         <Col xs={4}>
           <submit className="PlaceListButton" onClick={() => this.setState({
-          mapVisible: true
-          })}>Map</submit>
+            mapVisible: true
+          })}>Map
+          </submit>
         </Col>
         <Col xs={4}>
           <Link className="PlaceListLink" to='/place-compare'>
-          <submit className="PlaceListButton">compare</submit>
-        </Link>
+            <submit className="PlaceListButton">compare</submit>
+          </Link>
         </Col>
         <Col xs={2}/>
         {
           this.state.mapVisible ?
             <div className="PlaceListMapPopupPosition">
-            <div className="PlaceListMapPopup">
-              <div className="PlaceListMapPopupHeader">
-                <h3>Map with positions of attractions</h3>
-              </div>
+              <div className="PlaceListMapPopup">
+                <div className="PlaceListMapPopupHeader">
+                  <h3>Map with positions of attractions</h3>
+                </div>
 
-              <div className="PlaceListMapPopupBody">
-                <GoogleMap
-                  bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
-                  defaultCenter={{
-                    lat: 52,
-                    lng: 20
-                  }}
-                  defaultZoom={5}>
-                  {
-                    attractions.filter(
-                      attraction =>
-                      this.props.attractionsIds.indexOf(attraction.id) !== -1
-                    ).map(
-                      attraction =>
-                        places.filter(
-                          place =>
-                          place.attractions.indexOf(attraction.id) !== -1
-                        ).map(
-                          place =>
-                            <PlaceListMarker key={place.id} 
-                                             lat={place.latitude}
-                                             lng={place.longitude}
-                                             attractions={place.attractions}/>
-                        )
-                    )
-                  }
-                </GoogleMap>
-              </div>
+                <div className="PlaceListMapPopupBody">
+                  <GoogleMap
+                    bootstrapURLKeys={{key: "AIzaSyBVlbumvSGRU1nYUEcirKV3YJCQEI_wQfE"}}
+                    defaultCenter={{
+                      lat: 52,
+                      lng: 20
+                    }}
+                    defaultZoom={5}>
+                    {
+                      attractions.filter(
+                        attraction =>
+                        this.props.attractionsIds.indexOf(attraction.id) !== -1
+                      ).map(
+                        attraction =>
+                          places.filter(
+                            place =>
+                            place.attractions.indexOf(attraction.id) !== -1
+                          ).map(
+                            place =>
+                              <PlaceListMarker key={place.id}
+                                               lat={place.latitude}
+                                               lng={place.longitude}
+                                               attractions={place.attractions}/>
+                          )
+                      )
+                    }
+                  </GoogleMap>
+                </div>
 
-              <div className="PlaceListMapPopupFooter">
-                <submit className="PlaceListCloseButton" onClick={() => this.setState({
-                mapVisible: false
-                })}>Close</submit>
+                <div className="PlaceListMapPopupFooter">
+                  <submit className="PlaceListCloseButton" onClick={() => this.setState({
+                    mapVisible: false
+                  })}>Close
+                  </submit>
+                </div>
               </div>
-              <ul>
-                {
-                  attractions.filter(
-                    attraction =>
-                    this.props.attractionsIds.indexOf(attraction.id) !== -1
-                  ).map(
-                    attraction =>
-                      <li key={attraction.id}>{attraction.name}</li>
-                  )
-                }
-              </ul>
-            </div>
             </div>
             :
             <div></div>

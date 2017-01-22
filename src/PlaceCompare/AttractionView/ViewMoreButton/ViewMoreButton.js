@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-  Button, Modal, Form, FormGroup,
-  ControlLabel, FormControl, Col, Checkbox
+  Button, Modal
 } from 'react-bootstrap'
 
 import {PlaceDetails} from '../../../PlaceDetails'
@@ -35,14 +34,11 @@ export default React.createClass({
 
         <Modal show={this.state.showModal} onHide={this.close} bsStyle="primary" bsSize="large" dialogClassName="modal-width" >
           <Modal.Header closeButton>
-            <Modal.Title>Weather conditions</Modal.Title>
+            <Modal.Title>Actual weather conditions</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <PlaceDetails />
+            <PlaceDetails placeName={this.props.placeName}/>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
         </Modal>
       </div>
     );
