@@ -7,8 +7,29 @@
   width: 100%;
   z-index: 5;
   background-color: #0b97c4;
+  height: 50px;
 }
 
-.navbar button {
+.NavigationLogo img {
+  margin-top: 3px;
+  height: 40px;
+}
 
+.navigation {
+display: inline-flex;
+  height: 50px;
+}
+
+.navigation a::after {
+  position: relative;
+  top: -40px;
+  left:100%;
+  content: ' ';
+  display: block;
+  height: 40px;
+  width: 20px;
+  border-left: 20px solid black;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  box-sizing: border-box;
 }
