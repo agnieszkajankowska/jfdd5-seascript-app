@@ -1,7 +1,19 @@
-.PlaceListItemIcon {
-    color: red;
+.calendarTitle {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 50px;
 }
 
-.calendarInformation {
-    color: yellow;
+
+.PlaceListItemIcon p {
+    position: relative;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.PlaceListItemIcon img {
+    position: absolute;
+    left: 0;
+    height: 160px;
+    width: 160px;
 }
