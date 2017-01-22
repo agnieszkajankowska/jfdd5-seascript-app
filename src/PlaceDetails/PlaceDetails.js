@@ -26,8 +26,6 @@ class PlaceDetails extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('Updated')
-
     this.props.fetchWeather(this.props.params.placeName)
     this.props.fetchWeatherForecast(this.props.params.placeName)
   }

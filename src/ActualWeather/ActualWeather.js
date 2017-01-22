@@ -129,7 +129,7 @@ const ActualWeatherForecast = (props) => {
         <div>
           {props.weatherForecast.list.map(
               forecast =>
-                  <Col className='singleItem' xs={3} md={3} lg={2}>
+                  <Col key={forecast.dt} className='singleItem' xs={3} md={3} lg={2}>
                     <icon className={getIcon(forecast)}></icon>
 
                     <p>{Math.round(forecast.temp.day)}

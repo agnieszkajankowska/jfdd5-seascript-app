@@ -16,7 +16,6 @@ const reducer = combineReducers({
   attractionAndPlaceData: attractionAndPlacesReducer,
   isAMap: placeListReducer,
   weatherData: weatherReducer,
-  weatherListData: weatherReducer,
   weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer,
   makeReservationData: makeReservationReducer,

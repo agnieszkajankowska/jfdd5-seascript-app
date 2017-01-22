@@ -101,12 +101,7 @@ class placeListItem extends React.Component {
                         </div>
                         <div>
                           <Col xs={6} md={2} className="PlaceListItemResetPadding">
-                            <ViewMoreButton placeName={place.name}/>
-                            <Link to={'/place-details/' + place.name + '/' + this.props.attraction.name}>
-                              <submit className="PlaceListItemButton PlaceListItemButtonSelectDetails">
-                                Details
-                              </submit>
-                            </Link>
+                            <ViewMoreButton placeName={place.weatherId}/>
                           </Col>
                         </div>
                       </Col>
