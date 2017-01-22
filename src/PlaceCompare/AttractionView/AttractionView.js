@@ -32,14 +32,9 @@ const mapDispatchToProps = dispatch => ({
 class AttractionView extends React.Component {
 
   render() {
-    const placesIds = this.props.thingsToCompare.map(attraction => attraction.place.id)
-    const attractionIds = this.props.thingsToCompare.map(attraction => attraction.attraction.id)
-    const chosenAdditionals = additionals.filter(
-      additional =>
-      placesIds.indexOf(additional.placeId) !== -1 &&
-      attractionIds.indexOf(additional.attractionId) !== -1
-    )
-    const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
+    const chosenAdditionals = this.props.thingsToCompare.map(thing => thing.additional.price)
+    const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next ? prev : next, Infinity)
+    
 
     const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
