@@ -61,11 +61,9 @@ class Navigation extends React.Component {
                   event.preventDefault()
                   this.props.logOut(this.props.session.id)
                 }
-                }>Sign out
+                }><Link to="/" className="link">Sign out</Link>
         </button> }
-        {this.props.session === null ?
-          <button><Link to="/registration" className="link">Sign up</Link></button> : ''
-        }
+
       </div>
     )
   }

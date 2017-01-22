@@ -9,6 +9,7 @@ import {reducer as chosenAttractionReducer} from "./PlaceCompare";
 import {reducer as placeListReducer} from "./PlaceList";
 import makeReservationReducer from "./state/reservation/reducer";
 import loginFormReducer from './state/login-form/reducer'
+import registerFormReducer from './state/register-form/reducer'
 
 const reducer = combineReducers({
   attractionsData: attractionsReducer,
@@ -19,7 +20,8 @@ const reducer = combineReducers({
   weatherForecastData: weatherReducer,
   chosenAttractionsToFavoritesData: chosenAttractionReducer,
   makeReservationData: makeReservationReducer,
-  logInStatusData: loginFormReducer
+  logInStatusData: loginFormReducer,
+  registerStatusData: registerFormReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

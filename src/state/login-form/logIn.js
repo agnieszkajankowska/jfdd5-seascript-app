@@ -29,23 +29,22 @@ export const logIn = (username, password) => {
       }
     ).then(
       response => {
-        if (response.status == '401') {
-          dispatch({
-            type: FETCH_LOGIN_USER__FAILURE
-          })
+        if (response.status === 200) {
+          response.json().then( session => {
+            console.log("jjjj",session.id, session.userId)
+              dispatch({
+                type: FETCH_LOGIN_USER__SUCCESS,
+                session: session
+              })
+              dispatch(fetchUser(session.id, session.userId))
+            }
+          )
         }
         else {
-          return response.json()
+          response.json().then(
+            error => dispatch({   type: FETCH_LOGIN_USER__FAILURE })
+          )
         }
-      }
-    ).then(
-      session => {
-        dispatch({
-          type: FETCH_LOGIN_USER__SUCCESS,
-          session: session
-        })
-
-        dispatch(fetchUser(session.id, session.userId))
       }
     )
   }
@@ -54,7 +53,7 @@ export const logIn = (username, password) => {
 export const fetchUser = (token, userId) => {
   return (dispatch) => {
     dispatch({type: FETCH_USER_DATA__BEGIN})
-    fetch('http://localhost:3001/api/users/' + userId + '?access_token=' + token
+    fetch('https://powerful-fortress-34565.herokuapp.com/api/users/' + userId + '?access_token=' + token
     ).then(
       response => {
         if (response.status === 200) {
