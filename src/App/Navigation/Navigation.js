@@ -75,19 +75,21 @@ class Navigation extends React.Component {
           }
 
           {this.props.session === null ?
-            <Link to="/login-form" className="link" onClick={() => {
-              window.location.reload()
-            }}>
-              <button className="ButtonAfterLog">
+            <Link to="/login-form" className="link" >
+              <button className="ButtonAfterLog"
+                      onClick={() => {
+                window.location.reload()
+              }}>
                 Sign in
               </button>
             </Link> :
-            <Link to="/" className="link"  onClick={() => {
-              this.props.logOut(this.props.session.id)
-              window.location.reload()
-            }}>
+            <Link to="/" className="link"  >
               <button type="submit"
-                      className="ButtonAfterLog">Sign out
+                      className="ButtonAfterLog"
+                      onClick={() => {
+                        this.props.logOut(this.props.session.id)
+                        window.location.reload()
+                      }}>Sign out
               </button>
             </Link>
           }
