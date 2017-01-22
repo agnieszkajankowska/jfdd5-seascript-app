@@ -1,7 +1,6 @@
 .login-form {
   background: url('./surfer4.png') no-repeat;
   background-size: cover;
-  height: 500px;
   color: #000;
   text-align: center;
 }
@@ -68,4 +67,14 @@
 
 .login-failure-message {
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .login-form {
+    background: url('./surfer4.png') no-repeat;
+    background-size: cover;
+    height: 500px;
+    color: #000;
+    text-align: center;
+  }
 }

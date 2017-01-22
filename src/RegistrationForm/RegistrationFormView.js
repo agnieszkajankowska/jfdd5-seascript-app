@@ -39,7 +39,6 @@ class RegistrationFormView extends React.Component {
   }
 
   render() {
-
     return (
       <div>
 
@@ -119,7 +118,8 @@ class RegistrationFormView extends React.Component {
           </FormGroup>
 
           {this.props.failure === true ? <p className="register-message">Username or password already taken. Try something else.</p> : ''}
-          {this.props.success === true && this.props.pending === false ? <p className="register-message">Thanks for signing up {this.props.newUser.username}! Now you can sign in and start searching for water sports:)</p> : ''}
+          {this.props.success === true && this.props.pending === false ? <p className="register-message">Thanks for signing up {this.props.newUser.username}!
+            Now you can sign in and start searching for water sports:)</p> : ''}
           <div className="loader-container">
             <Loader loaded={!this.props.pending} color="#fff"/>
           </div>

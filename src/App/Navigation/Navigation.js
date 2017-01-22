@@ -36,6 +36,7 @@ class Navigation extends React.Component {
     const currentStepId = urlMap[this.props.location.pathname];
 
 
+    console.log(this.props.location.pathname, currentStepId)
     return (
       <div className="navbar">
 
@@ -75,18 +76,24 @@ class Navigation extends React.Component {
 
           {this.props.session === null ?
             <Link to="/login-form" className="link">
-              <button className="ButtonAfterLog">Sign in</button>
+              <button className="ButtonAfterLog"
+                      onClick={() => {
+                        window.location.reload()
+                      }}>
+                Sign in
+              </button>
             </Link> :
             <Link to="/" className="link">
-              <button className="ButtonAfterLog"
-                      type="submit"
-                      onClick={(event) => {
-                        event.preventDefault()
+              <button type="submit"
+                      className="ButtonAfterLog"
+                      onClick={() => {
                         this.props.logOut(this.props.session.id)
+                        window.location.reload()
                       }
                       }>Sign out
               </button>
-            </Link> }
+            </Link>
+          }
         </Col>
         <Col xs="1"/>
       </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {Link} from "react-router";
 import './AttractionView.css'
 
-import { attractions, additionals } from '../../Database'
+import {attractions, additionals} from '../../Database'
 
 import {addToFavorites} from '../../state/favorites/addToFavorites'
 import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
@@ -32,14 +32,9 @@ const mapDispatchToProps = dispatch => ({
 class AttractionView extends React.Component {
 
   render() {
-    const placesIds = this.props.thingsToCompare.map(attraction => attraction.place.id)
-    const attractionIds = this.props.thingsToCompare.map(attraction => attraction.attraction.id)
-    const chosenAdditionals = additionals.filter(
-      additional =>
-      placesIds.indexOf(additional.placeId) !== -1 &&
-      attractionIds.indexOf(additional.attractionId) !== -1
-    )
-    const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next.price ? prev : next.price, Infinity)
+    const chosenAdditionals = this.props.thingsToCompare.map(thing => thing.additional.price)
+    const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next ? prev : next, Infinity)
+
 
     const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
@@ -48,12 +43,12 @@ class AttractionView extends React.Component {
     );
     const removeFromFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
-       Remove from Favorites
+        Remove from Favorites
       </Popover>
     );
 
 
-      return (
+    return (
       <div>
         <table>
           <tbody>
@@ -100,9 +95,9 @@ class AttractionView extends React.Component {
               ) :
               this.props.thingsToCompare.map(
                 thing =>
-              <td
-              className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
-              {thing.attraction.name} {' '} </td>)
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
+                    {thing.attraction.name} {' '} </td>)
             }
           </tr>
 
@@ -216,7 +211,13 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image} place={thing.place.name} />
+                    {this.props.session === null ?
+                      <p>You have to <Link to="/login-form" className={theLowestPrice === thing.additional.price ?
+                        'the-lowest-price' : 'other-price'}>sign in</Link> to make a reservation</p> :
+                      <p>Click here to make a reservation!</p>
+                    }
+                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
+                                       place={thing.place.name} session={this.props.session}/>
                   </td>)
             }
           </tr>
