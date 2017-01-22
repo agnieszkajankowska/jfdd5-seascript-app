@@ -4,6 +4,7 @@ import {logOut} from '../state/login-form/logOut'
 import {logIn} from '../state/login-form/logIn'
 import Loader from 'react-loader'
 import {WelcomeView} from '../WelcomeUserView/'
+import {DashboardView} from '../App/DashboardView'
 
 import {RegistrationFormView} from '../RegistrationForm'
 
@@ -92,7 +93,7 @@ class LoginFormView extends React.Component {
               </Col>
           </Row>
         </Grid>
-      </div> : <WelcomeView/>
+      </div> : <DashboardView/>
     )
   }
 }

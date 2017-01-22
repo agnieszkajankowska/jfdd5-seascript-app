@@ -66,7 +66,6 @@ class Navigation extends React.Component {
                 }
                 }><Link to="/" className="link">Sign out</Link>
         </button> }
-
       </div>
     )
   }

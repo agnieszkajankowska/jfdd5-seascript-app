@@ -34,7 +34,7 @@ class AttractionView extends React.Component {
   render() {
     const chosenAdditionals = this.props.thingsToCompare.map(thing => thing.additional.price)
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next ? prev : next, Infinity)
-    
+
 
     const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
