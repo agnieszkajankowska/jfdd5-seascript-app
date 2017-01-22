@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {Link} from "react-router";
 import './AttractionView.css'
 
-import { attractions, additionals } from '../../Database'
+import {attractions, additionals} from '../../Database'
 
 import {addToFavorites} from '../../state/favorites/addToFavorites'
 import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
@@ -43,12 +43,12 @@ class AttractionView extends React.Component {
     );
     const removeFromFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
-       Remove from Favorites
+        Remove from Favorites
       </Popover>
     );
 
 
-      return (
+    return (
       <div>
         <table>
           <tbody>
@@ -95,9 +95,9 @@ class AttractionView extends React.Component {
               ) :
               this.props.thingsToCompare.map(
                 thing =>
-              <td
-              className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
-              {thing.attraction.name} {' '} </td>)
+                  <td
+                    className={theLowestPrice === thing.additional.price ? 'the-lowest-price place-row' : 'other-price place-row'}>
+                    {thing.attraction.name} {' '} </td>)
             }
           </tr>
 
@@ -212,17 +212,12 @@ class AttractionView extends React.Component {
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
                     {this.props.session === null ?
-                      <div>
-                        <p>Only logged in users can make reservations via WAVE</p>
-                      <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
-                                         place={thing.place.name} session={this.props.session}/>
-                      </div> :
-                      <div>
+                      <p>You have to <Link to="/login-form" className={theLowestPrice === thing.additional.price ?
+                        'the-lowest-price' : 'other-price'}>sign in</Link> to make a reservation</p> :
                       <p>Click here to make a reservation!</p>
-                      <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
-                                         place={thing.place.name} session={this.props.session}/>
-                        </div>
                     }
+                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
+                                       place={thing.place.name} session={this.props.session}/>
                   </td>)
             }
           </tr>
