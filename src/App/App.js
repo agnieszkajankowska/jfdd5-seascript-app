@@ -13,12 +13,8 @@ import './App.css'
 import './Navigation/Navigation.css'
 
 export default (props) => (
-      <Grid>
-        <Navigation/>
-        <Row>
-          <Col md={12}>
+     <div>
+        <Navigation {...props}/>
             {props.children}
-          </Col>
-        </Row>
-      </Grid>
+     </div>
 )
