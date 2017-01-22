@@ -46,6 +46,7 @@ ReactDOM.render(
         <Route path="/login-form" component={LoginFormView} />
 
         <Route path="/registration" component={RegistrationFormView}/>
+        
 
       </Route>
 
