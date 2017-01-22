@@ -27,7 +27,7 @@ export default React.createClass({
       <div>
         <button
           onClick={this.open}
-          className="PlaceListButton PlaceListItemButtonSelectDetails"
+          className="PlaceListItemButton PlaceListItemButtonSelectDetails"
         >
           Weather
         </button>

@@ -101,6 +101,9 @@
   border-bottom-right-radius: 5px;
   color: #fff;
   margin-bottom: 10px;
+  border-top: none;
+  border-left: none;
+  width:183.38px;
 }
 
 .PlaceListItemButtonSelectDetails:hover {
@@ -151,5 +154,9 @@
     border-top: solid 2px black;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    border-left: none;
+    width:107.51px;
+    padding-right: 5px;
   }
+
   }
