@@ -94,17 +94,6 @@ class placeList extends React.Component {
                   })}>Close
                   </submit>
                 </div>
-                <ul>
-                  {
-                    attractions.filter(
-                      attraction =>
-                      this.props.attractionsIds.indexOf(attraction.id) !== -1
-                    ).map(
-                      attraction =>
-                        <li key={attraction.id}>{attraction.name}</li>
-                    )
-                  }
-                </ul>
               </div>
             </div>
             :
