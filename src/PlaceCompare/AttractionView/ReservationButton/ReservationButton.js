@@ -26,13 +26,23 @@ class ReservationModal extends React.Component {
   render() {
     return (
       <div>
-        <Button
+        {this.props.session === null ?
+        < Button
           bsStyle="primary"
           bsSize="large"
           onClick={this.open}
-        >
+          disabled
+          >
           BOOK NOW
-        </Button>
+          </Button> :
+          < Button
+            bsStyle="primary"
+            bsSize="large"
+            onClick={this.open}
+          >
+            BOOK NOW
+          </Button>
+        }
 
         <Modal show={this.state.showModal} onHide={this.close} >
           <Modal.Header closeButton>
