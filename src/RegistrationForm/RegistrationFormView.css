@@ -15,8 +15,8 @@
   color: #fff;
 }
 
-.login-form-username {
-  padding: 30px 0;
+.register-form-username {
+  padding-top: 30px;
 }
 
 .login-form-password {
@@ -53,4 +53,8 @@
   background-color: #006a9a;
   border-color: #006a9a;
   transition: 1s;
+}
+
+.register-message {
+  color: #fff;
 }

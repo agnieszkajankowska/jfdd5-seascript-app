@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   logIn: (username, password) => dispatch(logIn(username, password)),
-  logOut: (token) => dispatch(logOut(token)),
+  logOut: (token) => dispatch(logOut(token))
 })
 
 class LoginFormView extends React.Component {
