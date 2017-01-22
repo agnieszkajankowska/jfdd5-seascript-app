@@ -1,0 +1,71 @@
+.login-form {
+  background: url('./surfer4.png') no-repeat;
+  background-size: cover;
+  height: 500px;
+  color: #000;
+  text-align: center;
+}
+
+.login-header {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 50px 0 30px;
+  color: #fff;
+}
+
+.registration-header {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 50px 0 30px;
+  color: #fff;
+}
+
+.login-form-username {
+  padding: 30px 0;
+}
+
+.login-form-password {
+  padding-bottom: 30px;
+}
+
+.login-form-username:focus {
+  padding: 5px;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 50px 0px rgba(0, 106, 154, 0.75);
+}
+
+.login-form-password:focus {
+  padding: 5px;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 0px 50px 0px rgba(0, 106, 154, 0.75);
+}
+
+.submit-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1em;
+  padding: 10px 30px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid white;
+  }
+
+.submit-button:hover {
+  background-color: #006a9a;
+  border-color: #006a9a;
+  transition: 1s;
+}
+
+.loader-container {
+  padding-top: 500px;
+}
+
+.login-failure-message {
+  color: #fff;
+}
