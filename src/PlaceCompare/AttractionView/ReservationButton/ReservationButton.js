@@ -26,8 +26,6 @@ class ReservationModal extends React.Component {
   render() {
     return (
       <div>
-        <p>Click here to make a reservation!</p>
-
         <Button
           bsStyle="primary"
           bsSize="large"

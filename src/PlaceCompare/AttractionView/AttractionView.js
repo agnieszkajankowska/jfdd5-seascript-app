@@ -211,7 +211,18 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image} place={thing.place.name} />
+                    {this.props.session !== null ?
+                      <div>
+                        <p>Only logged in users can make reservations via WAVE</p>
+                      <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
+                                         place={thing.place.name} disabled/>
+                      </div> :
+                      <div>
+                      <p>Click here to make a reservation!</p>
+                      <ReservationButton attractionName={thing.attraction.name} attractionImage={thing.attraction.image}
+                                         place={thing.place.name}/>
+                        </div>
+                    }
                   </td>)
             }
           </tr>
