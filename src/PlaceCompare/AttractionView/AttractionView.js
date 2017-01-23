@@ -9,7 +9,7 @@ import {addToFavorites} from '../../state/favorites/addToFavorites'
 import {removeFromFavorites} from '../../state/favorites/deleteFromFavorites'
 
 import {ReservationButton} from './ReservationButton'
-import {ViewMoreButton} from './ViewMoreButton'
+import {WeatherButton} from './WeatherButton'
 
 import {Button, Popover, OverlayTrigger} from 'react-bootstrap'
 import FaStar from 'react-icons/lib/fa/star'
@@ -34,8 +34,8 @@ class AttractionView extends React.Component {
   render() {
     const chosenAdditionals = this.props.thingsToCompare.map(thing => thing.additional.price)
     const theLowestPrice = chosenAdditionals.reduce((prev, next) => prev < next ? prev : next, Infinity)
-
-
+console.log("chosenAdditionals",chosenAdditionals)
+    console.log("theLowestPrice",theLowestPrice)
     const addToFavoritesPopover = (
       <Popover id="popover-trigger-hover-focus">
         Add to Favorites
@@ -199,7 +199,7 @@ class AttractionView extends React.Component {
                 thing =>
                   <td
                     className={theLowestPrice === thing.additional.price ? 'the-lowest-price button-row' : 'other-price button-row'}>
-                    <ViewMoreButton placeName={thing.place.weatherId}/>
+                    <WeatherButton placeName={thing.place.weatherId}/>
                   </td>)
             }
           </tr>
