@@ -5,13 +5,13 @@
 }
 
 
-.PlaceListItemIcon p {
+.calendarPlaceListItemIcon p {
     position: relative;
     text-align: left;
     margin-bottom: 0;
 }
 
-.PlaceListItemIcon img {
+.calendarPlaceListItemIcon img {
     position: absolute;
     left: 0;
     height: 160px;
